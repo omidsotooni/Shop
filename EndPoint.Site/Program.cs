@@ -11,6 +11,8 @@ using ShopWithASP.NETCore.Application.Services.Users.Commands.EditUser;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using ShopWithASP.NETCore.Application.Services.Users.Commands.UserLogin;
+using ShopWithASP.NETCore.Application.Interfaces.FacadPatterns;
+using ShopWithASP.NETCore.Application.Services.Products.FacadPattern;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +38,11 @@ builder.Services.AddScoped<IRemoveUserService, RemoveUserService>();
 builder.Services.AddScoped<IUserSatusChangeService, UserSatusChangeService>();
 builder.Services.AddScoped<IEditUserService, EditUserService>();
 builder.Services.AddScoped<IUserLoginService, UserLoginService>();
+
+
+//FacadeInject
+builder.Services.AddScoped<IProductFacad, ProductFacad>();
+
 
 //{ "DefaultConnection": "Host = ; Port = 5432; Username = ; Password = ; Database = Users; SSL Mode = Require"
 //"Host=127.0.0.1;Port=5432;Database=store;Username=omid;Password=12345678"
