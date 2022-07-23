@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\Projects\Asp.Net\Asp.Net Core\ShopWithASP.NETCore\EndPoint.Site
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/Projects/Asp.Net/Asp.Net Core/ShopWithASP.NETCore/EndPoint.Site/Areas/Admin/Views/Categories/AddNewCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xBZGROZXdDYXRlZ29yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Projects/Asp.Net/Asp.Net Core/ShopWithASP.NETCore/EndPoint.Site/Areas/Admin/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

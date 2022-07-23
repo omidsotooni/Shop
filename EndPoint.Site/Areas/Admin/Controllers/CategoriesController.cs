@@ -18,5 +18,18 @@ namespace EndPoint.Site.Areas.Admin.Controllers
             return View(_productFacad.GetCategoriesService.Execute(parentId).Data);
         }
 
+        [HttpGet]
+        public IActionResult AddNewCategory(long? parentId)
+        {
+            ViewBag.parentId = parentId;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddNewCategory(long? ParentId, string Name)
+        {
+            var result = _productFacad.AddNewCategoryService.Execute(ParentId, Name);
+            return Json(result);
+        }
     }
 }
