@@ -20,7 +20,7 @@ namespace ShopWithASP.NETCore.Application.Services.Users.Queries.GetRoles
         {
             var roles = _context.Roles.ToList().Select(p => new RolesDto
             {
-                RoleId = p.RoleId,
+                RoleId = p.Id,
                 Name = p.Name
             }).ToList();
 

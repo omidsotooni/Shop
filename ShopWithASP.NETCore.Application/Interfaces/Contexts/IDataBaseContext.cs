@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ShopWithASP.NETCore.Doima.Entities.Products;
 using ShopWithASP.NETCore.Doima.Entities.Users;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace ShopWithASP.NETCore.Application.Interfaces.Contexts
         DbSet<User> Users { get; set; }
         DbSet<Role> Roles { get; set; }
         DbSet<UserInRole> UsersInRoles { get; set; }
+        DbSet<Category> Categories { get; set; }
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();

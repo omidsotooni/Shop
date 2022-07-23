@@ -22,7 +22,7 @@ namespace ShopWithASP.NETCore.Application.Services.Users.Queries.GetUsers
             {
                 Email = o.Email,
                 FullName = o.FullName,
-                UserId = o.UserId,
+                UserId = o.Id,
                 IsActive = o.IsActive,
             }).ToList();
             

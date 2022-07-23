@@ -98,9 +98,9 @@ namespace ShopWithASP.NETCore.Application.Services.Users.Commands.RegisterUser
                     userInRoles.Add(new UserInRole
                     {
                         Role = roles,
-                        RoleId = roles.RoleId,
+                        RoleId = roles.Id,
                         User = user,
-                        UserId = user.UserId,
+                        UserId = user.Id,
                     });
                 }
                 user.UserInRoles = userInRoles;
@@ -111,7 +111,7 @@ namespace ShopWithASP.NETCore.Application.Services.Users.Commands.RegisterUser
                 {
                     Data = new ResultRegisterUserDto()
                     {
-                        UserId = user.UserId
+                        UserId = user.Id
                     },
                     IsSuccess = true,
                     Message = "ثبت نام کاربر انجام شد.",

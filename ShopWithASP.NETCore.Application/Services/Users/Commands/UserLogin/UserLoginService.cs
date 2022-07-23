@@ -73,7 +73,7 @@ namespace ShopWithASP.NETCore.Application.Services.Users.Commands.UserLogin
                 Data = new ResultUserloginDto()
                 {
                     Roles = roles,
-                    UserId = user.UserId,
+                    UserId = user.Id,
                     Name = user.FullName
                 },
                 IsSuccess = true,
