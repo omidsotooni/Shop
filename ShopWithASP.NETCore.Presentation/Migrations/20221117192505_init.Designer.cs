@@ -12,8 +12,8 @@ using ShopWithASP.NETCore.Presentation.Contexts;
 namespace ShopWithASP.NETCore.Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20220430143732_AddingBaseEntity1")]
-    partial class AddingBaseEntity1
+    [Migration("20221117192505_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,47 +24,99 @@ namespace ShopWithASP.NETCore.Persistence.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ShopWithASP.NETCore.Doima.Entities.Users.Role", b =>
+            modelBuilder.Entity("ShopWithASP.NETCore.Doima.Entities.Products.Category", b =>
                 {
-                    b.Property<long>("RoleId")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("RoleId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("RoleId");
+                    b.Property<long?>("ParentCategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentCategoryId");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("ShopWithASP.NETCore.Doima.Entities.Users.Role", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Roles");
 
                     b.HasData(
                         new
                         {
-                            RoleId = 1L,
+                            Id = 1L,
+                            InsertTime = new DateTime(2022, 11, 17, 11, 25, 5, 564, DateTimeKind.Local).AddTicks(9003),
+                            IsRemoved = false,
                             Name = "Admin"
                         },
                         new
                         {
-                            RoleId = 2L,
+                            Id = 2L,
+                            InsertTime = new DateTime(2022, 11, 17, 11, 25, 5, 564, DateTimeKind.Local).AddTicks(9058),
+                            IsRemoved = false,
                             Name = "Operator"
                         },
                         new
                         {
-                            RoleId = 3L,
+                            Id = 3L,
+                            InsertTime = new DateTime(2022, 11, 17, 11, 25, 5, 564, DateTimeKind.Local).AddTicks(9070),
+                            IsRemoved = false,
                             Name = "Customer"
                         });
                 });
 
             modelBuilder.Entity("ShopWithASP.NETCore.Doima.Entities.Users.User", b =>
                 {
-                    b.Property<long>("UserId")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("UserId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -75,7 +127,7 @@ namespace ShopWithASP.NETCore.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("InsertTime")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
@@ -88,12 +140,12 @@ namespace ShopWithASP.NETCore.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("RemoveTime")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime?>("UpdateTime")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.HasIndex("Email")
                         .IsUnique();
@@ -103,25 +155,49 @@ namespace ShopWithASP.NETCore.Persistence.Migrations
 
             modelBuilder.Entity("ShopWithASP.NETCore.Doima.Entities.Users.UserInRole", b =>
                 {
-                    b.Property<long>("UserInRoleId")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("UserInRoleId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("InsertTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime?>("RemoveTime")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long>("RoleId")
                         .HasColumnType("bigint");
 
+                    b.Property<DateTime?>("UpdateTime")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
-                    b.HasKey("UserInRoleId");
+                    b.Property<long>("UserInRoleId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("RoleId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("UsersInRoles");
+                });
+
+            modelBuilder.Entity("ShopWithASP.NETCore.Doima.Entities.Products.Category", b =>
+                {
+                    b.HasOne("ShopWithASP.NETCore.Doima.Entities.Products.Category", "ParentCategory")
+                        .WithMany("SubCategories")
+                        .HasForeignKey("ParentCategoryId");
+
+                    b.Navigation("ParentCategory");
                 });
 
             modelBuilder.Entity("ShopWithASP.NETCore.Doima.Entities.Users.UserInRole", b =>
@@ -141,6 +217,11 @@ namespace ShopWithASP.NETCore.Persistence.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ShopWithASP.NETCore.Doima.Entities.Products.Category", b =>
+                {
+                    b.Navigation("SubCategories");
                 });
 
             modelBuilder.Entity("ShopWithASP.NETCore.Doima.Entities.Users.Role", b =>

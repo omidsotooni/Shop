@@ -20,4 +20,8 @@
     <ProjectReference Include="..\ShopWithASP.NETCore.Application\ShopWithASP.NETCore.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

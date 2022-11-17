@@ -88,21 +88,21 @@ namespace ShopWithASP.NETCore.Persistence.Migrations
                         new
                         {
                             Id = 1L,
-                            InsertTime = new DateTime(2022, 7, 23, 19, 46, 57, 368, DateTimeKind.Local).AddTicks(4257),
+                            InsertTime = new DateTime(2022, 11, 17, 11, 25, 5, 564, DateTimeKind.Local).AddTicks(9003),
                             IsRemoved = false,
                             Name = "Admin"
                         },
                         new
                         {
                             Id = 2L,
-                            InsertTime = new DateTime(2022, 7, 23, 19, 46, 57, 368, DateTimeKind.Local).AddTicks(4345),
+                            InsertTime = new DateTime(2022, 11, 17, 11, 25, 5, 564, DateTimeKind.Local).AddTicks(9058),
                             IsRemoved = false,
                             Name = "Operator"
                         },
                         new
                         {
                             Id = 3L,
-                            InsertTime = new DateTime(2022, 7, 23, 19, 46, 57, 368, DateTimeKind.Local).AddTicks(4370),
+                            InsertTime = new DateTime(2022, 11, 17, 11, 25, 5, 564, DateTimeKind.Local).AddTicks(9070),
                             IsRemoved = false,
                             Name = "Customer"
                         });

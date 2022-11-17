@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj": {}
+    "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj": {}
   },
   "projects": {
-    "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
         "projectName": "EndPoint.Site",
-        "projectPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
-        "packagesPath": "C:\\Users\\Omid\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\EndPoint.Site\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\EndPoint.Site\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Omid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj": {
-                "projectPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj"
+              "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj"
               }
             }
           }
@@ -77,7 +73,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -89,25 +86,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj",
         "projectName": "ShopWithASP.NETCore.Application",
-        "projectPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj",
-        "packagesPath": "C:\\Users\\Omid\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Omid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -121,11 +114,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj": {
-                "projectPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj"
+              "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj"
               },
-              "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj": {
-                "projectPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj"
+              "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj"
               }
             }
           }
@@ -151,7 +144,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -160,25 +154,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj",
         "projectName": "ShopWithASP.NETCore.Common",
-        "projectPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj",
-        "packagesPath": "C:\\Users\\Omid\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Omid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -215,7 +205,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -224,25 +215,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj",
         "projectName": "ShopWithASP.NETCore.Doima",
-        "projectPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj",
-        "packagesPath": "C:\\Users\\Omid\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Omid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -273,7 +260,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -282,25 +270,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj",
         "projectName": "ShopWithASP.NETCore.Persistence",
-        "projectPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj",
-        "packagesPath": "C:\\Users\\Omid\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Omid\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -314,8 +298,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj": {
-                "projectPath": "F:\\Projects\\Asp.Net\\Asp.Net Core\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj"
+              "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj"
               }
             }
           }
@@ -355,7 +339,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -364,7 +349,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
