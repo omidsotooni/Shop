@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XYm7cyXLoj8xDvOZZIXUCMhX65tXATX69c/lIgujbueAXCotnlvwuf2gX3ZlYcY9lEpiYOmHDs4C5eGVQOgS0g==",
+  "dgSpecHash": "88agpK8LL1W4mxk9+brv01EU6yoKh4VuKcDKDL+yE1h3G6QhSyhNZB06E77PTMHfIQU0akxkQjVEfU7puXjYYw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Infrastructure\\ShopWithASP.NETCore.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Infrastructure\\ShopWithASP.NETCore.Infrastructure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

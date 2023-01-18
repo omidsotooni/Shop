@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8Fj+D5PRp0BYWrDDpIPo1idwq6xl7hdCxBXmvFYZC8VLYk+fkClzR8ikbACNxFAi4uMS7pl2wOvpHyWu2/7lhg==",
+  "dgSpecHash": "r1uz1oRDJuH7Zm8GU5fYO3ASEC9IFr+1EH65YhAuqQvPge7/7zLiiOcXggfYqUhxfTjLCFja53jSlsg+ubq1ew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.4\\microsoft.aspnetcore.cryptography.internal.6.0.4.nupkg.sha512",

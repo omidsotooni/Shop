@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wG3nIN1Z9N+LsvdCC/81t2YXrLwb9j/WyYM8Hb8VMyI8unaNbR4s/4f+tQVRyulwjZ1ko2PG90Jeth+yyGeYng==",
+  "dgSpecHash": "Y/13X4Dc4uhl6dekreIahJpVZPfAJ0j94Me2RIppCOYyjtXyei++krX4TRrokcjr1nbIW2x1JbEpqi+fBVY5YA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

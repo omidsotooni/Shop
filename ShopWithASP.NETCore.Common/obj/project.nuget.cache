@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tm5+3qqRJmEPM7/Sv3FfhMm5O34sf2mP0KqeN+GapiU9klzhXO/gNju/apkSluEYRG9chRJG10gla1OJ+L5hFQ==",
+  "dgSpecHash": "kex0C0jzsHBhfwVUQQEgAeCraf1UqjYlw/nBGre1fpil2rQ5oeSbAd3ZpQFArgYTbCIHT/L5bDvUocNBx+Rysg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Visual Studio 2022\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.4\\microsoft.aspnetcore.cryptography.internal.6.0.4.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.4\\microsoft.aspnetcore.cryptography.keyderivation.6.0.4.nupkg.sha512"
