@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.EditUser;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.RegisterUser;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.RemoveUser;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.UserSatusChange;
-using ShopWithASP.NETCore.Application.Services.Users.Queries.GetRoles;
-using ShopWithASP.NETCore.Application.Services.Users.Queries.GetUsers;
+using Shop.Application.Services.Users.Commands.EditUser;
+using Shop.Application.Services.Users.Commands.RegisterUser;
+using Shop.Application.Services.Users.Commands.RemoveUser;
+using Shop.Application.Services.Users.Commands.UserSatusChange;
+using Shop.Application.Services.Users.Queries.GetRoles;
+using Shop.Application.Services.Users.Queries.GetUsers;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {

@@ -1,18 +1,17 @@
 
 using Microsoft.EntityFrameworkCore;
-using ShopWithASP.NETCore.Presentation.Contexts;
-using ShopWithASP.NETCore.Application.Interfaces.Contexts;
-using ShopWithASP.NETCore.Application.Services.Users.Queries.GetUsers;
-using ShopWithASP.NETCore.Application.Services.Users.Queries.GetRoles;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.RegisterUser;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.RemoveUser;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.UserSatusChange;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.EditUser;
+using Shop.Presentation.Contexts;
+using Shop.Application.Interfaces.Contexts;
+using Shop.Application.Services.Users.Queries.GetUsers;
+using Shop.Application.Services.Users.Queries.GetRoles;
+using Shop.Application.Services.Users.Commands.RegisterUser;
+using Shop.Application.Services.Users.Commands.RemoveUser;
+using Shop.Application.Services.Users.Commands.UserSatusChange;
+using Shop.Application.Services.Users.Commands.EditUser;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Http;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.UserLogin;
-using ShopWithASP.NETCore.Application.Interfaces.FacadPatterns;
-using ShopWithASP.NETCore.Application.Services.Products.FacadPattern;
+using Shop.Application.Services.Users.Commands.UserLogin;
+using Shop.Application.Interfaces.FacadPatterns;
+using Shop.Application.Services.Products.FacadPattern;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -3444,58 +3444,58 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "ShopWithASP.NETCore.Application/1.0.0": {
+      "Shop.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.4",
-          "ShopWithASP.NETCore.Common": "1.0.0",
-          "ShopWithASP.NETCore.Doima": "1.0.0"
+          "Shop.Common": "1.0.0",
+          "Shop.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/ShopWithASP.NETCore.Application.dll": {}
+          "bin/placeholder/Shop.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ShopWithASP.NETCore.Application.dll": {}
+          "bin/placeholder/Shop.Application.dll": {}
         }
       },
-      "ShopWithASP.NETCore.Common/1.0.0": {
+      "Shop.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.4"
         },
         "compile": {
-          "bin/placeholder/ShopWithASP.NETCore.Common.dll": {}
+          "bin/placeholder/Shop.Common.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ShopWithASP.NETCore.Common.dll": {}
+          "bin/placeholder/Shop.Common.dll": {}
         }
       },
-      "ShopWithASP.NETCore.Doima/1.0.0": {
+      "Shop.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/ShopWithASP.NETCore.Doima.dll": {}
+          "bin/placeholder/Shop.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ShopWithASP.NETCore.Doima.dll": {}
+          "bin/placeholder/Shop.Domain.dll": {}
         }
       },
-      "ShopWithASP.NETCore.Persistence/1.0.0": {
+      "Shop.Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.4",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.4",
-          "ShopWithASP.NETCore.Application": "1.0.0"
+          "Shop.Application": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/ShopWithASP.NETCore.Persistence.dll": {}
+          "bin/placeholder/Shop.Persistence.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ShopWithASP.NETCore.Persistence.dll": {}
+          "bin/placeholder/Shop.Persistence.dll": {}
         }
       }
     }
@@ -9815,25 +9815,25 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "ShopWithASP.NETCore.Application/1.0.0": {
+    "Shop.Application/1.0.0": {
       "type": "project",
-      "path": "../ShopWithASP.NETCore.Application/ShopWithASP.NETCore.Application.csproj",
-      "msbuildProject": "../ShopWithASP.NETCore.Application/ShopWithASP.NETCore.Application.csproj"
+      "path": "../Shop.Application/Shop.Application.csproj",
+      "msbuildProject": "../Shop.Application/Shop.Application.csproj"
     },
-    "ShopWithASP.NETCore.Common/1.0.0": {
+    "Shop.Common/1.0.0": {
       "type": "project",
-      "path": "../ShopWithASP.NETCore.Common/ShopWithASP.NETCore.Common.csproj",
-      "msbuildProject": "../ShopWithASP.NETCore.Common/ShopWithASP.NETCore.Common.csproj"
+      "path": "../Shop.Common/Shop.Common.csproj",
+      "msbuildProject": "../Shop.Common/Shop.Common.csproj"
     },
-    "ShopWithASP.NETCore.Doima/1.0.0": {
+    "Shop.Domain/1.0.0": {
       "type": "project",
-      "path": "../ShopWithASP.NETCore.Doima/ShopWithASP.NETCore.Doima.csproj",
-      "msbuildProject": "../ShopWithASP.NETCore.Doima/ShopWithASP.NETCore.Doima.csproj"
+      "path": "../Shop.Domain/Shop.Domain.csproj",
+      "msbuildProject": "../Shop.Domain/Shop.Domain.csproj"
     },
-    "ShopWithASP.NETCore.Persistence/1.0.0": {
+    "Shop.Persistence/1.0.0": {
       "type": "project",
-      "path": "../ShopWithASP.NETCore.Presentation/ShopWithASP.NETCore.Persistence.csproj",
-      "msbuildProject": "../ShopWithASP.NETCore.Presentation/ShopWithASP.NETCore.Persistence.csproj"
+      "path": "../Shop.Presentation/Shop.Persistence.csproj",
+      "msbuildProject": "../Shop.Presentation/Shop.Persistence.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9842,7 +9842,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 6.0.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.6",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 6.0.4",
-      "ShopWithASP.NETCore.Persistence >= 1.0.0",
+      "Shop.Persistence >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.3.0"
     ]
   },
@@ -9852,11 +9852,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj",
       "projectName": "EndPoint.Site",
-      "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
+      "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\EndPoint.Site\\obj\\",
+      "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9873,8 +9873,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj": {
-              "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj"
+            "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj"
             }
           }
         }

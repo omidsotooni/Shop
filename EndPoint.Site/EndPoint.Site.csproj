@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShopWithASP.NETCore.Presentation\ShopWithASP.NETCore.Persistence.csproj" />
+    <ProjectReference Include="..\Shop.Presentation\Shop.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

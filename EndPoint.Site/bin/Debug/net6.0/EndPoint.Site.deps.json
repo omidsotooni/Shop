@@ -12,7 +12,7 @@
           "Microsoft.EntityFrameworkCore.Design": "6.0.4",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.6",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.4",
-          "ShopWithASP.NETCore.Persistence": "1.0.0",
+          "Shop.Persistence": "1.0.0",
           "Swashbuckle.AspNetCore": "6.3.0"
         },
         "runtime": {
@@ -2180,38 +2180,38 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "ShopWithASP.NETCore.Application/1.0.0": {
+      "Shop.Application/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.4",
-          "ShopWithASP.NETCore.Common": "1.0.0",
-          "ShopWithASP.NETCore.Doima": "1.0.0"
+          "Shop.Common": "1.0.0",
+          "Shop.Domain": "1.0.0"
         },
         "runtime": {
-          "ShopWithASP.NETCore.Application.dll": {}
+          "Shop.Application.dll": {}
         }
       },
-      "ShopWithASP.NETCore.Common/1.0.0": {
+      "Shop.Common/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.4"
         },
         "runtime": {
-          "ShopWithASP.NETCore.Common.dll": {}
+          "Shop.Common.dll": {}
         }
       },
-      "ShopWithASP.NETCore.Doima/1.0.0": {
+      "Shop.Domain/1.0.0": {
         "runtime": {
-          "ShopWithASP.NETCore.Doima.dll": {}
+          "Shop.Domain.dll": {}
         }
       },
-      "ShopWithASP.NETCore.Persistence/1.0.0": {
+      "Shop.Persistence/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.4",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.4",
-          "ShopWithASP.NETCore.Application": "1.0.0"
+          "Shop.Application": "1.0.0"
         },
         "runtime": {
-          "ShopWithASP.NETCore.Persistence.dll": {}
+          "Shop.Persistence.dll": {}
         }
       }
     }
@@ -3412,22 +3412,22 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "ShopWithASP.NETCore.Application/1.0.0": {
+    "Shop.Application/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "ShopWithASP.NETCore.Common/1.0.0": {
+    "Shop.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "ShopWithASP.NETCore.Doima/1.0.0": {
+    "Shop.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "ShopWithASP.NETCore.Persistence/1.0.0": {
+    "Shop.Persistence/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

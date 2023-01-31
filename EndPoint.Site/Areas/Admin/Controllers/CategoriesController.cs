@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShopWithASP.NETCore.Application.Interfaces.FacadPatterns;
+using Shop.Application.Interfaces.FacadPatterns;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj": {}
+    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj",
         "projectName": "EndPoint.Site",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\EndPoint.Site\\EndPoint.Site.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\EndPoint.Site\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj"
+              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj"
               }
             }
           }
@@ -90,14 +90,14 @@
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj",
-        "projectName": "ShopWithASP.NETCore.Application",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj",
+        "projectName": "Shop.Application",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -114,11 +114,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj"
+              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj"
               },
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj"
+              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj"
               }
             }
           }
@@ -158,14 +158,14 @@
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj",
-        "projectName": "ShopWithASP.NETCore.Common",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\ShopWithASP.NETCore.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj",
+        "projectName": "Shop.Common",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Common\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -219,14 +219,14 @@
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj",
-        "projectName": "ShopWithASP.NETCore.Doima",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\ShopWithASP.NETCore.Doima.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj",
+        "projectName": "Shop.Domain",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Doima\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -274,14 +274,14 @@
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj": {
+    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj",
-        "projectName": "ShopWithASP.NETCore.Persistence",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\ShopWithASP.NETCore.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj",
+        "projectName": "Shop.Persistence",
+        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Presentation\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -298,8 +298,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\ShopWithASP.NETCore\\ShopWithASP.NETCore.Application\\ShopWithASP.NETCore.Application.csproj"
+              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj"
               }
             }
           }

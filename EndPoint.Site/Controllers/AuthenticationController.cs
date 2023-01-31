@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.RegisterUser;
-using ShopWithASP.NETCore.Application.Services.Users.Commands.UserLogin;
+using Shop.Application.Services.Users.Commands.RegisterUser;
+using Shop.Application.Services.Users.Commands.UserLogin;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
-using ShopWithASP.NETCore.Common.Dto;
+using Shop.Common.Dto;
 using EndPoint.Site.Models.ViewModels.AuthenticationViewModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
