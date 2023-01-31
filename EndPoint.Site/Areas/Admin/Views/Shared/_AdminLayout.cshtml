@@ -46,7 +46,7 @@
                         <div class="logo-img">
                             <img src="~/AdminTemplate/app-assets/img/logo.png" alt="فروشگاه من" />
                         </div><span class="text align-middle">فروشگاه من</span>
-                    </a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="ft-disc toggle-icon"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-circle"></i></a>
+                    </a>
                 </div>
             </div>
             <div class="sidebar-content">
@@ -60,7 +60,7 @@
                             <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">مدیریت کاربران</span></a>
                             <ul class="menu-content">
                                 <li class="active">
-                                    <a href="~/admin/users/index" class="menu-item">لیست کاربران</a>
+                                    <a href="~/Admin/Users/Index" class="menu-item">لیست کاربران</a>
                                 </li>
                                 <li>
                                     <a href="~/Admin/Users/Create" class="menu-item">ثبت نام کاربر جدید *</a>
@@ -72,10 +72,10 @@
                             <a href="#"><i class="icon-crop"></i><span data-i18n="" class="menu-title">  دسته بندی ها </span></a>
                             <ul class="menu-content">
                                 <li>
-                                    <a href="~/admin/categories/" class="menu-item">دسته بندی ها</a>
+                                    <a href="~/Admin/Categories/" class="menu-item">دسته بندی ها</a>
                                 </li>
                                 <li>
-                                    <a href="~/admin/categories/addnewcategory" class="menu-item">افزودن دسته بندی جدید *</a>
+                                    <a href="~/Admin/Categories/AddNewCategory" class="menu-item">افزودن دسته بندی جدید *</a>
                                 </li>
                             </ul>
                         </li>
@@ -89,24 +89,21 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-faded">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" data-toggle="collapse" class="navbar-toggle d-lg-none float-right"><span class="sr-only">تغییر ناوبری </span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><span class="d-lg-none navbar-right navbar-collapse-toggle"><a class="open-navbar-container"><i class="ft-more-vertical"></i></a></span><a id="navbar-fullscreen" href="javascript:;" class="ml-2 display-inline-block apptogglefullscreen">
-                        <i class="ft-maximize blue-grey darken-4 toggleClass"></i>
-                        <p class="d-none">تمام صفحه</p>
-                    </a><a class="mr-2 display-inline-block">
-                        <i class="ft-shopping-cart blue-grey darken-4"></i>
-                        <p class="d-none">سبد خرید</p>
-                    </a>
                     <div class="dropdown mr-2 display-inline-block">
-                        <a id="apps" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle"><i class="ft-edit blue-grey darken-4"></i><span class="mx-1 blue-grey darken-4 text-bold-400">برنامه ها</span></a>
+                        <a id="apps" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle">
+                            <i class="ft-edit blue-grey darken-4"></i>
+                            <span class="mx-1 blue-grey darken-4 text-bold-400">برنامه ها</span>
+                        </a>
                         <div class="apps dropdown-menu">
                             <div class="arrow_box">
-                                @*<a href="chat.html" class="dropdown-item py-1"><span>چت</span></a>
-                                <a href="taskboard.html" class="dropdown-item py-1"><span>وظیفه</span></a>
-                                <a href="calendar.html" class="dropdown-item py-1"><span>تقویم</span></a></div>*@
                                 <a href="#" class="dropdown-item py-1"><span>چت</span></a>
                                 <a href="#" class="dropdown-item py-1"><span>وظیفه</span></a>
-                                <a href="#" class="dropdown-item py-1"><span>تقویم</span></a></div>
+                                <a href="#" class="dropdown-item py-1"><span>تقویم</span></a>
+                            </div>
                         </div>
+                    </div>
+                    <div class="mr-2 display-inline-block">
+                        <span class="title-account">@User.Identity.Name</span>
                     </div>
                 </div>
                 <div class="navbar-container">
@@ -132,7 +129,53 @@
                                 </a>
                                 <div class="notification-dropdown dropdown-menu dropdown-menu-left">
                                     <div class="arrow_box_right">
-                                        <div class="noti-list"><a class="dropdown-item noti-container py-2"><i class="ft-share info float-right d-block font-medium-4 mt-2 ml-2"></i><span class="noti-wrapper"><span class="noti-title line-height-1 d-block text-bold-400 info">سفارش جدید دریافت شده</span><span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span></span></a><a class="dropdown-item noti-container py-2"><i class="ft-save warning float-right d-block font-medium-4 mt-2 ml-2"></i><span class="noti-wrapper"><span class="noti-title line-height-1 d-block text-bold-400 warning">کاربر جدید ثبت شده است</span><span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span></span></a><a class="dropdown-item noti-container py-2"><i class="ft-repeat danger float-right d-block font-medium-4 mt-2 ml-2"></i><span class="noti-wrapper"><span class="noti-title line-height-1 d-block text-bold-400 danger">سفارش جدید دریافت شده</span><span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span></span></a><a class="dropdown-item noti-container py-2"><i class="ft-shopping-cart success float-right d-block font-medium-4 mt-2 ml-2"></i><span class="noti-wrapper"><span class="noti-title line-height-1 d-block text-bold-400 success">مورد جدید در سبد خرید شما</span><span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span></span></a><a class="dropdown-item noti-container py-2"><i class="ft-heart info float-right d-block font-medium-4 mt-2 ml-2"></i><span class="noti-wrapper"><span class="noti-title line-height-1 d-block text-bold-400 info">فروش جدید</span><span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span></span></a><a class="dropdown-item noti-container py-2"><i class="ft-box warning float-right d-block font-medium-4 mt-2 ml-2"></i><span class="noti-wrapper"><span class="noti-title line-height-1 d-block text-bold-400 warning">سفارش تحویل داده شده</span><span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span></span></a></div><a class="noti-footer primary text-center d-block border-top border-top-blue-grey border-top-lighten-4 text-bold-400 py-1">خواندن همه اعلان ها</a>
+                                        <div class="noti-list">
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-share info float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 info">سفارش جدید دریافت شده</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-save warning float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 warning">کاربر جدید ثبت شده است</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-repeat danger float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 danger">سفارش جدید دریافت شده</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-shopping-cart success float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 success">مورد جدید در سبد خرید شما</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-heart info float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 info">فروش جدید</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                            <a class="dropdown-item noti-container py-2">
+                                                <i class="ft-box warning float-right d-block font-medium-4 mt-2 ml-2"></i>
+                                                <span class="noti-wrapper">
+                                                    <span class="noti-title line-height-1 d-block text-bold-400 warning">سفارش تحویل داده شده</span>
+                                                    <span class="noti-text">لورم ایپسوم متن ساختگی با تولید سادگی</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <a class="noti-footer primary text-center d-block border-top border-top-blue-grey border-top-lighten-4 text-bold-400 py-1">
+                                            خواندن همه اعلان ها
+                                        </a>
                                     </div>
                                 </div>
                             </li>
@@ -149,12 +192,13 @@
                                 </a>
                                 <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-left">
                                     <div class="arrow_box_right">
-                                        @* <a href="user-profile-page.html" class="dropdown-item py-1"><i class="ft-edit ml-2"></i><span>پروفایل من</span></a>
-                                            <a href="chat.html" class="dropdown-item py-1"><i class="ft-message-circle ml-2"></i><span>چت من</span></a>*@
                                         <a href="#" class="dropdown-item py-1"><i class="ft-edit ml-2"></i><span>پروفایل من</span></a>
                                         <a href="#" class="dropdown-item py-1"><i class="ft-message-circle ml-2"></i><span>چت من</span></a>
                                         <a href="javascript:;" class="dropdown-item py-1"><i class="ft-settings ml-2"></i><span>تنظیمات</span></a>
-                                        <div class="dropdown-divider"></div><a href="javascript:;" class="dropdown-item"><i class="ft-power ml-2"></i><span>خروج</span></a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="~/Authentication/SignOut" class="dropdown-item">
+                                            <i class="ft-power ml-2"></i><span>خروج</span>
+                                        </a>
                                     </div>
                                 </div>
                             </li>
@@ -172,9 +216,10 @@
             <footer class="footer footer-static footer-light">
                 <p class="clearfix text-muted text-center px-2">
                     <span>
-                        &copy;کپی رایت،
-                        <a href="#" id="pixinventLink" target="_blank" class="text-bold-800 primary darken-2"></a>
-                        همه حقوق محفوظ است.
+
+                        &copy; <script>document.write(new Date().toLocaleDateString('fa-IR'));</script> - داشبورد مدیریت 
+                        |
+                        توسعه و طراحی توسط: <a href="https://omidsotooni.github.io" target="_blank">Omid Sotooni</a>
                     </span>
                 </p>
             </footer>

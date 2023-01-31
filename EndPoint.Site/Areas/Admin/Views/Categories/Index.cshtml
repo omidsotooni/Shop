@@ -1,4 +1,4 @@
-﻿@using ShopWithASP.NETCore.Application.Services.Products.Queries.GetCategories;
+﻿@using Shop.Application.Services.Products.Queries.GetCategories;
 @model List<CategoriesDto>
 @{
     ViewData["Title"] = "Index";
@@ -22,7 +22,7 @@
                         </div>
                         <div class="card-body collapse show">
                             <div class="card-block card-dashboard">
-                                <a href="~/admin/categories/addnewcategory" class="btn btn-success">افزودن دسته بندی جدید</a>
+                                <a href="~/Admin/Categories/addnewcategory" class="btn btn-success">افزودن دسته بندی جدید</a>
 
                                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="col-sm-12">
@@ -49,12 +49,12 @@
                                                     <td>
                                                         @if (item.Parent == null)
                                                         {
-                                                            <a href="~/admin/categories/addnewcategory?ParentId=@item.Id" class="btn btn-success">افزودن فرزند</a>
+                                                            <a href="~/Admin/Categories/addnewcategory?ParentId=@item.Id" class="btn btn-success">افزودن فرزند</a>
                                                         }
 
                                                         @if (item.HasChild == true)
                                                         {
-                                                            <a href="~/admin/categories/index?ParentId=@item.Id" class="btn btn-info">مشاهده لیست فرزند ها </a>
+                                                            <a href="~/Admin/Categories/index?ParentId=@item.Id" class="btn btn-info">مشاهده لیست فرزند ها </a>
                                                         }
                                                     </td>
                                                 </tr>

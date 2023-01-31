@@ -70,23 +70,20 @@
                                         @if (User.Identity.IsAuthenticated)
                                         {
                                             <div class="nav-account d-block pl">
+                                                <span class="title-account">@User.Identity.Name</span>
                                                 <span class="icon-account">
                                                     <img src="~/UserTemplate/assets/images/man.png" class="avator">
                                                 </span>
-                                                <span class="title-account">@User.Identity.Name</span>
                                                 <div class="dropdown-menu">
                                                     <ul class="account-uls mb-0">
+                                                        @if (User.IsInRole("Admin"))
+                                                        {
+                                                            <li class="account-item">
+                                                                <a href="~/Admin/Users/Index" class="account-link">پنل کاربری</a>
+                                                            </li>
+                                                        }
                                                         <li class="account-item">
-                                                            <a href="~/Admin/Users" class="account-link">پنل کاربری</a>
-                                                        </li>
-                                                        <li class="account-item">
-                                                            <a href="#" class="account-link">سفارشات من</a>
-                                                        </li>
-                                                        <li class="account-item">
-                                                            <a href="#" class="account-link">تنظیمات</a>
-                                                        </li>
-                                                        <li class="account-item">
-                                                            <a href="~/authentication/SignOut" class="account-link">خروج</a>
+                                                            <a href="~/Authentication/SignOut" class="account-link">خروج</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -95,10 +92,10 @@
                                         else
                                         {
                                             <div class="nav-account d-block pl">
-                                                <a href="~/authentication/signup">
+                                                <a href="~/Authentication/Signup">
                                                     <span class="title-account">ثبت نام</span>
                                                 </a>
-                                                <a href="~/authentication/signin">
+                                                <a href="~/Authentication/Signin">
                                                     <span class="title-account">ورود</span>
                                                 </a>
                                             </div>
@@ -1134,7 +1131,11 @@
                             </div>
                             <div class="footer-copyright">
                                 <div class="footer-copyright-text">
-                                    <p>تمامی مطالب، عکس ها و... متعلق به سایت فروشگاه اینترنتی می باشد.</p>
+                                    <p>
+                                        &copy; <script>document.write(new Date().toLocaleDateString('fa-IR'));</script> - فروشگاه اینترنتی - <a asp-area="" asp-controller="Home" asp-action="Privacy">سیاست حفظ حریم خصوصی</a>
+                                        | 
+                                        توسعه و طراحی توسط: <a href="https://omidsotooni.github.io" target="_blank">Omid Sotooni</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
