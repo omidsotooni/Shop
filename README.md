@@ -1,4 +1,4 @@
-# Shop With ASP.NET Core & EntityFramework Core | Clean Architecture
+# Shop With ASP.NET Core by PostgreSQL and EF Core | Clean Architecture
 
 DataBase is PostgreSQL and DotNetCore is .Net6.0
 
