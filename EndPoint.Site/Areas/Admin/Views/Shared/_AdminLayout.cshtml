@@ -2,11 +2,9 @@
     Layout = null;
 }
 
-
 <!DOCTYPE html>
 <html lang="en" class="loading">
 
-<!-- Mirrored from pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/demo-1/grids.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Sep 2018 14:54:38 GMT -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +12,7 @@
     <meta name="description" content="Convex admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Convex admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>پنل مدیریتی</title>
+    <title>پنل مدیریت</title>
     <link rel="apple-touch-icon" sizes="60x60" href="~/AdminTemplate/app-assets/img/ico/apple-icon-60.html">
     <link rel="apple-touch-icon" sizes="76x76" href="~/AdminTemplate/app-assets/img/ico/apple-icon-76.html">
     <link rel="apple-touch-icon" sizes="120x120" href="~/AdminTemplate/app-assets/img/ico/apple-icon-120.html">
@@ -34,14 +32,10 @@
 
 </head>
 <body data-col="2-columns" class=" 2-columns ">
-    <!-- ////////////////////////////////////////////////////////////////////////////-->
     <div class="wrapper">
-
-
         <div data-active-color="white" data-background-color="black" data-image="~/AdminTemplate/app-assets/img/sidebar-bg/01.jpg" class="app-sidebar">
             <div class="sidebar-header">
                 <div class="logo clearfix">
-                    @*index-2.html*@
                     <a href="#" class="logo-text float-right">
                         <div class="logo-img">
                             <img src="~/AdminTemplate/app-assets/img/logo.png" alt="فروشگاه من" />
@@ -55,7 +49,6 @@
                         <li class="has-sub nav-item">
                             <a href="#"><i class="icon-home"></i><span data-i18n="" class="menu-title">داشبورد</span><span class="tag badge badge-pill badge-danger mt-1">2</span></a>
                         </li>
-                        
                         <li class="has-sub nav-item">
                             <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">مدیریت کاربران</span></a>
                             <ul class="menu-content">
@@ -67,12 +60,11 @@
                                 </li>
                             </ul>
                         </li>
-                        
                         <li class="has-sub nav-item">
                             <a href="#"><i class="icon-crop"></i><span data-i18n="" class="menu-title">  دسته بندی ها </span></a>
                             <ul class="menu-content">
                                 <li>
-                                    <a href="~/Admin/Categories/" class="menu-item">دسته بندی ها</a>
+                                    <a href="~/Admin/Categories/Index" class="menu-item">دسته بندی ها</a>
                                 </li>
                                 <li>
                                     <a href="~/Admin/Categories/AddNewCategory" class="menu-item">افزودن دسته بندی جدید *</a>
@@ -84,7 +76,6 @@
             </div>
             <div class="sidebar-background"></div>
         </div>
-
 
         <nav class="navbar navbar-expand-lg navbar-light bg-faded">
             <div class="container-fluid">
@@ -216,8 +207,7 @@
             <footer class="footer footer-static footer-light">
                 <p class="clearfix text-muted text-center px-2">
                     <span>
-
-                        &copy; <script>document.write(new Date().toLocaleDateString('fa-IR'));</script> - داشبورد مدیریت 
+                        &copy; <script>document.write(new Date().toLocaleDateString('fa-IR'));</script> - داشبورد مدیریت
                         |
                         توسعه و طراحی توسط: <a href="https://omidsotooni.github.io" target="_blank">Omid Sotooni</a>
                     </span>
@@ -226,7 +216,6 @@
 
         </div>
     </div>
-    <!-- ////////////////////////////////////////////////////////////////////////////-->
 
     <aside id="notification-sidebar" class="notification-sidebar d-none d-sm-none d-md-block">
         <a class="notification-sidebar-close"><i class="ft-x font-medium-3"></i></a>
@@ -455,8 +444,6 @@
             </div>
         </div>
     </div>
-    <!-- BEGIN VENDOR JS-->
-
 
     <script src="~/AdminTemplate/app-assets/vendors/js/core/jquery-3.3.1.min.js"></script>
     <script src="~/AdminTemplate/app-assets/js/persian-datepicker.min.js"></script>
@@ -467,21 +454,13 @@
     <script src="~/AdminTemplate/app-assets/vendors/js/jquery.matchHeight-min.js"></script>
     <script src="~/AdminTemplate/app-assets/vendors/js/screenfull.min.js"></script>
     <script src="~/AdminTemplate/app-assets/vendors/js/pace/pace.min.js"></script>
-    <!-- BEGIN VENDOR JS-->
-    <!-- BEGIN PAGE VENDOR JS-->
-    <!-- END PAGE VENDOR JS-->
-    <!-- BEGIN CONVEX JS-->
     <script src="~/AdminTemplate/app-assets/js/app-sidebar.js"></script>
     <script src="~/AdminTemplate/app-assets/js/notification-sidebar.js"></script>
     <script src="~/AdminTemplate/app-assets/js/customizer.js"></script>
-    <!-- END CONVEX JS-->
-    <!-- BEGIN PAGE LEVEL JS-->
-    <!-- END PAGE LEVEL JS-->
-    
+
     @RenderSection("Scripts",false)
     @RenderSection("Modals",false)
 
 </body>
 
-<!-- Mirrored from pixinvent.com/demo/convex-bootstrap-admin-dashboard-template/demo-1/grids.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 20 Sep 2018 14:54:38 GMT -->
 </html>
