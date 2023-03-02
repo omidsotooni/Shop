@@ -1,6 +1,9 @@
-﻿using Shop.Application.Interfaces.Contexts;
+﻿using Microsoft.AspNetCore.Hosting;
+using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.Products.Commands.AddNewCategory;
+using Shop.Application.Services.Products.Commands.AddNewProduct;
+using Shop.Application.Services.Products.Queries.GetAllCategories;
 using Shop.Application.Services.Products.Queries.GetCategories;
 
 namespace Shop.Application.Services.Products.FacadPattern
@@ -8,9 +11,11 @@ namespace Shop.Application.Services.Products.FacadPattern
     public class ProductFacad : IProductFacad
     {
         private readonly IDataBaseContext _context;
-        public ProductFacad(IDataBaseContext context)
+        private readonly IHostingEnvironment _environment;
+        public ProductFacad(IDataBaseContext context, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            _environment = hostingEnvironment;
         }
 
         private AddNewCategoryService _addNewCategory;
@@ -22,13 +27,30 @@ namespace Shop.Application.Services.Products.FacadPattern
             }
         }
 
-
         private IGetCategoriesService _getCategoriesService;
         public IGetCategoriesService GetCategoriesService
         {
             get
             {
                 return _getCategoriesService = _getCategoriesService ?? new GetCategoriesService(_context);
+            }
+        }
+
+        private AddNewProductService _addNewProductService;
+        public AddNewProductService AddNewProductService
+        {
+            get
+            {
+                return _addNewProductService = _addNewProductService ?? new AddNewProductService(_context, _environment);
+            }
+        }
+
+        private IGetAllCategoriesService _getAllCategoriesService;
+        public IGetAllCategoriesService GetAllCategoriesService
+        {
+            get
+            {
+                return _getAllCategoriesService = _getAllCategoriesService ?? new GetAllCategoriesService(_context);
             }
         }
     }
