@@ -2,6 +2,7 @@
 using Shop.Application.Services.Products.Commands.AddNewProduct;
 using Shop.Application.Services.Products.Queries.GetAllCategories;
 using Shop.Application.Services.Products.Queries.GetCategories;
+using Shop.Application.Services.Products.Queries.GetProductForAdmin;
 
 namespace Shop.Application.Interfaces.FacadPatterns
 {
@@ -11,5 +12,10 @@ namespace Shop.Application.Interfaces.FacadPatterns
         IGetCategoriesService GetCategoriesService { get; }
         AddNewProductService AddNewProductService { get; }
         IGetAllCategoriesService GetAllCategoriesService { get; }
+        /// <summary>
+        /// Get Product Lists
+        /// </summary>
+        IGetProductForAdminService GetProductForAdminService { get; }
+       
     }
 }

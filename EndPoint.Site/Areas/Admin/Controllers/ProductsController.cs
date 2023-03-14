@@ -14,10 +14,12 @@ namespace EndPoint.Site.Areas.Admin.Controllers
         {
             _productFacad = productFacad;
         }
-        public IActionResult Index()
+        public IActionResult Index(int Page = 1, int PageSize = 20)
         {
-            return View();
+            return View(_productFacad.GetProductForAdminService.Execute(Page, PageSize).Data);
         }
+
+       
 
         [HttpGet]
         public IActionResult AddNewProduct()
@@ -38,7 +40,7 @@ namespace EndPoint.Site.Areas.Admin.Controllers
             request.Images = images;
             request.Features = Features;
             return Json(_productFacad.AddNewProductService.Execute(request));
-        }
+        }                
     }
 
 }

@@ -5,6 +5,7 @@ using Shop.Application.Services.Products.Commands.AddNewCategory;
 using Shop.Application.Services.Products.Commands.AddNewProduct;
 using Shop.Application.Services.Products.Queries.GetAllCategories;
 using Shop.Application.Services.Products.Queries.GetCategories;
+using Shop.Application.Services.Products.Queries.GetProductForAdmin;
 
 namespace Shop.Application.Services.Products.FacadPattern
 {
@@ -53,5 +54,16 @@ namespace Shop.Application.Services.Products.FacadPattern
                 return _getAllCategoriesService = _getAllCategoriesService ?? new GetAllCategoriesService(_context);
             }
         }
+        private IGetProductForAdminService _getProductForAdminService;
+        public IGetProductForAdminService GetProductForAdminService
+        {
+            get
+            {
+                return _getProductForAdminService = _getProductForAdminService ?? new GetProductForAdminService(_context);
+            }
+        }
+
+        
+
     }
 }
