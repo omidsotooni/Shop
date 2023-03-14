@@ -73,7 +73,14 @@ namespace Shop.Application.Services.Products.FacadPattern
                 return _getProductDetailForAdminService = _getProductDetailForAdminService ?? new GetProductDetailForAdminService(_context);
             }
         }
-
+        private IRemoveProductService _removeProductService;
+        public IRemoveProductService RemoveProductService
+        {
+            get
+            {
+                return _removeProductService = _removeProductService ?? new RemoveProductService(_context);
+            }
+        }
 
     }
 }

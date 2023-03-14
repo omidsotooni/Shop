@@ -41,7 +41,7 @@
                                                         <td>@item.Inventory</td>
                                                         <td>@item.Displayed</td>
                                                         <td>
-                                                            <button class="btn btn-danger" >حذف</button>
+                                                            <button class="btn btn-danger" onclick="DeleteProduct('@item.Id')">حذف</button>
                                                             <a href="~/Admin/Products/Detail/@item.Id" class="btn btn-info">اطلاعات بیشتر</a>
                                                         </td>
                                                     </tr>
@@ -73,3 +73,62 @@
         </section>
     </div>
 </div>
+
+
+@section Scripts
+    {
+
+    <link href="~/Sweetalert/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert/sweetalert2.min.js"></script>
+
+    <script>
+        function DeleteProduct(ProductId) {
+            swal.fire({
+                title: 'حذف محصول',
+                text: "کاربر گرامی از حذف محصول مطمئن هستید؟",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#7cacbe',
+                confirmButtonText: 'بله ، محصول حذف شود',
+                cancelButtonText: 'خیر'
+            }).then((result) => {
+                if (result.value) {
+                    var postData = {
+                        'ProductId': ProductId,
+                    };
+
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: "POST",
+                        url: "Delete",
+                        data: postData,
+                        success: function (data) {
+                            if (data.isSuccess == true) {
+                                swal.fire(
+                                    'موفق!',
+                                    data.message,
+                                    'success'
+                                ).then(function (isConfirm) {
+                                    location.reload();
+                                });
+                            }
+                            else {
+
+                                swal.fire(
+                                    'هشدار!',
+                                    data.message,
+                                    'warning'
+                                );
+                            }
+                        },
+                        error: function (request, status, error) {
+                            alert(request.responseText);
+                        }
+                    });
+                }
+            })
+        }
+    </script>
+}

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shop.Application.Services.Products.Commands.AddNewCategory;
 using Shop.Application.Services.Products.Commands.AddNewProduct;
+using Shop.Application.Services.Products.Commands.RemoveProduct;
 using Shop.Application.Services.Products.Queries.GetAllCategories;
 using Shop.Application.Services.Products.Queries.GetCategories;
 using Shop.Application.Services.Products.Queries.GetProductDetailForAdmin;
@@ -19,6 +20,11 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// </summary>
         IGetProductForAdminService GetProductForAdminService { get; }
         IGetProductDetailForAdminService GetProductDetailForAdminService { get; }
+
+        /// <summary>
+        /// Remove Product
+        /// </summary>
+        IRemoveProductService RemoveProductService { get; }
 
     }
 }
