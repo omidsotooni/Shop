@@ -13,24 +13,37 @@ namespace Shop.Application.Services.Users.Commands.RemoveUser
         }
         public ResultDto Execute(long UserId)
         {
-
-            var user = _context.Users.Find(UserId);
-            if (user == null)
+            try
             {
+                var user = _context.Users.Find(UserId);
+                if (user == null)
+                {
+                    return new ResultDto
+                    {
+                        IsSuccess = false,
+                        Message = "کاربر پیدا نشد"
+                    };
+                }
+                user.RemoveTime = DateTime.Now;
+                user.IsRemoved = true;
+                _context.SaveChanges();
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "کاربر با موفقیت حذف شد"
+                };
+            }
+            catch (Exception ex)
+            {
+                string str = "Error From Server: ";
+                if (!string.IsNullOrEmpty(ex.Message))
+                    str += ex.Message;
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = "کاربر یافت نشد"
+                    Message = "کاربر پیدا نشد"
                 };
             }
-            user.RemoveTime = DateTime.Now;
-            user.IsRemoved = true;
-            _context.SaveChanges();
-            return new ResultDto()
-            {
-                IsSuccess = true,
-                Message = "کاربر با موفقیت حذف شد"
-            };
         }
     }
 }

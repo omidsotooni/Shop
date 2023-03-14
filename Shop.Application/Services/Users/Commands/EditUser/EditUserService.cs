@@ -19,7 +19,7 @@ namespace Shop.Application.Services.Users.Commands.EditUser
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = "کاربر یافت نشد"
+                    Message = "کاربر پیدا نشد"
                 };
             }
 

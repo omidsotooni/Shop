@@ -21,7 +21,7 @@ namespace Shop.Application.Services.Users.Commands.UserSatusChange
                 return new ResultDto
                 {
                     IsSuccess = false,
-                    Message = "کاربر یافت نشد"
+                    Message = "کاربر پیدا نشد"
                 };
             }
 
