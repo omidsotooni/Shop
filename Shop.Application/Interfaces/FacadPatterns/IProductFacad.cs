@@ -1,7 +1,9 @@
-﻿using Shop.Application.Services.Products.Commands.AddNewCategory;
+﻿using Microsoft.EntityFrameworkCore;
+using Shop.Application.Services.Products.Commands.AddNewCategory;
 using Shop.Application.Services.Products.Commands.AddNewProduct;
 using Shop.Application.Services.Products.Queries.GetAllCategories;
 using Shop.Application.Services.Products.Queries.GetCategories;
+using Shop.Application.Services.Products.Queries.GetProductDetailForAdmin;
 using Shop.Application.Services.Products.Queries.GetProductForAdmin;
 
 namespace Shop.Application.Interfaces.FacadPatterns
@@ -16,6 +18,7 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Get Product Lists
         /// </summary>
         IGetProductForAdminService GetProductForAdminService { get; }
-       
+        IGetProductDetailForAdminService GetProductDetailForAdminService { get; }
+
     }
 }

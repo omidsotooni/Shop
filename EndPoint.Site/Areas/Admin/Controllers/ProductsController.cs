@@ -19,7 +19,10 @@ namespace EndPoint.Site.Areas.Admin.Controllers
             return View(_productFacad.GetProductForAdminService.Execute(Page, PageSize).Data);
         }
 
-       
+        public IActionResult Detail(long Id)
+        {
+            return View(_productFacad.GetProductDetailForAdminService.Execute(Id).Data);
+        }
 
         [HttpGet]
         public IActionResult AddNewProduct()
