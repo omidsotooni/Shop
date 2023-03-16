@@ -18,7 +18,7 @@ namespace Shop.Application.Services.Users.Queries.GetUsers
                 _users = _users.Where(o => o.FullName.Contains(_requset.SearchKey) || o.Email.Contains(_requset.SearchKey));
             }
             int RowsCount = 0;
-            var _userlist = _users.ToPaged(_requset.Page, 20, out RowsCount).Select(o => new GetUsersDto
+            var _userlist = _users.ToPaged(_requset.Page, _requset.PageSize, out RowsCount).Select(o => new GetUsersDto
             {
                 Email = o.Email,
                 FullName = o.FullName,
@@ -28,8 +28,10 @@ namespace Shop.Application.Services.Users.Queries.GetUsers
             
             return new ResultGetUserDto
             {
-                Rows = RowsCount,
+                RowCount = RowsCount,
                 UsersDtos = _userlist,
+                CurrentPage = _requset.Page,
+                PageSize = _requset.PageSize,
             };
         }
     }
