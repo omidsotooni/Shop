@@ -2,6 +2,7 @@
 using Shop.Application.Services.Products.Commands.AddNewCategory;
 using Shop.Application.Services.Products.Commands.AddNewProduct;
 using Shop.Application.Services.Products.Commands.EditCategory;
+using Shop.Application.Services.Products.Commands.EditProduct;
 using Shop.Application.Services.Products.Commands.RemoveCategory;
 using Shop.Application.Services.Products.Commands.RemoveProduct;
 using Shop.Application.Services.Products.Queries.GetAllCategories;
@@ -36,6 +37,10 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Edit Category
         /// </summary>
         IEditCategoryService EditCategoryService { get; }
+        /// <summary>
+        /// Edit Product
+        /// </summary>
+        public IEditProductService EditProductService { get; }
 
     }
 }

@@ -53633,3 +53633,6 @@ input[type='checkbox'].switch, input[type='radio'].switch {
         display: block;
         z-index: 1;
     }
+.btn_left_side {
+    float: left !important;
+}
