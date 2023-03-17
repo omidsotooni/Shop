@@ -52,6 +52,7 @@
                                                             {
                                                                 <a href="~/Admin/Categories/Index?ParentId=@item.Id" class="btn btn-info">مشاهده لیست زیر دسته ها </a>
                                                             }
+                                                            <a href="~/Admin/Categories/Edit?CategoryId=@item.Id" class="btn btn-warning">ویرایش</a>
                                                             <button class="btn btn-danger" onclick="DeleteCategory('@item.Id')">حذف</button>
                                                         </td>
                                                     </tr>

@@ -1,0 +1,132 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Shop.Domain.Entities.Products;
+@model Category
+@{
+    ViewData["Title"] = "ویرایش دسته بندی";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="basic-elements">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                        <h4 class="card-title mb-0">ویرایش دسته بندی</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="px-3">
+                        <div class="form">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <input type="hidden" id="CategoryId" value="@Model.Id" />
+                                            <label for="basicInput">نام دسته بندی</label>
+                                            <input type="text" class="form-control" id="Name" value="@Model.Name">
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="col-xl-6 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">دسته بندی پدر</label>
+                                            <select class="form-control" id="ParentCategoryId" name="ParentCategory" asp-items="@ViewBag.ParentCategory">
+                                                @if (@Model.ParentCategoryId.HasValue)
+                                                {
+                                                    <option selected="selected" value="@Model.ParentCategory.Id">
+                                                        @Model.ParentCategory.Name
+                                                    </option>
+                                                }
+                                                else
+                                                {
+                                                    <option selected="selected">
+                                                        دسته بندی پدر را انتخاب کنید
+                                                    </option>
+                                                }
+                                            </select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <br />
+                                            <a onclick="EditCategory()" class="btn btn-success col-md-12">ویرایش</a>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+    {
+    <link href="~/Sweetalert/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert/sweetalert2.min.js"></script>
+
+<script>
+
+    function EditCategory() {
+        swal.fire({
+            title: 'ویرایش دسته بندی',
+            text: "آیا میخواهید دسته بندی را ویرایش نمائید؟",
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'بله، ویرایش شود',
+            cancelButtonText: 'خیر'
+        }).then((result) => {
+            if (result.value) {
+                var Name = $("#Name").val();
+                var Id = $("#CategoryId").val();
+                var ParentCategoryId = $("#ParentCategoryId").val();
+
+                var postData = {
+                    'Name': Name,
+                    'Id': Id,
+                    'ParentCategoryId': ParentCategoryId,
+                };
+
+                $.ajax({
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: 'json',
+                    type: "POST",
+                    url: "Edit",
+                    data: postData,
+                    success: function (data) {
+                        if (data.isSuccess == true) {
+                            swal.fire(
+                                'موفق!',
+                                data.message,
+                                'success'
+                            ).then(function (isConfirm) {
+                                location.reload();
+                            });
+                        }
+                        else {
+                            swal.fire(
+                                'هشدار!',
+                                data.message,
+                                'warning'
+                            );
+                        }
+                    },
+                    error: function (request, status, error) {
+                        swal.fire(
+                            'هشدار!',
+                            request.responseText,
+                            'warning'
+                        );
+                    }
+                });
+            }
+        })
+    }
+
+</script>
+}

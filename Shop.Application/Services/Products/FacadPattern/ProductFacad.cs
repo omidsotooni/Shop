@@ -3,6 +3,7 @@ using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.Products.Commands.AddNewCategory;
 using Shop.Application.Services.Products.Commands.AddNewProduct;
+using Shop.Application.Services.Products.Commands.EditCategory;
 using Shop.Application.Services.Products.Commands.RemoveCategory;
 using Shop.Application.Services.Products.Commands.RemoveProduct;
 using Shop.Application.Services.Products.Queries.GetAllCategories;
@@ -90,5 +91,15 @@ namespace Shop.Application.Services.Products.FacadPattern
                 return _removeCategoryService = _removeCategoryService ?? new RemoveCategoryService(_context);
             }
         }
+    
+        private IEditCategoryService _editCategoryService;
+        public IEditCategoryService EditCategoryService
+        {
+            get
+            {
+                return _editCategoryService = _editCategoryService ?? new EditCategoryService(_context);
+            }
+        }
+
     }
 }

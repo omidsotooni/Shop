@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shop.Application.Services.Products.Commands.AddNewCategory;
 using Shop.Application.Services.Products.Commands.AddNewProduct;
+using Shop.Application.Services.Products.Commands.EditCategory;
 using Shop.Application.Services.Products.Commands.RemoveCategory;
 using Shop.Application.Services.Products.Commands.RemoveProduct;
 using Shop.Application.Services.Products.Queries.GetAllCategories;
@@ -31,6 +32,10 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Remove Category
         /// </summary>
         IRemoveCategoryService RemoveCategoryService { get; }
+        /// <summary>
+        /// Edit Category
+        /// </summary>
+        IEditCategoryService EditCategoryService { get; }
 
     }
 }
