@@ -78,6 +78,13 @@ namespace EndPoint.Site.Areas.Admin.Controllers
                     Message = "برای ویرایش لطفا تغییرات محصول مورد نظر را اعمال کنید.!"
                 });
             }
+            List<IFormFile> images = new List<IFormFile>();
+            for (int i = 0; i < Request.Form.Files.Count; i++)
+            {
+                var file = Request.Form.Files[i];
+                images.Add(file);
+            }
+            Product.MoreImages = images;
             var result = _productFacad.EditProductService.Execute(Product);
             return Json(result);
         }

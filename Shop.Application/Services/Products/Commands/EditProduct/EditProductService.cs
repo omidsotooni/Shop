@@ -1,7 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Shop.Application.Interfaces.Contexts;
+using Shop.Application.Services.Products.Commands.AddNewProduct;
 using Shop.Common.Dto;
 using Shop.Domain.Entities.Products;
+using System;
 
 namespace Shop.Application.Services.Products.Commands.EditProduct
 {
@@ -9,12 +13,14 @@ namespace Shop.Application.Services.Products.Commands.EditProduct
     {
         #region Fields
         private readonly IDataBaseContext _context;
+        private readonly IHostingEnvironment _environment;
         #endregion
 
         #region Constructor
-        public EditProductService(IDataBaseContext context)
+        public EditProductService(IDataBaseContext context, IHostingEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         #endregion
@@ -31,7 +37,7 @@ namespace Shop.Application.Services.Products.Commands.EditProduct
                     .Include(p => p.ProductImages)
                     .Where(p => p.Id == ProductId)
                     .FirstOrDefault();
-                if(product == null)
+                if (product == null)
                 {
                     return new ResultDto<EditProduct>()
                     {
@@ -82,12 +88,53 @@ namespace Shop.Application.Services.Products.Commands.EditProduct
         }
         public ResultDto<EditProduct> Execute(EditProduct product)
         {
+            using var transaction = _context.BeginTransaction();
             try
             {
-                throw new NotImplementedException();
+                var p = _context.Products.Find(product.Id);
+                if (p == null)
+                {
+                    return new ResultDto<EditProduct>()
+                    {
+                        IsSuccess = false,
+                        Message = "محصول مورد نظر پیدا نشد!"
+                    };
+                }
+                p.Name = product.Name;
+                p.Inventory = product.Inventory;
+                p.Price = product.Price;
+                p.Description = product.Description;
+                p.CategoryId = product.CategoryId;
+                p.Displayed = product.Displayed;
+                p.Brand = product.Brand;
+                p.UpdateTime = DateTime.Now;
+                if(product.MoreImages != null && product.MoreImages.Count() > 0)
+                {
+                    List<ProductImages> productImages = new List<ProductImages>();
+                    foreach (var item in product.MoreImages)
+                    {
+                        var uploadedResult = UploadFile(item);
+                        productImages.Add(new ProductImages
+                        {
+                            Product = p,
+                            Src = uploadedResult.FileNameAddress,
+                        });
+                    }
+                    _context.ProductImages.AddRange(productImages);
+                }
+
+                _context.SaveChanges();
+                transaction.Commit();
+
+                return new ResultDto<EditProduct>()
+                {
+                    IsSuccess = true,
+                    Message = "محصول مورد نظر ویرایش شد!"
+                };
             }
             catch (Exception ex)
             {
+                transaction.Rollback();
                 string str = "Error From Server: ";
                 if (!string.IsNullOrEmpty(ex.Message))
                     str += ex.Message;
@@ -103,6 +150,42 @@ namespace Shop.Application.Services.Products.Commands.EditProduct
         {
             string result = category.ParentCategory != null ? $"{category.ParentCategory.Name} - " : "";
             return result += category.Name;
+        }
+
+        private UploadDto UploadFile(IFormFile file)
+        {
+            if (file != null)
+            {
+                string folder = $@"images\ProductImages\";
+                var uploadsRootFolder = Path.Combine(_environment.WebRootPath, folder);
+                if (!Directory.Exists(uploadsRootFolder))
+                {
+                    Directory.CreateDirectory(uploadsRootFolder);
+                }
+
+                if (file == null || file.Length == 0)
+                {
+                    return new UploadDto()
+                    {
+                        Status = false,
+                        FileNameAddress = "",
+                    };
+                }
+
+                string fileName = DateTime.Now.Ticks.ToString() + file.FileName;
+                var filePath = Path.Combine(uploadsRootFolder, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+
+                return new UploadDto()
+                {
+                    FileNameAddress = folder + fileName,
+                    Status = true,
+                };
+            }
+            return null;
         }
         #endregion
     }

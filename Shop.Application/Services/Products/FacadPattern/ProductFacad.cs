@@ -107,7 +107,7 @@ namespace Shop.Application.Services.Products.FacadPattern
         {
             get
             {
-                return  _editProductService = _editProductService ?? new EditProductService(_context);
+                return  _editProductService = _editProductService ?? new EditProductService(_context, _environment);
             }
         }
 

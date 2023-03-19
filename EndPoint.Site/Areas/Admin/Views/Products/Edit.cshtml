@@ -79,12 +79,12 @@
                     <div class="col-xl-8 col-lg-6 col-md-12 mb-1">
                         <fieldset class="form-group">
                             <label for="basicInput">اضافه کردن تصویر جدید</label>
-                            <input type="file" multiple class="form-control" accept="image/*" id="@Model.Images" value="@Model.Images">
+                            <input type="file" multiple class="form-control" accept="image/*" id="MoreImages">
                         </fieldset>
                     </div>
-
                     <hr />
-                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                    @*TODO Gallery Image*@
+                    @*<div class="col-xl-12 col-lg-12 col-md-12 mb-1">
                         <label for="basicInput">تصاویر محصول</label>
                         @foreach (var item in Model.Images)
                         {
@@ -96,7 +96,7 @@
                             </figure>
                         }
                     </div>
-                    <hr />
+                    <hr />*@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
                         <fieldset class="form-group">
@@ -184,23 +184,29 @@
                     var Displayed = $('#Displayed').is(':checked');
                     var Description = $("#Description").val();
 
-                    var postData = {
-                        'Name': Name,
-                        'Id': Id,
-                        'CategoryId': CategoryId,
-                        'Brand': Brand,
-                        'Price': Price,
-                        'Inventory': Inventory,
-                        'Displayed': Displayed,
-                        'Description': Description,
-                    };
+                    var data = new FormData();
+                    data.append("Id", Id);
+                    data.append("Name", Name);
+                    data.append("Brand", Brand);
+                    data.append("Price", Price);
+                    data.append("Inventory", Inventory);
+                    data.append("Displayed", Displayed);
+                    data.append("CategoryId", CategoryId);
+                    data.append("Description", Description);
+                    //Receiving the photos selected by the user and placing the photos in the data variable
+                    var productImages = document.getElementById("MoreImages");
+                    if (productImages.files.length > 0) {
+                        for (var i = 0; i < productImages.files.length; i++) {
+                            data.append('Images-' + i, productImages.files[i]);
+                        }
+                    }
 
                     $.ajax({
-                        contentType: 'application/x-www-form-urlencoded',
-                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
                         type: "POST",
                         url: "Edit",
-                        data: postData,
+                        data: data,
                         success: function (data) {
                             if (data.isSuccess == true) {
                                 swal.fire(

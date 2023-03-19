@@ -1,4 +1,6 @@
-﻿namespace Shop.Application.Services.Products.Commands.EditProduct
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Shop.Application.Services.Products.Commands.EditProduct
 {
     public class EditProduct
     {
@@ -11,7 +13,7 @@
         public int Price { get; set; }
         public int Inventory { get; set; }
         public bool Displayed { get; set; }
-        /*public List<IFormFile> Images { get; set; }*/
+        public List<IFormFile> MoreImages { get; set; }
         public List<EditProductFeature> Features { get; set; }
         public List<EditProductImages> Images { get; set; }
     }
