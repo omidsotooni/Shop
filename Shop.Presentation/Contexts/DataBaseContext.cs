@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Common.Roles;
 using Shop.Domain.Entities.Products;
 using Shop.Domain.Entities.Users;
+using System.Data;
 
 namespace Shop.Presentation.Contexts
 {
@@ -12,6 +14,8 @@ namespace Shop.Presentation.Contexts
         {
 
         }
+        private IDbContextTransaction _currentTransaction;
+        public IDbContextTransaction GetCurrentTransaction() => _currentTransaction;
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserInRole> UsersInRoles { get; set; }
@@ -19,6 +23,14 @@ namespace Shop.Presentation.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImages> ProductImages { get; set; }
         public DbSet<ProductFeatures> ProductFeatures { get; set; }
+        public IDbContextTransaction BeginTransaction()
+        {
+            if (_currentTransaction != null) return null;
+
+            _currentTransaction = Database.BeginTransaction(IsolationLevel.ReadCommitted);
+
+            return _currentTransaction;
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

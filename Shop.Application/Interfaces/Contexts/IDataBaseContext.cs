@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Shop.Domain.Entities.Products;
 using Shop.Domain.Entities.Users;
 
@@ -16,6 +17,7 @@ namespace Shop.Application.Interfaces.Contexts
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();
+        public IDbContextTransaction BeginTransaction();
         Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken());
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken());
     }
