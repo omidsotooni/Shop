@@ -16,16 +16,15 @@
                         <div class="card-header">
                             <div class="card-title-wrap bar-success">
                                 <h4 class="card-title">لیست کاربران فروشگاه</h4>
+                                <span class="card-text">کاربران فروشگاه اینترتی</span>
+                                <a href="~/Admin/Users/Create" class="btn btn-success btn_left_side"><i class="fa fa-plus"></i>&nbsp;افزودن کاربر جدید</a>
                             </div>
                         </div>
                         <div class="card-body collapse show">
                             <div class="card-block card-dashboard">
                                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-2">
-                                            <a href="~/Admin/Users/Create" class="btn btn-success">افزودن کاربر جدید</a>
-                                        </div>
-                                        <div class="col-sm-12 col-md-10">
+                                        <div class="col-sm-12 col-md-12">
                                             <form method="get" class="form-search">
                                                 <fieldset class="form-group">
                                                     <input type="search" name="searchkey" class="header-search-input" placeholder="برای جستجو سریع نام یا ایمیل را وارد نمائید . . .">
@@ -37,38 +36,38 @@
                                         </div>
                                     </div>
 
-                                        <div class="col-sm-12">
-                                            <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
-                                                <thead>
-                                                    <tr role="row">
-                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="نام: activate to sort column descending" style="width: 222px;">نام و نام خانوادگی</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ایمیل: activate to sort column ascending" style="width: 401px;">ایمیل</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="تنظیمات: activate to sort column ascending" style="width: 401px;">تنظیمات</th>
+                                    <div class="col-sm-12">
+                                        <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="نام: activate to sort column descending" style="width: 222px;">نام و نام خانوادگی</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ایمیل: activate to sort column ascending" style="width: 401px;">ایمیل</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="تنظیمات: activate to sort column ascending" style="width: 401px;">تنظیمات</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.UsersDtos)
+                                                {
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1">@item.FullName</td>
+                                                        <td>@item.Email</td>
+                                                        <td>
+                                                            <button class="btn btn-info" onclick="ShowModalEdituser('@item.UserId' , '@item.FullName')"><i class="fa fa-edit"></i> &nbsp;ویرایش</button>
+                                                            <button class="btn btn-danger" onclick="DeleteUser('@item.UserId')"><i class="fa fa-trash-o"></i> &nbsp;حذف</button>
+                                                            @if (item.IsActive)
+                                                            {
+                                                                <button class="btn btn-warning" onclick="UserSatusChange('@item.UserId')"><i class="fa fa-toggle-off"></i> &nbsp;غیر فعال</button>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button class="btn btn-info" onclick="UserSatusChange('@item.UserId')"><i class="fa fa-toggle-on"></i> &nbsp;فعال کردن</button>
+                                                            }
+                                                        </td>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach (var item in Model.UsersDtos)
-                                                    {
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1">@item.FullName</td>
-                                                            <td>@item.Email</td>
-                                                            <td>
-                                                                <button class="btn btn-info" onclick="ShowModalEdituser('@item.UserId' , '@item.FullName')">ویرایش</button>
-                                                                <button class="btn btn-danger" onclick="DeleteUser('@item.UserId')">حذف</button>
-                                                                @if (item.IsActive)
-                                                                {
-                                                                    <button class="btn btn-warning" onclick="UserSatusChange('@item.UserId')">غیر فعال</button>
-                                                                }
-                                                                else
-                                                                {
-                                                                    <button class="btn btn-info" onclick="UserSatusChange('@item.UserId')">فعال کردن  </button>
-                                                                }
-                                                            </td>
-                                                        </tr>
-                                                    }
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <div class="  text-center">
                                         <paging total-records="Model.RowCount"
                                                 page-no="Model.CurrentPage"
@@ -96,6 +95,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
     </div>
