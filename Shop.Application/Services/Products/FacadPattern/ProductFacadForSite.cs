@@ -1,11 +1,6 @@
 ﻿using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.Products.Queries.GetProductForSite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shop.Application.Services.Products.FacadPattern
 {
@@ -18,9 +13,11 @@ namespace Shop.Application.Services.Products.FacadPattern
         #region Constructor
         public ProductFacadForSite(IDataBaseContext context)
         {
-            this._context = context;
+            _context = context;
         }
         #endregion
+
+        #region Methods
         private IGetProductForSiteService _getProductForSiteService;
         public IGetProductForSiteService GetProductForSiteService
         {
@@ -28,8 +25,7 @@ namespace Shop.Application.Services.Products.FacadPattern
             {
                 return _getProductForSiteService = _getProductForSiteService ?? new GetProductForSiteService(_context);
             }
-
-
-            #region Methods
         }
+        #endregion
     }
+}

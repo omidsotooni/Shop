@@ -8,5 +8,6 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Get Products For Site
         /// </summary>
         IGetProductForSiteService GetProductForSiteService { get; }
+        //IGetProductDetailForSiteService GetProductDetailForSiteService { get; }
     }
 }
