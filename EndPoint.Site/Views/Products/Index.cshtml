@@ -37,14 +37,14 @@
         </div>
         <div class="product-items">
             <div class="tab-content" id="myTabContent">
-                @foreach (var item in Model.Products)
-                {
-                    <div class="tab-pane fade show active" id="Most-visited" role="tabpanel" aria-labelledby="Most-visited-tab">
-                        <div class="row">
+                <div class="tab-pane fade show active" id="Most-visited" role="tabpanel" aria-labelledby="Most-visited-tab">
+                    <div class="row">
+                        @foreach (var item in Model.Products)
+                        {
                             <div class="col-lg-3 col-md-3 col-xs-12 order-1 d-block mb-3">
                                 <section class="product-box product product-type-simple">
                                     <div class="thumb">
-                                        <a href="#" class="d-block">
+                                        <a href="~/Products/Detail/@item.Id" class="d-block">
                                             <div class="product-rate">
 
                                                 @for (int i = 1; i <= item.Star; i++)
@@ -56,7 +56,7 @@
                                                     <i class="fa fa-star"></i>
                                                 }
                                             </div>
-                                            <img src="~/@item.ImageSrc">
+                                            <img src="~/@item.ImageSrc" style="width:275px;height:275px;">
                                         </a>
                                     </div>
                                     <div class="title">
@@ -70,9 +70,9 @@
                                     </div>
                                 </section>
                             </div>
-                        </div>
+                        }
                     </div>
-                }
+                </div>
             </div>
         </div>
         <div class="pagination-product">
