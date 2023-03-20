@@ -22,10 +22,11 @@ namespace EndPoint.Site.Controllers
         {
             return View(_productFacadForSite.GetProductForSiteService.Execute(page).Data);
         }
-        //public IActionResult Detail(long Id)
-        //{
-        //    return View(_productFacad.GetProductDetailForSiteService.Execute(Id).Data);
-        //}
+        public IActionResult Detail(long Id)
+        {
+            return View(_productFacadForSite.GetProductDetailForSiteService.Execute(Id).Data);
+        }
+        
         #endregion
     }
 }

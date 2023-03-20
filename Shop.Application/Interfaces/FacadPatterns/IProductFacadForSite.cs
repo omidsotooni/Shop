@@ -1,4 +1,5 @@
-﻿using Shop.Application.Services.Products.Queries.GetProductForSite;
+﻿using Shop.Application.Services.Products.Queries.GetProductDetailForSite;
+using Shop.Application.Services.Products.Queries.GetProductForSite;
 
 namespace Shop.Application.Interfaces.FacadPatterns
 {
@@ -8,6 +9,9 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Get Products For Site
         /// </summary>
         IGetProductForSiteService GetProductForSiteService { get; }
-        //IGetProductDetailForSiteService GetProductDetailForSiteService { get; }
+        /// <summary>
+        /// Get Product Details For Site
+        /// </summary>
+        public IGetProductDetailForSiteService GetProductDetailForSiteService { get; }
     }
 }
