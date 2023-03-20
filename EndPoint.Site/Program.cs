@@ -41,6 +41,7 @@ builder.Services.AddScoped<IUserLoginService, UserLoginService>();
 
 //FacadeInject
 builder.Services.AddScoped<IProductFacad, ProductFacad>();
+builder.Services.AddScoped<IProductFacadForSite, ProductFacadForSite>();
 
 
 //{ "DefaultConnection": "Host = ; Port = 5432; Username = ; Password = ; Database = Users; SSL Mode = Require"
