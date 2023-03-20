@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dVR3JxyIkzOThunDJsuYu7sX0sHb+gUYyxAm7BSLwlc=",
+  "Hash": "EBhXHmh6uKrKoTMByJQPIz/CJjdN1OFhP5bwWbw7KwI=",
   "Source": "EndPoint.Site",
   "BasePath": "_content/EndPoint.Site",
   "Mode": "Default",
@@ -4503,6 +4503,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\ProductImages\\638148683787462698163_orig.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\images\\ProductImages\\638148704023266135download.jpg",
+      "SourceId": "EndPoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\",
+      "BasePath": "_content/EndPoint.Site",
+      "RelativePath": "images/ProductImages/638148704023266135download.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImages\\638148704023266135download.jpg"
     },
     {
       "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\js\\site.js",
