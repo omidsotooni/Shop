@@ -1,5 +1,6 @@
 ﻿using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Interfaces.FacadPatterns;
+using Shop.Application.Services.Common.Queries.GetCategory;
 using Shop.Application.Services.Common.Queries.GetMenuItem;
 using Shop.Application.Services.Products.Queries.GetProductDetailForSite;
 using Shop.Application.Services.Products.Queries.GetProductForSite;
@@ -47,6 +48,15 @@ namespace Shop.Application.Services.Products.FacadPattern
             }
         }
 
+        private IGetCategoryService _getCategoryService;
+        public IGetCategoryService GetCategoryService
+        {
+            get
+            {
+                return _getCategoryService = _getCategoryService ?? new GetCategoryService(_context);
+            }
+        }
+        
         #endregion
     }
 }

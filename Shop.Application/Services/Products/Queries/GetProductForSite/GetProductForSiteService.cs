@@ -19,7 +19,7 @@ namespace Shop.Application.Services.Products.Queries.GetProductForSite
         #endregion
 
         #region Methods
-        public ResultDto<ResultProductForSiteDto> Execute(int Page, long? CategoryId)
+        public ResultDto<ResultProductForSiteDto> Execute(string SearchKey, int Page, long? CategoryId)
         {
             try
             {
@@ -29,6 +29,10 @@ namespace Shop.Application.Services.Products.Queries.GetProductForSite
                 if (CategoryId != null)
                 {
                     productQuery = productQuery.Where(p => p.CategoryId == CategoryId || p.Category.ParentCategoryId == CategoryId).AsQueryable();
+                }
+                if (!string.IsNullOrWhiteSpace(SearchKey))
+                {
+                    productQuery = productQuery.Where(p => p.Name.Contains(SearchKey) || p.Brand.Contains(SearchKey)).AsQueryable();
                 }
 
                 var product = productQuery.ToPaged(Page, 5, out totalRow);

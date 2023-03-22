@@ -1,4 +1,5 @@
-﻿using Shop.Application.Services.Common.Queries.GetMenuItem;
+﻿using Shop.Application.Services.Common.Queries.GetCategory;
+using Shop.Application.Services.Common.Queries.GetMenuItem;
 using Shop.Application.Services.Products.Queries.GetProductDetailForSite;
 using Shop.Application.Services.Products.Queries.GetProductForSite;
 
@@ -18,5 +19,6 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Get Menu Items For site
         /// </summary>
         public IGetMenuItemService GetMenuItemService { get; }
+        public IGetCategoryService GetCategoryService { get; }
     }
 }

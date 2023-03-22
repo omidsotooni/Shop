@@ -18,9 +18,9 @@ namespace EndPoint.Site.Controllers
         #endregion
 
         #region Methods
-        public IActionResult Index(int page = 1, long? CategoryId = null)
+        public IActionResult Index(string SearchKey, int page = 1, long? CategoryId = null)
         {
-            return View(_productFacadForSite.GetProductForSiteService.Execute(page, CategoryId).Data);
+            return View(_productFacadForSite.GetProductForSiteService.Execute(SearchKey, page, CategoryId).Data);
         }
         public IActionResult Detail(long Id)
         {

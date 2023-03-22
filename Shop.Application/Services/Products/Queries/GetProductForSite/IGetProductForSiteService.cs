@@ -4,6 +4,6 @@ namespace Shop.Application.Services.Products.Queries.GetProductForSite
 {
     public interface IGetProductForSiteService
     {
-        ResultDto<ResultProductForSiteDto> Execute(int Page, long? CategoryId);
+        ResultDto<ResultProductForSiteDto> Execute(string SearchKey, int Page, long? CategoryId);
     }
 }
