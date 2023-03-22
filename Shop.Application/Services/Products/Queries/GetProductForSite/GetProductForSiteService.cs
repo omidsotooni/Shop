@@ -10,7 +10,7 @@ namespace Shop.Application.Services.Products.Queries.GetProductForSite
         #region Fields
         private readonly IDataBaseContext _context;
         #endregion
-        
+
         #region Constructor
         public GetProductForSiteService(IDataBaseContext context)
         {
@@ -19,30 +19,37 @@ namespace Shop.Application.Services.Products.Queries.GetProductForSite
         #endregion
 
         #region Methods
-        public ResultDto<ResultProductForSiteDto> Execute(int Page)
+        public ResultDto<ResultProductForSiteDto> Execute(int Page, long? CategoryId)
         {
             try
             {
                 int totalRow = 0;
-                var poducts = _context.Products.Where(o => o.Displayed).
-                    Include(o => o.ProductImages).ToPaged(Page, 5, out totalRow);
-                Random random = new Random();
-                return new ResultDto<ResultProductForSiteDto>
+                var productQuery = _context.Products.Where(o => o.Displayed).
+                    Include(o => o.ProductImages).AsQueryable();
+                if (CategoryId != null)
                 {
-                    Data = new ResultProductForSiteDto
+                    productQuery = productQuery.Where(p => p.CategoryId == CategoryId || p.Category.ParentCategoryId == CategoryId).AsQueryable();
+                }
+
+                var product = productQuery.ToPaged(Page, 5, out totalRow);
+                Random random = new Random();
+                return product == null ? throw new Exception("Product Not Found !")
+                    : new ResultDto<ResultProductForSiteDto>
                     {
-                        TotalRow = totalRow,
-                        Products = poducts.Select(o => new ProductForSiteDto
+                        Data = new ResultProductForSiteDto
                         {
-                            Id = o.Id,
-                            Star = random.Next(1, 5),
-                            Title = o.Name,
-                            ImageSrc = o.ProductImages.FirstOrDefault().Src,
-                            Price = o.Price
-                        }).ToList(),
-                    },
-                    IsSuccess = true,
-                };
+                            TotalRow = totalRow,
+                            Products = product.Select(o => new ProductForSiteDto
+                            {
+                                Id = o.Id,
+                                Star = random.Next(1, 5),
+                                Title = o.Name,
+                                ImageSrc = o.ProductImages.FirstOrDefault().Src,
+                                Price = o.Price
+                            }).ToList(),
+                        },
+                        IsSuccess = true,
+                    };
             }
             catch (Exception ex)
             {

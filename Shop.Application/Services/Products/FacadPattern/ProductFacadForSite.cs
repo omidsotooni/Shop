@@ -1,5 +1,6 @@
 ﻿using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Interfaces.FacadPatterns;
+using Shop.Application.Services.Common.Queries.GetMenuItem;
 using Shop.Application.Services.Products.Queries.GetProductDetailForSite;
 using Shop.Application.Services.Products.Queries.GetProductForSite;
 
@@ -36,6 +37,16 @@ namespace Shop.Application.Services.Products.FacadPattern
                 return _getProductDetailForSiteService = _getProductDetailForSiteService ?? new GetProductDetailForSiteService(_context);
             }
         }
+
+        private IGetMenuItemService _getMenuItemService;
+        public IGetMenuItemService GetMenuItemService
+        {
+            get
+            {
+                return _getMenuItemService = _getMenuItemService ?? new GetMenuItemService(_context);
+            }
+        }
+
         #endregion
     }
 }

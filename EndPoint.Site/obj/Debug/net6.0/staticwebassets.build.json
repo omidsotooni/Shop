@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "M9idYqrcZ59rE8rL0LIQWcc6YHskB+bYYfnCyjf9v3s=",
+  "Hash": "sh+NX12vnUewrlMWyBrBwNM2rfYTrXtp/JJtJB7Hlnc=",
   "Source": "EndPoint.Site",
   "BasePath": "_content/EndPoint.Site",
   "Mode": "Default",
@@ -6800,23 +6800,6 @@
       "OriginalItemSpec": "wwwroot\\UserTemplate\\assets\\images\\brand\\xvison.png"
     },
     {
-      "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\UserTemplate\\assets\\images\\bugtoLogo.png",
-      "SourceId": "EndPoint.Site",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\",
-      "BasePath": "_content/EndPoint.Site",
-      "RelativePath": "UserTemplate/assets/images/bugtoLogo.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserTemplate\\assets\\images\\bugtoLogo.png"
-    },
-    {
       "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\UserTemplate\\assets\\images\\cover\\laptop-cover.jpg",
       "SourceId": "EndPoint.Site",
       "SourceType": "Discovered",
@@ -6832,23 +6815,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UserTemplate\\assets\\images\\cover\\laptop-cover.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\UserTemplate\\assets\\images\\ehsan-profile.png",
-      "SourceId": "EndPoint.Site",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\",
-      "BasePath": "_content/EndPoint.Site",
-      "RelativePath": "UserTemplate/assets/images/ehsan-profile.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\UserTemplate\\assets\\images\\ehsan-profile.png"
     },
     {
       "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\UserTemplate\\assets\\images\\emptyBasket.png",
