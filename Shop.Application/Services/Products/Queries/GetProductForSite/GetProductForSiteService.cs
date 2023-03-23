@@ -19,7 +19,7 @@ namespace Shop.Application.Services.Products.Queries.GetProductForSite
         #endregion
 
         #region Methods
-        public ResultDto<ResultProductForSiteDto> Execute(string SearchKey, int Page, long? CategoryId)
+        public ResultDto<ResultProductForSiteDto> Execute(Ordering ordering, string SearchKey, int Page, int pageSize, long? CategoryId)
         {
             try
             {
@@ -35,7 +35,33 @@ namespace Shop.Application.Services.Products.Queries.GetProductForSite
                     productQuery = productQuery.Where(p => p.Name.Contains(SearchKey) || p.Brand.Contains(SearchKey)).AsQueryable();
                 }
 
-                var product = productQuery.ToPaged(Page, 5, out totalRow);
+                switch (ordering)
+                {
+                    case Ordering.NotOrder:
+                        productQuery = productQuery.OrderByDescending(o => o.Id).AsQueryable();
+                        break;
+                    case Ordering.MostVisited:
+                        productQuery = productQuery.OrderByDescending(o => o.ViewCount).AsQueryable();
+                        break;
+                    case Ordering.Bestselling:
+                        break;
+                    case Ordering.MostPopular:
+                        break;
+                    case Ordering.theNewest:
+                        productQuery = productQuery.OrderByDescending(o => o.Id).AsQueryable();
+                        break;
+                    case Ordering.TheCheapest:
+                        productQuery = productQuery.OrderBy(o => o.Price).AsQueryable();
+                        break;
+                    case Ordering.theMostExpensive:
+                        productQuery = productQuery.OrderByDescending(o => o.Price).AsQueryable();
+                        break;
+                    default:
+                        productQuery = productQuery.OrderByDescending(o => o.Id).AsQueryable();
+                        break;
+                }
+
+                var product = productQuery.ToPaged(Page, pageSize, out totalRow);
                 Random random = new Random();
                 return product == null ? throw new Exception("Product Not Found !")
                     : new ResultDto<ResultProductForSiteDto>

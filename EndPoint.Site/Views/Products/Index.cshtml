@@ -1,8 +1,14 @@
-﻿@using Shop.Application.Services.Products.Queries.GetProductForSite;
+﻿@addTagHelper *, LazZiya.TagHelpers
+@using Shop.Application.Services.Products.Queries.GetProductForSite;
 @model ResultProductForSiteDto;
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int pageNumber = 1;
+    int pageSize = 20;
+    int.TryParse(Context.Request.Query["Page"], out pageNumber);
+    int.TryParse(Context.Request.Query["PageSize"], out pageSize);
 }
 
 <div class="col-lg-12 col-md-12 col-xs-12 pl">
@@ -15,22 +21,22 @@
             <div class="nav-sort-tabs-res">
                 <ul class="nav sort-tabs-options" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="Most-visited-tab" data-toggle="tab" href="#Most-visited" role="tab" aria-controls="Most-visited" aria-selected="true">پربازدیدترین</a>
+                        <a class="nav-link active" href="~/Products?Searchkey=@Context.Request.Query["SearchKey"]&CategoryId=@Context.Request.Query["CategoryId"]&ordering=theNewest" role="tab" aria-controls="theNewest" aria-selected="true">جدیدترین</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="Bestselling-tab" data-toggle="tab" href="#Bestselling" role="tab" aria-controls="Bestselling" aria-selected="false">پرفروش&zwnj;ترین&zwnj;</a>
+                        <a class="nav-link" href="~/Products?Searchkey=@Context.Request.Query["SearchKey"]&CategoryId=@Context.Request.Query["CategoryId"]&ordering=Bestselling" role="tab" aria-controls="Bestselling" aria-selected="false">پرفروش&zwnj;ترین&zwnj;</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="Most-Popular-tab" data-toggle="tab" href="#Most-Popular" role="tab" aria-controls="Most-Popular" aria-selected="false">محبوب&zwnj;ترین</a>
+                        <a class="nav-link" href="~/Products?Searchkey=@Context.Request.Query["SearchKey"]&CategoryId=@Context.Request.Query["CategoryId"]&ordering=MostPopular" role="tab" aria-controls="MostPopular" aria-selected="false">محبوب&zwnj;ترین</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="newest-tab" data-toggle="tab" href="#newest" role="tab" aria-controls="newest" aria-selected="false">جدیدترین</a>
+                        <a class="nav-link" href="~/Products?Searchkey=@Context.Request.Query["SearchKey"]&CategoryId=@Context.Request.Query["CategoryId"]&ordering=MostVisited" role="tab" aria-controls="MostVisited" aria-selected="false">پربازدیدترین</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="cheapest-tab" data-toggle="tab" href="#cheapest" role="tab" aria-controls="cheapest" aria-selected="false">ارزان&zwnj;ترین</a>
+                        <a class="nav-link" href="~/Products?Searchkey=@Context.Request.Query["SearchKey"]&CategoryId=@Context.Request.Query["CategoryId"]&ordering=TheCheapest" role="tab" aria-controls="TheCheapest" aria-selected="false">ارزان&zwnj;ترین</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="most-expensive-tab" data-toggle="tab" href="#most-expensive" role="tab" aria-controls="most-expensive" aria-selected="false">گران&zwnj;ترین</a>
+                        <a class="nav-link" href="~/Products?Searchkey=@Context.Request.Query["SearchKey"]&CategoryId=@Context.Request.Query["CategoryId"]&ordering=theMostExpensive" role="tab" aria-controls="theMostExpensive" aria-selected="false">گران&zwnj;ترین</a>
                     </li>
                 </ul>
             </div>
@@ -76,28 +82,49 @@
             </div>
         </div>
         <div class="pagination-product">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">«</span>
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link active" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">»</span>
-                        </a>
-                    </li>
-                </ul>
+            <nav aria-label="Page navigation example">                
+                <div class="text-center">
+                    <paging total-records="@Model.TotalRow"
+                            page-no="@pageNumber == 0 ? 1 : pageNumber"
+                            page-size="@pageSize == 0 ? 20: pageSize"
+                            show-prev-next="true"
+                            show-total-pages="true"
+                            show-total-records="true"
+                            show-page-size-nav="true"
+                            show-first-numbered-page="true"
+                            show-last-numbered-page="true"
+                            gap-size="2"
+                            max-displayed-pages="4"
+                            query-string-key-page-no="Page"
+                            query-string-key-page-size="PageSize"
+                            query-string-value="@@(Request.QueryString.Value)"
+                            page-size-dropdown-items="10-20-30-50-100-500"
+                            page-size-nav-block-size="10"
+                            page-size-nav-max-items="4"
+                            page-size-nav-on-change="get"
+                            page-size-nav-form-method="this.form.submit();"
+                            class="row"
+                            class-paging-control-div="col"
+                            class-info-div="col"
+                            class-page-size-div="col"
+                            class-paging-control="pagination"
+                            class-active-page="active"
+                            class-disabled-jumping-button="active"
+                            class-total-pages="badge badge-primary"
+                            class-total-records="badge badge-info"
+                            text-page-size="موارد در هر برگه:"
+                            text-total-pages="برگه"
+                            text-total-records="محصول"
+                            text-first="&laquo;"
+                            text-last="&raquo;"
+                            text-previous="&lsaquo;"
+                            text-next="&rsaquo;"
+                            sr-text-first="نخستین"
+                            sr-text-last="آخرین"
+                            sr-text-previous="پیشین"
+                            sr-text-next="پسین">
+                    </paging>
+                </div>
             </nav>
         </div>
     </div>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shop.Application.Interfaces.FacadPatterns;
+using Shop.Application.Services.Products.Queries.GetProductForSite;
 
 namespace EndPoint.Site.Controllers
 {
@@ -18,9 +19,9 @@ namespace EndPoint.Site.Controllers
         #endregion
 
         #region Methods
-        public IActionResult Index(string SearchKey, int page = 1, long? CategoryId = null)
+        public IActionResult Index(Ordering ordering, string SearchKey, long? CategoryId = null, int page = 1, int pageSize = 20)
         {
-            return View(_productFacadForSite.GetProductForSiteService.Execute(SearchKey, page, CategoryId).Data);
+            return View(_productFacadForSite.GetProductForSiteService.Execute(ordering, SearchKey, page, pageSize, CategoryId).Data);
         }
         public IActionResult Detail(long Id)
         {
