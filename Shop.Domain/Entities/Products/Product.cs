@@ -10,6 +10,7 @@ namespace Shop.Domain.Entities.Products
         public int Price { get; set; }
         public int Inventory { get; set; }
         public bool Displayed { get; set; }
+        public int ViewCount { get; set; }
 
         public virtual Category Category { get; set; }
         public long CategoryId { get; set; }

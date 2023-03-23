@@ -27,27 +27,34 @@ namespace Shop.Application.Services.Products.Queries.GetProductDetailForSite
                     .Include(o => o.ProductImages).Include(o => o.ProductFeatures)
                     .Where(o => o.Id == Id && o.Displayed).FirstOrDefault();
                 Random random = new Random();
-                return Product == null ? throw new Exception("Product Not Found !")
-                    : new ResultDto<ProductDetailForSiteDto>()
+
+                if (Product == null)
+                {
+                    throw new Exception("Product Not Found !");
+                }
+                Product.ViewCount ++;
+                _context.SaveChanges();
+
+                return new ResultDto<ProductDetailForSiteDto>()
+                {
+                    Data = new ProductDetailForSiteDto
                     {
-                        Data = new ProductDetailForSiteDto
+                        Brand = Product.Brand,
+                        Category = $"{Product.Category.ParentCategory.Name} - {Product.Category.Name}",
+                        Description = Product.Description,
+                        Id = Product.Id,
+                        Price = Product.Price,
+                        Star = random.Next(1, 5),
+                        Title = Product.Name,
+                        Images = Product.ProductImages.Select(o => o.Src).ToList(),
+                        Features = Product.ProductFeatures.Select(o => new ProductDetailForSite_FeaturesDto
                         {
-                            Brand = Product.Brand,
-                            Category = $"{Product.Category.ParentCategory.Name} - {Product.Category.Name}",
-                            Description = Product.Description,
-                            Id = Product.Id,
-                            Price = Product.Price,
-                            Star = random.Next(1, 5),
-                            Title = Product.Name,
-                            Images = Product.ProductImages.Select(o => o.Src).ToList(),
-                            Features = Product.ProductFeatures.Select(o => new ProductDetailForSite_FeaturesDto
-                            {
-                                DisplayName = o.DisplayName,
-                                Value = o.Value,
-                            }).ToList(),
-                        },
-                        IsSuccess = true,
-                    };
+                            DisplayName = o.DisplayName,
+                            Value = o.Value,
+                        }).ToList(),
+                    },
+                    IsSuccess = true,
+                };
             }
             catch (Exception ex)
             {
