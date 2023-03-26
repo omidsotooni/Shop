@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title-wrap bar-success">
+                    <div class="card-title-wrap bar-warning">
                         <div class="card-title">
                             ویرایش اسلایدر
                             <a href="~/Admin/Sliders/Index" class="btn btn-primary btn_left_side">بازگشت &nbsp;<i class="fa fa-arrow-left"></i></a>
@@ -129,7 +129,6 @@
                         data: data,
                         success: function (data) {
                             if (data.isSuccess == true) {
-                                debugger;
                                 swal.fire(
                                     'موفق!',
                                     data.message,

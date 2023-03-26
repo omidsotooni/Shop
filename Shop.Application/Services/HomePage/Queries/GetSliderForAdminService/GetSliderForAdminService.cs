@@ -23,7 +23,7 @@ namespace Shop.Application.Services.HomePage.Queries.GetSliderForAdminService
         #endregion
 
         #region Methods
-        public ResultDto<SliderForAdminDto> GetSlidersForAdmin(int Page = 1, int PageSize = 20)
+        public ResultDto<SliderForAdminDto> GetSlidersForAdmin(int Page = 1, int PageSize = 10)
         {
             try
             {

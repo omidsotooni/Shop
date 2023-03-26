@@ -2,7 +2,9 @@
 using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.HomePage.Commands.AddNewSlider;
+using Shop.Application.Services.HomePage.Commands.DeleteSliderService;
 using Shop.Application.Services.HomePage.Commands.EditSliderService;
+using Shop.Application.Services.HomePage.Commands.SliderSatusChangeService;
 using Shop.Application.Services.HomePage.Queries.GetSliderForAdminService;
 
 namespace Shop.Application.Services.FacadPattern
@@ -48,6 +50,24 @@ namespace Shop.Application.Services.FacadPattern
                 return _editSliderService = _editSliderService ?? new EditSliderService(_context, _environment);
             }
         }
+        private ISliderSatusChangeService _sliderSatusChangeService;
+        public ISliderSatusChangeService SliderSatusChangeService
+        {
+            get
+            {
+                return _sliderSatusChangeService = _sliderSatusChangeService ?? new SliderSatusChangeService(_context);
+            }
+        }
+
+        private IDeleteSliderService _deleteSliderService;
+        public IDeleteSliderService DeleteSliderService
+        {
+            get
+            {
+                return _deleteSliderService = _deleteSliderService ?? new DeleteSliderService(_context);
+            }
+        }
+
         #endregion
     }
 }

@@ -21,7 +21,7 @@ namespace EndPoint.Site.Areas.Admin.Controllers
         #endregion
 
         #region Methods
-        public IActionResult Index(int Page = 1, int PageSize = 20)
+        public IActionResult Index(int Page = 1, int PageSize = 10)
         {
             return View(_facadForSite.GetSliderForAdminService.GetSlidersForAdmin(Page, PageSize).Data);
         }
@@ -67,7 +67,24 @@ namespace EndPoint.Site.Areas.Admin.Controllers
             }
             var result = _facadForSite.EditSliderService.EditSlider(Slider, file.FirstOrDefault());
             return Json(result);
-        }    
+        }
+        
+        [HttpPost]
+        public IActionResult ChangeStatusSlider(long SliderId)
+        {
+            var result = _facadForSite.SliderSatusChangeService.ChangeStatusSlider(SliderId);
+            if (result != null)
+                return Json(result);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Delete(long SliderId)
+        {
+            var result = _facadForSite.DeleteSliderService.DeleteSlider(SliderId);
+            if (result != null)
+                return Json(result);
+            return View();
+        }
 
         #endregion
     }
