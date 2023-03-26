@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Shop.Application.Services.Users.Commands.UserLogin;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.Products.FacadPattern;
+using Shop.Application.Services.FacadPattern;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +43,7 @@ builder.Services.AddScoped<IUserLoginService, UserLoginService>();
 //FacadeInject
 builder.Services.AddScoped<IProductFacad, ProductFacad>();
 builder.Services.AddScoped<IProductFacadForSite, ProductFacadForSite>();
+builder.Services.AddScoped<IFacadForSite, FacadForSite>();
 
 
 //{ "DefaultConnection": "Host = ; Port = 5432; Username = ; Password = ; Database = Users; SSL Mode = Require"

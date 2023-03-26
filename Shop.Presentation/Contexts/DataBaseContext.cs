@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Storage;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Common.Roles;
+using Shop.Domain.Entities.HomePages;
 using Shop.Domain.Entities.Products;
 using Shop.Domain.Entities.Users;
 using System.Data;
@@ -23,6 +24,7 @@ namespace Shop.Presentation.Contexts
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImages> ProductImages { get; set; }
         public DbSet<ProductFeatures> ProductFeatures { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
         public IDbContextTransaction BeginTransaction()
         {
             if (_currentTransaction != null) return null;
@@ -57,6 +59,7 @@ namespace Shop.Presentation.Contexts
             modelBuilder.Entity<Product>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<ProductImages>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<ProductFeatures>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Slider>().HasQueryFilter(p => !p.IsRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)

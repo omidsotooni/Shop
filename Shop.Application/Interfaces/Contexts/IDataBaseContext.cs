@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Shop.Domain.Entities.HomePages;
 using Shop.Domain.Entities.Products;
 using Shop.Domain.Entities.Users;
 
@@ -14,6 +15,7 @@ namespace Shop.Application.Interfaces.Contexts
         DbSet<Product> Products { get; set; }
         DbSet<ProductImages> ProductImages { get; set; }
         DbSet<ProductFeatures> ProductFeatures { get; set; }
+        DbSet<Slider> Sliders { get; set; }
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();
