@@ -1,4 +1,5 @@
 ﻿using Shop.Application.Services.HomePage.Commands.AddNewSlider;
+using Shop.Application.Services.HomePage.Commands.EditSliderService;
 using Shop.Application.Services.HomePage.Queries.GetSliderForAdminService;
 
 namespace Shop.Application.Interfaces.FacadPatterns
@@ -13,5 +14,9 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Get Sliders For Admin
         /// </summary>
         IGetSliderForAdminService GetSliderForAdminService { get; }
+        /// <summary>
+        /// Edit Slider
+        /// </summary>
+        IEditSliderService EditSliderService { get; }
     }
 }

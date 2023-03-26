@@ -1,0 +1,147 @@
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Shop.Application.Interfaces.Contexts;
+using Shop.Application.Services.Products.Commands.AddNewProduct;
+using Shop.Common.Dto;
+
+namespace Shop.Application.Services.HomePage.Commands.EditSliderService
+{
+    public class EditSliderService : IEditSliderService
+    {
+        #region Fields
+        private readonly IDataBaseContext _context;
+        private readonly IHostingEnvironment _environment;
+        #endregion
+
+        #region Constructor
+        public EditSliderService(IDataBaseContext context, IHostingEnvironment environment)
+        {
+            _context = context;
+            _environment = environment;
+
+        }
+        #endregion
+
+        #region Methods
+        public ResultDto<EditSliderDto> EditSlider(EditSliderDto Slider, IFormFile file)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var s = _context.Sliders.Find(Slider.Id);
+                if (s == null)
+                {
+                    return new ResultDto<EditSliderDto>()
+                    {
+                        IsSuccess = false,
+                        Message = "اسلایدر مورد نظر پیدا نشد!"
+                    };
+                }
+                if(file != null)
+                {
+                    s.Src = UploadFile(file).FileNameAddress;
+                }
+                s.AltName = Slider.AltName;
+                s.IsActive = Slider.IsActive;
+                s.Link = Slider.Link;
+                s.UpdateTime = DateTime.Now;
+                _context.SaveChanges();
+                transaction.Commit();
+
+                return new ResultDto<EditSliderDto>()
+                {
+                    Message = "اطلاعات اسلایدر ویرایش شد.",
+                    IsSuccess = true
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                string str = "Error From Server: ";
+                if (!string.IsNullOrEmpty(ex.Message))
+                    str += ex.Message;
+                return new ResultDto<EditSliderDto>()
+                {
+                    IsSuccess = false,
+                    Message = "اسلایدر مورد نظر پیدا نشد!" + str,
+                };
+            }
+        }
+
+        public ResultDto<EditSliderDto> GetSlider(long sliderId)
+        {
+            try
+            {
+                var slider = _context.Sliders.Where(o => o.Id == sliderId).FirstOrDefault();
+                if(slider == null)
+                {
+                    return new ResultDto<EditSliderDto>()
+                    {
+                        IsSuccess = false,
+                        Message = "اسلایدر مورد نظر پیدا نشد!"
+                    };
+                }
+                return new ResultDto<EditSliderDto>()
+                {
+                    Data = new EditSliderDto()
+                    {
+                        Id = slider.Id,
+                        AltName = slider.AltName,
+                        Src = slider.Src,
+                        IsActive = slider.IsActive,
+                        Link = slider.Link,
+                    },
+                    IsSuccess = true,
+                    Message = "",
+                };
+            }
+            catch (Exception ex)
+            {
+                string str = "Error From Server: ";
+                if (!string.IsNullOrEmpty(ex.Message))
+                    str += ex.Message;
+                return new ResultDto<EditSliderDto>()
+                {
+                    IsSuccess = false,
+                    Message = "اسلایدر مورد نظر پیدا نشد!" + str,
+                };
+            }
+        }
+
+        private UploadDto UploadFile(IFormFile file)
+        {
+            if (file != null)
+            {
+                string folder = $@"images\HomePages\Slider\";
+                var uploadsRootFolder = Path.Combine(_environment.WebRootPath, folder);
+                if (!Directory.Exists(uploadsRootFolder))
+                {
+                    Directory.CreateDirectory(uploadsRootFolder);
+                }
+                if (file == null || file.Length == 0)
+                {
+                    return new UploadDto()
+                    {
+                        Status = false,
+                        FileNameAddress = "",
+                    };
+                }
+                string fileName = DateTime.Now.Ticks.ToString() + file.FileName;
+                var filePath = Path.Combine(uploadsRootFolder, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+                return new UploadDto()
+                {
+                    FileNameAddress = folder + fileName,
+                    Status = true,
+                };
+            }
+            return null;
+        }
+
+        #endregion
+    }
+
+}
