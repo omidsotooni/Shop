@@ -21,7 +21,6 @@
   <ItemGroup>
     <Folder Include="Services\Common\Commands\" />
     <Folder Include="Services\HomePage\Commands\AddHomePageImages\" />
-    <Folder Include="Services\HomePage\Queries\GetSlider\" />
   </ItemGroup>
 
 </Project>

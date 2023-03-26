@@ -19,9 +19,9 @@ namespace EndPoint.Site.Areas.Admin.Controllers
         #endregion
 
         #region Methods
-        public IActionResult Index()
+        public IActionResult Index(int Page = 1, int PageSize = 20)
         {
-            return View();
+            return View(_facadForSite.GetSliderForAdminService.GetSlidersForAdmin(Page, PageSize).Data);
         }
         public IActionResult AddNewSlider()
         {
@@ -37,8 +37,9 @@ namespace EndPoint.Site.Areas.Admin.Controllers
                 var img = Request.Form.Files[i];
                 file.Add(img);
             }            
-            return Json(_facadForSite.AddNewSliderService.Execute(requestAdd, file.FirstOrDefault()));
+            return Json(_facadForSite.AddNewSliderService.Execute(requestAdd, file.First()));
         }
+
         #endregion
     }
 }

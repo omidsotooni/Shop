@@ -2,6 +2,7 @@
 using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.HomePage.Commands.AddNewSlider;
+using Shop.Application.Services.HomePage.Queries.GetSliderForAdminService;
 
 namespace Shop.Application.Services.FacadPattern
 {
@@ -29,7 +30,14 @@ namespace Shop.Application.Services.FacadPattern
                 return _addNewSliderService = _addNewSliderService ?? new AddNewSliderService(_context, _environment);
             }
         }
-
+        private IGetSliderForAdminService _getSliderForAdminService;
+        public IGetSliderForAdminService GetSliderForAdminService
+        {
+            get
+            {
+                return _getSliderForAdminService = _getSliderForAdminService ?? new GetSliderForAdminService(_context);
+            }
+        }
         #endregion
     }
 }

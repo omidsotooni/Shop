@@ -1,0 +1,112 @@
+﻿@addTagHelper *, LazZiya.TagHelpers
+@using Shop.Application.Services.HomePage.Queries.GetSliderForAdminService;
+@model SliderForAdminDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <section id="configuration">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title-wrap bar-success">
+                                <h4 class="card-title">لیست اسلایدرهای سایت</h4>
+                                <span class="card-text">اسلایدرهای سایت فروشگاه اینترتی</span>
+                                <a href="~/Admin/Sliders/AddNewSlider" class="btn btn-success btn_left_side"><i class="fa fa-plus"></i>&nbsp;افزودن اسلایدر جدید</a>
+                            </div>
+                        </div>
+                        <div class="card-body collapse show">
+                            <div class="card-block card-dashboard">
+                                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                                    <div class="col-sm-12">
+                                        <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="عنوان تصویر: activate to sort column descending" style="width: 222px;">عنوان تصویر</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="تصویر: activate to sort column ascending" style="width: 401px;">تصویر</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="محصول وابسته: activate to sort column ascending" style="width: 401px;">محصول وابسته</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="تنظیمات: activate to sort column ascending" style="width: 401px;">تنظیمات</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Sliders)
+                                                {
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1">@item.AltName</td>
+                                                        <td>
+                                                            <img src="~/@item.Src" class="img-fluid" alt="@item.AltName">
+                                                        </td>
+                                                        <td><a href="@item.Link" target="_blank">@item.Link</a></td>
+                                                        <td>
+                                                            <a href="~/Admin/Sliders/Edit/@item.Id" class="btn btn-warning"><i class="fa fa-edit"></i> &nbsp;ویرایش</a>
+                                                            <button class="btn btn-danger" onclick="DeleteSlider('@item.Id')"><i class="fa fa-trash-o"></i> &nbsp;حذف</button>
+                                                            @if (item.IsActive)
+                                                            {
+                                                                <button class="btn btn-warning" onclick="SliderSatusChange('@item.Id')"><i class="fa fa-toggle-off"></i> &nbsp;غیر فعال</button>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button class="btn btn-info" onclick="SliderSatusChange('@item.Id')"><i class="fa fa-toggle-on"></i> &nbsp;فعال کردن</button>
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="  text-center">
+                                        <paging total-records="Model.RowCount"
+                                                page-no="Model.CurrentPage"
+                                                page-size="Model.PageSize"
+                                                show-prev-next="true"
+                                                show-total-pages="true"
+                                                show-total-records="true"
+                                                show-page-size-nav="true"
+                                                show-first-numbered-page="true"
+                                                show-last-numbered-page="true"
+                                                gap-size="2"
+                                                page-size-dropdown-items="10-20-30-50-100-500"
+                                                max-displayed-pages="3"
+                                                query-string-key-page-no="Page"
+                                                query-string-key-page-size="PageSize"
+                                                query-string-value="@@(Request.QueryString.Value)"
+                                                page-size-nav-block-size="10"
+                                                page-size-nav-max-items="3"
+                                                page-size-nav-on-change="get"
+                                                page-size-nav-form-method="this.form.submit();"
+                                                class="row"
+                                                class-paging-control-div="col"
+                                                class-info-div="col"
+                                                class-page-size-div="col"
+                                                class-paging-control="pagination"
+                                                class-active-page="active"
+                                                class-disabled-jumping-button="active"
+                                                class-total-pages="badge badge-secondary"
+                                                class-total-records="badge badge-info"
+                                                text-page-size="موارد در هر برگه:"
+                                                text-total-pages="برگه"
+                                                text-total-records="اسلایدر"
+                                                text-first="&laquo;"
+                                                text-last="&raquo;"
+                                                text-previous="&lsaquo;"
+                                                text-next="&rsaquo;"
+                                                sr-text-first="نسخین"
+                                                sr-text-last="آخرین"
+                                                sr-text-previous="پیشین"
+                                                sr-text-next="پسین">
+                                        </paging>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
