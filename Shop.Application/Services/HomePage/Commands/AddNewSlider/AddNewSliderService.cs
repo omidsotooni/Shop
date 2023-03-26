@@ -33,7 +33,8 @@ namespace Shop.Application.Services.HomePage.Commands.AddNewSlider
                 {
                     Link = requestAdd.Link,
                     Src = requestAdd.Src,
-                    AltName = requestAdd.AltName,                    
+                    AltName = requestAdd.AltName,
+                    IsActive = requestAdd.IsActive,
                 };
                 _context.Sliders.Add(slider);
                 _context.SaveChanges();
