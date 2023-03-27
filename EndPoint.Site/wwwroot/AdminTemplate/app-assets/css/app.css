@@ -46503,7 +46503,7 @@ datetime .form-group {
 }
 .app-sidebar .navigation li a span.badge, .off-canvas-sidebar .navigation li a span.badge {
   position : absolute;
-  left : 3rem;
+  left : 0.1rem;
 }
 .app-sidebar .navigation li > a, .off-canvas-sidebar .navigation li > a {
   display : block;

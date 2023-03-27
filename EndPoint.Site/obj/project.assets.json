@@ -3708,7 +3708,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.4"
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.4",
+          "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Http.Features": "5.0.17"
         },
         "compile": {
           "bin/placeholder/Shop.Common.dll": {}
