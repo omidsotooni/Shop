@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Application.Services.Products.Commands.AddNewProduct;
+using Shop.Common;
 using Shop.Common.Dto;
 
 namespace Shop.Application.Services.HomePage.Commands.EditSliderService
@@ -39,7 +40,7 @@ namespace Shop.Application.Services.HomePage.Commands.EditSliderService
                 }
                 if(file != null)
                 {
-                    s.Src = UploadFile(file).FileNameAddress;
+                    s.Src = Utility.UploadFile(file, _environment).FileNameAddress;
                 }
                 s.AltName = Slider.AltName;
                 s.IsActive = Slider.IsActive;
@@ -107,40 +108,7 @@ namespace Shop.Application.Services.HomePage.Commands.EditSliderService
                 };
             }
         }
-
-        private UploadDto UploadFile(IFormFile file)
-        {
-            if (file != null)
-            {
-                string folder = $@"images\HomePages\Slider\";
-                var uploadsRootFolder = Path.Combine(_environment.WebRootPath, folder);
-                if (!Directory.Exists(uploadsRootFolder))
-                {
-                    Directory.CreateDirectory(uploadsRootFolder);
-                }
-                if (file == null || file.Length == 0)
-                {
-                    return new UploadDto()
-                    {
-                        Status = false,
-                        FileNameAddress = "",
-                    };
-                }
-                string fileName = DateTime.Now.Ticks.ToString() + file.FileName;
-                var filePath = Path.Combine(uploadsRootFolder, fileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    file.CopyTo(fileStream);
-                }
-                return new UploadDto()
-                {
-                    FileNameAddress = folder + fileName,
-                    Status = true,
-                };
-            }
-            return null;
-        }
-
+        
         #endregion
     }
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Shop.Application.Interfaces.Contexts;
-using Shop.Application.Services.Products.Commands.AddNewProduct;
+using Shop.Common;
 using Shop.Common.Dto;
 using Shop.Domain.Entities.HomePages;
 
@@ -27,7 +27,7 @@ namespace Shop.Application.Services.HomePage.Commands.AddNewSlider
         {
             try
             {
-                var SrcFile = UploadFile(file);               
+                var SrcFile = Utility.UploadFile(file , _environment);               
                 requestAdd.Src = SrcFile.FileNameAddress;
                 Slider slider = new Slider()
                 {
@@ -56,39 +56,8 @@ namespace Shop.Application.Services.HomePage.Commands.AddNewSlider
                     IsSuccess = false
                 };
             }
-        }
-        private UploadDto UploadFile(IFormFile file)
-        {
-            if (file != null)
-            {
-                string folder = $@"images\HomePages\Slider\";
-                var uploadsRootFolder = Path.Combine(_environment.WebRootPath, folder);
-                if (!Directory.Exists(uploadsRootFolder))
-                {
-                    Directory.CreateDirectory(uploadsRootFolder);
-                }
-                if (file == null || file.Length == 0)
-                {
-                    return new UploadDto()
-                    {
-                        Status = false,
-                        FileNameAddress = "",
-                    };
-                }
-                string fileName = DateTime.Now.Ticks.ToString() + file.FileName;
-                var filePath = Path.Combine(uploadsRootFolder, fileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    file.CopyTo(fileStream);
-                }
-                return new UploadDto()
-                {
-                    FileNameAddress = folder + fileName,
-                    Status = true,
-                };
-            }
-            return null;
-        }
+        }        
+        
         #endregion
     }
 }
