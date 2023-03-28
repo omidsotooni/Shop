@@ -8,6 +8,7 @@ using Shop.Application.Services.HomePage.Commands.HomePageImagesService;
 using Shop.Application.Services.HomePage.Commands.SliderSatusChangeService;
 using Shop.Application.Services.HomePage.Queries.GetSliderForAdminService;
 using Shop.Application.Services.HomePage.Queries.GetHomePageImagesService;
+using Shop.Application.Services.HomePage.Queries.GetHomePageImageAndSlidersForSite;
 
 namespace Shop.Application.Services.FacadPattern
 {
@@ -85,6 +86,15 @@ namespace Shop.Application.Services.FacadPattern
             get
             {
                 return _getHomePageImagesService = _getHomePageImagesService ?? new GetHomePageImagesService(_context);
+            }
+        }
+
+        private IGetHomePageImageAndSlidersForSite _getHomePageImageAndSlidersForSite;
+        public IGetHomePageImageAndSlidersForSite GetHomePageImageAndSlidersForSite
+        {
+            get
+            {
+                return _getHomePageImageAndSlidersForSite = _getHomePageImageAndSlidersForSite ?? new GetHomePageImageAndSlidersForSite(_context);
             }
         }
 

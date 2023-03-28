@@ -1,0 +1,73 @@
+﻿@using EndPoint.Site.Models.ViewModels.HomePages;
+@using Shop.Domain.Entities.HomePages;
+@model HomePageViewModel;
+@{
+    Layout = null;
+}
+<!-- adplacement--------------------------->
+<div class="container-main">
+    <div class="d-block">
+        <div class="adplacement-container-row">
+            @if (Model.HomePageImagesDtos.Any())
+            {
+                <div class="col-12">
+                    <a href="@Model.HomePageImagesDtos.Where(p=> p.ImageLocation == ImageLocation.CenterFullScreen)?.FirstOrDefault()?.Link" target="_blank" class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="~/@Model.HomePageImagesDtos.Where(p=> p.ImageLocation == ImageLocation.CenterFullScreen)?.FirstOrDefault()?.Src" alt="@Model.HomePageImagesDtos.Where(o => o.ImageLocation == ImageLocation.CenterFullScreen)?.FirstOrDefault()?.AltName">
+                        </div>
+                    </a>
+                </div>
+                @foreach (var item in Model.HomePageImagesDtos.Where(p => p.ImageLocation == ImageLocation.GroupCenter_1).ToList())
+                {
+                    <div class="col-6 col-lg-3 pr">
+                        <a href="@item?.Link" target="_blank" class="adplacement-item">
+                            <div class="adplacement-sponsored_box">
+                                <img src="~/@item?.Src" alt="@item?.AltName">
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12">
+                    <a href="#" class="adplacement-item mb-4">
+                        <div class="adplacement-sponsored_box">
+                            <img src="~/UserTemplate/assets/images/adplacement/a-8.jpg">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-lg-3 pr">
+                    <a href="#" class="adplacement-item">
+                        <div class="adplacement-sponsored_box">
+                            <img src="~/UserTemplate/assets/images/adplacement/a-4.jpg">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-lg-3 pr">
+                    <a href="#" class="adplacement-item">
+                        <div class="adplacement-sponsored_box">
+                            <img src="~/UserTemplate/assets/images/adplacement/a-5.jpg">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-lg-3 pr">
+                    <a href="#" class="adplacement-item">
+                        <div class="adplacement-sponsored_box">
+                            <img src="~/UserTemplate/assets/images/adplacement/a-6.jpg">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-lg-3 pr">
+                    <a href="#" class="adplacement-item">
+                        <div class="adplacement-sponsored_box">
+                            <img src="~/UserTemplate/assets/images/adplacement/a-7.jpg">
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- adplacement--------------------------->
