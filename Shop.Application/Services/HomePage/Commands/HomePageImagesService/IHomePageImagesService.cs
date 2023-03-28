@@ -7,5 +7,7 @@ namespace Shop.Application.Services.HomePage.Commands.HomePageImagesService
         ResultDto AddHomePageImages(RequestHomePageImagesDto request);
         ResultDto<RequestEditHomePageImagesDto> GetHomePageImageForEdit(long HomePageImageId);
         ResultDto<RequestEditHomePageImagesDto> EditHomePageImage(RequestEditHomePageImagesDto HomePageImageForEdit);
+        ResultDto ChangeStatusHomePageImage(long HomePageImageId);
+        ResultDto DeleteHomePageImage(long HomePageImageId);
     }
 }

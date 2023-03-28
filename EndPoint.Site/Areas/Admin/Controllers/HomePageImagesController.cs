@@ -85,7 +85,23 @@ namespace EndPoint.Site.Areas.Admin.Controllers
                 return Json(result);
             return View();
         }
-        
+
+        [HttpPost]
+        public IActionResult ChangeStatusHomePageImage(long HomePageImageId)
+        {
+            var result = _facadForSite.HomePageImagesService.ChangeStatusHomePageImage(HomePageImageId);
+            if (result != null)
+                return Json(result);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Delete(long HomePageImageId)
+        {
+            var result = _facadForSite.HomePageImagesService.DeleteHomePageImage(HomePageImageId);
+            if (result != null)
+                return Json(result);
+            return View();
+        }
 
         #endregion
     }

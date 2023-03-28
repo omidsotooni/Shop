@@ -21,6 +21,10 @@ namespace Shop.Domain.Entities.HomePages
         /// </summary>
         TopLeft_2 = 1,
         /// <summary>
+        /// Unknown
+        /// </summary>
+        Unknown = 2,
+        /// <summary>
         /// Right Bottom of Slider
         /// </summary>
         Right_1 = 3,

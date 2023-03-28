@@ -64,6 +64,84 @@ namespace Shop.Application.Services.HomePage.Commands.HomePageImagesService
             }
         }
 
+        public ResultDto ChangeStatusHomePageImage(long HomePageImageId)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var homePageImageId = _context.HomePageImages.Find(HomePageImageId);
+                if(homePageImageId == null)
+                {
+                    return new ResultDto
+                    {
+                        IsSuccess = false,
+                        Message = "تصویر پیدا نشد"
+                    };
+                }
+                homePageImageId.IsActive = !homePageImageId.IsActive;
+                 homePageImageId.UpdateTime = DateTime.Now;
+                _context.SaveChanges();
+                transaction.Commit();
+
+                string userstate = homePageImageId.IsActive == true ? "فعال" : "غیر فعال";
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = $"تصویر {userstate} شد!",
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                string str = "Error From Server: ";
+                if (!string.IsNullOrEmpty(ex.Message))
+                    str += ex.Message;
+                return new ResultDto
+                {
+                    IsSuccess = false,
+                    Message = "تصویر پیدا نشد" + str,
+                };
+            }
+        }
+
+        public ResultDto DeleteHomePageImage(long HomePageImageId)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var homePageImageId = _context.HomePageImages.Find(HomePageImageId);
+                if (homePageImageId == null)
+                {
+                    return new ResultDto
+                    {
+                        IsSuccess = false,
+                        Message = "تصویر پیدا نشد"
+                    };
+                }
+                homePageImageId.IsRemoved = true;
+                homePageImageId.RemoveTime = DateTime.Now;
+                _context.SaveChanges();
+                transaction.Commit();
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "تصویر حذف شد!",
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                string str = "Error From Server: ";
+                if (!string.IsNullOrEmpty(ex.Message))
+                    str += ex.Message;
+                return new ResultDto
+                {
+                    IsSuccess = false,
+                    Message = "تصویر پیدا نشد" + str,
+                };
+            }
+        }
+
         public ResultDto<RequestEditHomePageImagesDto> EditHomePageImage(RequestEditHomePageImagesDto HomePageImageForEdit)
         {
             using var transaction = _context.BeginTransaction();
@@ -85,6 +163,7 @@ namespace Shop.Application.Services.HomePage.Commands.HomePageImagesService
                 hpi.AltName = HomePageImageForEdit.AltName;
                 hpi.IsActive = HomePageImageForEdit.IsActive;
                 hpi.Link = HomePageImageForEdit.Link;
+                hpi.ImageLocation = HomePageImageForEdit.ImageLocation;
                 hpi.UpdateTime = DateTime.Now;
                 _context.SaveChanges();
                 transaction.Commit();
