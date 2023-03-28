@@ -2,6 +2,7 @@
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.HomePage.Commands.HomePageImagesService;
 using Shop.Common.Dto;
+using Shop.Domain.Entities.HomePages;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
@@ -20,9 +21,9 @@ namespace EndPoint.Site.Areas.Admin.Controllers
         #endregion
 
         #region Methods
-        public IActionResult Index()
+        public IActionResult Index(int Page = 1, int PageSize = 10)
         {
-            return View();
+            return View(_facadForSite.GetHomePageImagesService.GetHomePageImagesForAdmin(Page, PageSize).Data);
         }
         public IActionResult Add()
         {
@@ -51,6 +52,40 @@ namespace EndPoint.Site.Areas.Admin.Controllers
                 return Json(result);
             return View();
         }
+        public IActionResult Edit(long Id)
+        {
+            var result = _facadForSite.HomePageImagesService.GetHomePageImageForEdit(Id).Data;
+            if (result != null)
+                return View(result);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit(RequestEditHomePageImagesDto request)
+        {
+            if (request == null)
+            {
+                return Json(new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "برای ویرایش لطفا تغییرات تصویر مورد نظر را اعمال کنید.!",
+                });
+            }
+            List<IFormFile> file = new List<IFormFile>();
+            for (int i = 0; i < Request.Form.Files.Count; i++)
+            {
+                var img = Request.Form.Files[i];
+                file.Add(img);
+            }
+            if (file != null && file.Count() > 0)
+            {
+                request.file = file.First();
+            }
+            var result = _facadForSite.HomePageImagesService.EditHomePageImage(request);
+            if (result != null)
+                return Json(result);
+            return View();
+        }
+        
 
         #endregion
     }

@@ -3,6 +3,7 @@ using Shop.Application.Services.HomePage.Commands.DeleteSliderService;
 using Shop.Application.Services.HomePage.Commands.EditSliderService;
 using Shop.Application.Services.HomePage.Commands.HomePageImagesService;
 using Shop.Application.Services.HomePage.Commands.SliderSatusChangeService;
+using Shop.Application.Services.HomePage.Queries.GetHomePageImagesService;
 using Shop.Application.Services.HomePage.Queries.GetSliderForAdminService;
 
 namespace Shop.Application.Interfaces.FacadPatterns
@@ -33,5 +34,9 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Home Page Images Service includes Add, Edit, Delete
         /// </summary>
         IHomePageImagesService HomePageImagesService { get; }
+        /// <summary>
+        /// Get Home Page Images for admin
+        /// </summary>
+        IGetHomePageImagesService GetHomePageImagesService { get; }
     }
 }

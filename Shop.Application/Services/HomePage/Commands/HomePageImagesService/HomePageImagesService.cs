@@ -38,7 +38,9 @@ namespace Shop.Application.Services.HomePage.Commands.HomePageImagesService
                     Src = request.Src,
                     AltName = request.AltName,                    
                     ImageLocation = request.ImageLocation,
+                    IsActive = request.IsActive,
                 };
+                _context.HomePageImages.Add(homePageImages);
                 _context.SaveChanges();
                 transaction.Commit();
 
@@ -61,6 +63,92 @@ namespace Shop.Application.Services.HomePage.Commands.HomePageImagesService
                 };
             }
         }
+
+        public ResultDto<RequestEditHomePageImagesDto> EditHomePageImage(RequestEditHomePageImagesDto HomePageImageForEdit)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var hpi = _context.HomePageImages.Where(o => o.Id == HomePageImageForEdit.Id).FirstOrDefault();
+                if (hpi == null)
+                {
+                    return new ResultDto<RequestEditHomePageImagesDto>()
+                    {
+                        IsSuccess = false,
+                        Message = "تصویر مورد نظر پیدا نشد!",
+                    };
+                }
+                if(HomePageImageForEdit.file != null)
+                {
+                    hpi.Src = Utility.UploadFile(HomePageImageForEdit.file, _environment).FileNameAddress;
+                }
+                hpi.AltName = HomePageImageForEdit.AltName;
+                hpi.IsActive = HomePageImageForEdit.IsActive;
+                hpi.Link = HomePageImageForEdit.Link;
+                hpi.UpdateTime = DateTime.Now;
+                _context.SaveChanges();
+                transaction.Commit();
+
+                return new ResultDto<RequestEditHomePageImagesDto>()
+                {
+                    Message = "اطلاعات تصویر ویرایش شد.",
+                    IsSuccess = true
+                };
+            }
+            catch (Exception ex)
+            {
+                string str = "Error From Server: ";
+                if (!string.IsNullOrEmpty(ex.Message))
+                    str += ex.Message;
+                return new ResultDto<RequestEditHomePageImagesDto>()
+                {
+                    IsSuccess = false,
+                    Message = "خطا رخ داد" + str,
+                };
+            }
+        }
+
+        public ResultDto<RequestEditHomePageImagesDto> GetHomePageImageForEdit(long HomePageImageId)
+        {
+            try
+            {
+                var homePageImage = _context.HomePageImages.Where(o => o.Id == HomePageImageId).FirstOrDefault();
+                if(homePageImage == null)
+                {
+                    return new ResultDto<RequestEditHomePageImagesDto>()
+                    {
+                        IsSuccess = false,
+                        Message = "تصویر مورد نظر پیدا نشد!",
+                    };
+                }
+                return new ResultDto<RequestEditHomePageImagesDto>()
+                {
+                    Data = new RequestEditHomePageImagesDto()
+                    {
+                        Id = homePageImage.Id,
+                        AltName = homePageImage.AltName,
+                        Src = homePageImage.Src,
+                        IsActive = homePageImage.IsActive,
+                        Link = homePageImage.Link,
+                        ImageLocation = homePageImage.ImageLocation,
+                    },
+                    IsSuccess = true,
+                    Message = "",
+                };
+            }
+            catch (Exception ex)
+            {
+                string str = "Error From Server: ";
+                if (!string.IsNullOrEmpty(ex.Message))
+                    str += ex.Message;
+                return new ResultDto<RequestEditHomePageImagesDto>()
+                {
+                    IsSuccess = false,
+                    Message = "خطا رخ داد" + str,
+                };
+            }
+        }
+
         #endregion
     }
 }

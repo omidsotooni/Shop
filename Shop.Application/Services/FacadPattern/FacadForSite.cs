@@ -7,6 +7,7 @@ using Shop.Application.Services.HomePage.Commands.EditSliderService;
 using Shop.Application.Services.HomePage.Commands.HomePageImagesService;
 using Shop.Application.Services.HomePage.Commands.SliderSatusChangeService;
 using Shop.Application.Services.HomePage.Queries.GetSliderForAdminService;
+using Shop.Application.Services.HomePage.Queries.GetHomePageImagesService;
 
 namespace Shop.Application.Services.FacadPattern
 {
@@ -75,6 +76,15 @@ namespace Shop.Application.Services.FacadPattern
             get
             {
                 return _homePageImagesService = _homePageImagesService ?? new HomePageImagesService(_context, _environment);
+            }
+        }
+
+        private IGetHomePageImagesService _getHomePageImagesService;
+        public IGetHomePageImagesService GetHomePageImagesService
+        {
+            get
+            {
+                return _getHomePageImagesService = _getHomePageImagesService ?? new GetHomePageImagesService(_context);
             }
         }
 

@@ -25,6 +25,8 @@ namespace Shop.Presentation.Contexts
         public DbSet<ProductImages> ProductImages { get; set; }
         public DbSet<ProductFeatures> ProductFeatures { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<HomePageImages> HomePageImages { get; set; }
+
         public IDbContextTransaction BeginTransaction()
         {
             if (_currentTransaction != null) return null;
@@ -60,6 +62,7 @@ namespace Shop.Presentation.Contexts
             modelBuilder.Entity<ProductImages>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<ProductFeatures>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Slider>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<HomePageImages>().HasQueryFilter(p => !p.IsRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
