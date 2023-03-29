@@ -116,6 +116,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTGFwdG9wQW5kQ29tcHV0ZXJDYXRlZ29yeVNsaWRlckZvclNpdGVcTGFwdG9wQW5kQ29tcHV0ZXJDYXRlZ29yeVNsaWRlckZvclNpdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/MenuItemsForMobile/MenuItemsForMobile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudUl0ZW1zRm9yTW9iaWxlXE1lbnVJdGVtc0Zvck1vYmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/MenuItems/MenuItems.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudUl0ZW1zXE1lbnVJdGVtcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

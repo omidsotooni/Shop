@@ -55,6 +55,43 @@ namespace Shop.Application.Services.Common.Queries.GetMenuItem
             }
         }
 
+        public ResultDto<List<MenuItemForMobileDto>> GetMenuItemForMobile()
+        {
+            try
+            {
+                var category = _context.Categories.Include(o => o.SubCategories)
+               .Where(o => o.ParentCategoryId == null).ToList()
+               .Select(o => new MenuItemForMobileDto
+               {
+                   CategoryId = o.Id,
+                   Name = o.Name,
+                   Child = o.SubCategories.ToList().Select(child => new MenuItemForMobileDto
+                   {
+                       CategoryId = child.Id,
+                       Name = child.Name,
+                   }).ToList(),
+               }).ToList();
+
+                return category == null ? throw new Exception("Categories Not Found !")
+                    : new ResultDto<List<MenuItemForMobileDto>>()
+                    {
+                        Data = category,
+                        IsSuccess = true,
+                    };
+            }
+            catch (Exception ex)
+            {
+                string str = "Error From Server: ";
+                if (!string.IsNullOrEmpty(ex.Message))
+                    str += ex.Message;
+                return new ResultDto<List<MenuItemForMobileDto>>()
+                {
+                    IsSuccess = true,
+                    Message = str,
+                };
+            }
+        }
+
         #endregion
     }
     public class MenuItemDto
@@ -62,5 +99,11 @@ namespace Shop.Application.Services.Common.Queries.GetMenuItem
         public long CategoryId { get; set; }
         public string Name { get; set; }
         public List<MenuItemDto> Child { get; set; }
+    }
+    public class MenuItemForMobileDto
+    {
+        public long CategoryId { get; set; }
+        public string Name { get; set; }
+        public List<MenuItemForMobileDto> Child { get; set; }
     }
 }

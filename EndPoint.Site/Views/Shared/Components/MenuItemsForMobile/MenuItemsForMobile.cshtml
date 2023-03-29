@@ -1,0 +1,47 @@
+﻿@using Shop.Application.Services.Common.Queries.GetMenuItem;
+@model List<MenuItemForMobileDto>
+@{
+    Layout = null;
+}
+
+<!----------------- Menu Items For Mobile ----------------->
+@if (Model.Any())
+{
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="#" class="collapsed" type="button" data-toggle="collapse" data-target="#@item.CategoryId" aria-expanded="false" aria-controls="@item.CategoryId">
+                <i class="mdi mdi-chevron-down"></i>
+                @item.Name
+            </a>
+            @if (item.Child.Count() > 0)
+            {
+                <div id="@item.CategoryId" class="collapse" aria-labelledby="@item.CategoryId" data-parent="#accordionExample" style="">
+                    <ul>
+                        @foreach (var itemChild in item.Child)
+                        {
+                            <li>
+                                <a href="~/Products/Index?CategoryId=@itemChild.CategoryId" class="category-level-2">
+                                    @itemChild.Name
+                                </a>
+                            </li>
+
+                            @*For Level 3 Category
+                            <li class="has-sub">
+                                <a href="~/Products/Index?CategoryId=@itemChild.CategoryId" class="category-level-3">
+                                    @itemChild.Name
+                                </a>
+                                <ul>
+                                    <li><a href="#" class="category-level-3">Name of Item</a></li>
+                                </ul>
+
+                            </li>*@
+                        }
+                    </ul>
+                </div>
+            }
+        </li>
+    }
+}
+
+<!----------------- Menu Items For Mobile ----------------->
