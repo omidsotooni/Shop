@@ -50,6 +50,24 @@
             }
         }
         /// <summary>
+        /// Get Browser Id as GUID
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public Guid GetBrowserId(HttpContext context)
+        {
+            string browserId = GetValue(context, "BowserId");
+            if (browserId == null)
+            {
+                string value = Guid.NewGuid().ToString();
+                Add(context, "BowserId", value);
+                browserId = value;
+            }
+            Guid guidBowser;
+            Guid.TryParse(browserId, out guidBowser);
+            return guidBowser;
+        }
+        /// <summary>
         /// Get Cookie Options
         /// </summary>
         /// <param name="context"></param>

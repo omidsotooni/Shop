@@ -1,4 +1,6 @@
-﻿using Shop.Application.Services.HomePage.Commands.AddNewSlider;
+﻿using Shop.Application.Services.Carts.Commands;
+using Shop.Application.Services.Carts.Queries;
+using Shop.Application.Services.HomePage.Commands.AddNewSlider;
 using Shop.Application.Services.HomePage.Commands.DeleteSliderService;
 using Shop.Application.Services.HomePage.Commands.EditSliderService;
 using Shop.Application.Services.HomePage.Commands.HomePageImagesService;
@@ -43,5 +45,13 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Getting Images And Sliders for Home page site
         /// </summary>
         IGetHomePageImageAndSlidersForSite GetHomePageImageAndSlidersForSite { get; }
+        /// <summary>
+        /// Cart Services
+        /// </summary>
+        ICartService CartService { get; }
+        /// <summary>
+        /// Get Cart Service
+        /// </summary>
+        IGetCartService GetCartService { get; }
     }
 }

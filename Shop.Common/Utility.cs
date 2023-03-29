@@ -58,6 +58,14 @@ namespace Shop.Common
             }
             return null;
         }
+
+        public static string ExceptionMessage(Exception ex)
+        {
+            string str = "Error From Server: ";
+            if (!string.IsNullOrEmpty(ex.Message))
+                str += ex.Message;
+            return str;
+        }
         #endregion
     }
     public class UploadDto

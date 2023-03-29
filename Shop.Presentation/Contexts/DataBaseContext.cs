@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Storage;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Common.Roles;
+using Shop.Domain.Entities.Carts;
 using Shop.Domain.Entities.HomePages;
 using Shop.Domain.Entities.Products;
 using Shop.Domain.Entities.Users;
@@ -26,6 +27,8 @@ namespace Shop.Presentation.Contexts
         public DbSet<ProductFeatures> ProductFeatures { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<HomePageImages> HomePageImages { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
 
         public IDbContextTransaction BeginTransaction()
         {
@@ -63,6 +66,8 @@ namespace Shop.Presentation.Contexts
             modelBuilder.Entity<ProductFeatures>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<Slider>().HasQueryFilter(p => !p.IsRemoved);
             modelBuilder.Entity<HomePageImages>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<Cart>().HasQueryFilter(p => !p.IsRemoved);
+            modelBuilder.Entity<CartItem>().HasQueryFilter(p => !p.IsRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
