@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shop.Application.Interfaces.Contexts;
-using Shop.Application.Services.Carts.Commands;
 using Shop.Common;
 using Shop.Common.Dto;
 
@@ -10,14 +9,12 @@ namespace Shop.Application.Services.Carts.Queries
     {
         #region Fields
         private readonly IDataBaseContext _context;
-        private readonly ICartService _cartService;
         #endregion
 
         #region Constructor
-        public GetCartService(IDataBaseContext context, ICartService cartService)
+        public GetCartService(IDataBaseContext context)
         {
             _context = context;
-            _cartService = cartService;
         }
 
         #endregion
@@ -41,7 +38,12 @@ namespace Shop.Application.Services.Carts.Queries
                 }
                 if (UserId != null)
                 {
-                    _cartService.SetUserForCart(cart, UserId);
+                    var user = _context.Users.Find(UserId);
+                    if (user != null)
+                    {
+                        cart.User = user;
+                        _context.SaveChanges();
+                    }
                 }
                 return new ResultDto<CartDto>()
                 {
@@ -55,6 +57,7 @@ namespace Shop.Application.Services.Carts.Queries
                             Price = o.Price,
                             Product = o.Product.Name,
                             Id = o.Id,
+                            ProductLink = $"~/Products/Detail/{o.Product.Id}",
                             Images = o.Product?.ProductImages?.FirstOrDefault()?.Src ?? "~/images/ProductHasNoImage.jpg",
                         }).ToList(),
                     },

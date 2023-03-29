@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Z4OwY25GBzma7pbdInyAnKLoHXUgxxwzsxXQssDfVJ0=",
+  "Hash": "FF3OZZZ48oCrGeCwaX2Uge8S9BWeOF7DKaQE9jJMGDg=",
   "Source": "EndPoint.Site",
   "BasePath": "_content/EndPoint.Site",
   "Mode": "Default",
@@ -5285,6 +5285,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\HomePages\\Slider\\638156051448504546a-7.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\images\\ProductHasNoImage.jpg",
+      "SourceId": "EndPoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\",
+      "BasePath": "_content/EndPoint.Site",
+      "RelativePath": "images/ProductHasNoImage.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductHasNoImage.jpg"
     },
     {
       "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\images\\ProductImages\\638133743069336434asus-laptop.jpg",

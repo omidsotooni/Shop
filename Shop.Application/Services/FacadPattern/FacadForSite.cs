@@ -19,6 +19,7 @@ namespace Shop.Application.Services.FacadPattern
         #region Fields
         private readonly IDataBaseContext _context;
         private readonly IHostingEnvironment _environment;
+
         #endregion
 
         #region Constructor
@@ -108,6 +109,7 @@ namespace Shop.Application.Services.FacadPattern
                 return _cartService = _cartService ?? new CartService(_context);
             }
         }
+        
         private IGetCartService _getCartService;
         public IGetCartService GetCartService
         {
