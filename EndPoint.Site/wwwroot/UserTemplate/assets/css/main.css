@@ -2076,7 +2076,7 @@ header.header-main{
     border-bottom: 2px solid #d4e3ec;
 }
 
-.widget .card-header span.title-one{
+.widget .card-header span.title-one {
     padding-bottom: 10px;
     color: #00bfd6;
     border-bottom: 2px solid #00bfd6;
@@ -2085,6 +2085,9 @@ header.header-main{
     top: 2px;
     font-weight: 600;
     font-size: 14px;
+    padding-right: 20px;
+    padding-top: 10px;
+    text-align: center;
 }
 
 .widget .card-header .card-title,

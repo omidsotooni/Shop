@@ -5,14 +5,14 @@ using Shop.Application.Services.Products.Queries.GetProductForSite;
 
 namespace EndPoint.Site.ViewComponents
 {
-    public class MobileCategorySliderForSite : ViewComponent
+    public class HomeAppliancesCategorySliderForSite : ViewComponent
     {
         #region Fields
         private readonly IProductFacadForSite _productFacadForSite;
         #endregion
 
         #region Constructor
-        public MobileCategorySliderForSite(IProductFacadForSite productFacadForSite)
+        public HomeAppliancesCategorySliderForSite(IProductFacadForSite productFacadForSite)
         {
             _productFacadForSite = productFacadForSite;
         }
@@ -21,15 +21,15 @@ namespace EndPoint.Site.ViewComponents
         #region Methods
         public IViewComponentResult Invoke()
         {
-            long MobileCategoryId = 1;
+            long HomeAppliancesCategoryId = 1;
             HomePageViewModel HomePageImages = new HomePageViewModel()
             {
-                MobileCategory = _productFacadForSite.GetProductForSiteService.Execute(Ordering.theNewest, null, 1,
-                10, MobileCategoryId).Data.Products,
+                HomeAppliancesCategory = _productFacadForSite.GetProductForSiteService.Execute(Ordering.theNewest, null, 1,
+                10, HomeAppliancesCategoryId).Data.Products,
             };
             if (HomePageImages != null)
             {
-                return View(viewName: "MobileCategorySliderForSite", HomePageImages);
+                return View(viewName: "HomeAppliancesCategorySliderForSite", HomePageImages);
             }
             else
             {

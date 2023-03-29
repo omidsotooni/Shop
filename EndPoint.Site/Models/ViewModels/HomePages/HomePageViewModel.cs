@@ -9,5 +9,7 @@ namespace EndPoint.Site.Models.ViewModels.HomePages
         public List<HomePageImagesDto> HomePageImagesDtos { get; set; }
         public List<ProductForSiteDto> CameraCategory { get; set; }
         public List<ProductForSiteDto> MobileCategory { get; set; }
+        public List<ProductForSiteDto> HomeAppliancesCategory { get; set; }
+        public List<ProductForSiteDto> LaptopAndComputerCategory { get; set; }
     }
 }
