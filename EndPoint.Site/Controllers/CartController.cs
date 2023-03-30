@@ -24,7 +24,7 @@ namespace EndPoint.Site.Controllers
         public IActionResult Index()
         {
             var userId = ClaimUtility.GetUserId(User);
-            var resultGetLst = _facadForSite.GetCartService.GetMyCart(cookiesManeger.GetBrowserId(HttpContext), userId).Data;
+            var resultGetLst = _facadForSite.CartService.GetMyCart(cookiesManeger.GetBrowserId(HttpContext), userId).Data;
             if(resultGetLst != null)
             {
                 return View(resultGetLst);

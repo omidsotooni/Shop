@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Services\Carts\Queries\" />
     <Folder Include="Services\Common\Commands\" />
   </ItemGroup>
 

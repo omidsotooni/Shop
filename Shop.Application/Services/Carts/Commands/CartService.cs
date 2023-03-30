@@ -1,4 +1,5 @@
-﻿using Shop.Application.Interfaces.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using Shop.Application.Interfaces.Contexts;
 using Shop.Common;
 using Shop.Common.Dto;
 using Shop.Domain.Entities.Carts;
@@ -218,6 +219,59 @@ namespace Shop.Application.Services.Carts.Commands
                 transaction.Rollback();
                 Utility.ExceptionMessage(ex);
                 return new ResultDto()
+                {
+                    IsSuccess = false,
+                };
+            }
+        }
+
+        public ResultDto<CartDto> GetMyCart(Guid BrowserId, long? UserId)
+        {
+            try
+            {
+                var cart = _context.Carts.Include(o => o.CartItems)
+                    .ThenInclude(o => o.Product).ThenInclude(o => o.ProductImages)
+                    .Where(o => o.BrowserId == BrowserId && o.Expired == false)
+                    .OrderByDescending(o => o.Id).FirstOrDefault();
+                if (cart == null)
+                {
+                    return new ResultDto<CartDto>()
+                    {
+                        IsSuccess = false,
+                    };
+                }
+                if (UserId != null)
+                {
+                    var user = _context.Users.Find(UserId);
+                    if (user != null)
+                    {
+                        cart.User = user;
+                        _context.SaveChanges();
+                    }
+                }
+                return new ResultDto<CartDto>()
+                {
+                    Data = new CartDto()
+                    {
+                        ProductCount = cart.CartItems.Count(),
+                        SumAmount = cart.CartItems.Sum(o => o.Price * o.Count),
+                        CartItems = cart.CartItems.Select(o => new CartItemDto
+                        {
+                            Count = o.Count,
+                            Price = o.Price,
+                            Product = o.Product.Name,
+                            Id = o.Id,
+                            ProductLink = $"~/Products/Detail/{o.Product.Id}",
+                            Images = o.Product?.ProductImages?.FirstOrDefault()?.Src ?? "~/images/ProductHasNoImage.jpg",
+                        }).ToList(),
+                    },
+                    IsSuccess = true,
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<CartDto>()
                 {
                     IsSuccess = false,
                 };

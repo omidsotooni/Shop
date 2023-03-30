@@ -5,6 +5,7 @@ namespace Shop.Application.Services.Carts.Commands
 {
     public interface ICartService
     {
+        ResultDto<CartDto> GetMyCart(Guid BrowserId, long? UserId);
         ResultDto AddToCart(long ProductId, Guid BrowserId);
         ResultDto RemoveFromCart(long ProductId, Guid BrowserId);
         ResultDto SetUserForCart(Cart Cart, long? UserId);

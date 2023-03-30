@@ -277,12 +277,15 @@
                                                     </span>
                                                 </a>
                                             </div>
-                                            <div class="product-seller-row guarantee">
+                                            @*<div class="product-seller-row guarantee">
                                                 <span class="title mt-3"> تعداد:</span>
                                                 <div class="quantity pl">
-                                                    <input type="number" min="1" max="100" step="1" value="1"><div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>
+                                                    <input type="number" min="1" max="100" step="1" value="1"><div class="quantity-nav">
+                                                        <div class="quantity-button quantity-up" onclick="AddCount('@item.Id')">+</div>
+                                                        <div class="quantity-button quantity-down" onclick="LowCount('@item.Id')">-</div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </div>*@
                                             <div class="product-seller-row add-to-cart">
                                                 <a href="~/Cart/AddToCart?ProductId=@Model.Id" class="btn-add-to-cart btn btn-primary">
                                                     <span class="btn-add-to-cart-txt">افزودن به سبد خرید</span>
@@ -848,4 +851,15 @@
 {
     <script src="~/UserTemplate/assets/js/vendor/lightgallery-all.js"></script>
     <script src="~/UserTemplate/assets/js/vendor/jquery.ez-plus.js"></script>
+    <script>
+
+        function AddCount(CartItemId) {
+            window.location.replace('/Cart/Add?CartItemId=' + CartItemId);
+        }
+
+        function LowCount(CartItemId) {
+            window.location.replace('/Cart/LowOff?CartItemId=' + CartItemId);
+        }
+
+    </script>
 }

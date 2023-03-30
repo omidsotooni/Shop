@@ -1,4 +1,4 @@
-﻿@using Shop.Application.Services.Carts.Queries;
+﻿@using Shop.Application.Services.Carts.Commands;
 @model CartDto
 @{
     ViewData["Title"] = "سبد خرید";
@@ -6,7 +6,7 @@
     int SumTotal = 0;
 }
 
-@if (Model.CartItems.Any())
+@if (Model != null)
 {
     <section class="cart-home">
         <div class="post-item-cart d-block order-2">
@@ -28,7 +28,7 @@
                                     <tr>
                                         <th scope="row" class="product-cart-name">
                                             <div class="product-thumbnail-img">
-                                                <a href="@item.ProductLink" target="_blank">
+                                                <a href="~/@item.ProductLink" target="_blank">
                                                     <img src="~/@item.Images">
                                                 </a>
                                                 <div class="product-remove">
@@ -38,7 +38,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-title">
-                                                <a href="@item.ProductLink" target="_blank">
+                                                <a href="~/@item.ProductLink" target="_blank">
                                                     @item.Product
                                                 </a>
                                             </div>
