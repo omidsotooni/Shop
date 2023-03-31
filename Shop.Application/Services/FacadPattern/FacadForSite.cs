@@ -10,6 +10,8 @@ using Shop.Application.Services.HomePage.Queries.GetSliderForAdminService;
 using Shop.Application.Services.HomePage.Queries.GetHomePageImagesService;
 using Shop.Application.Services.HomePage.Queries.GetHomePageImageAndSlidersForSite;
 using Shop.Application.Services.Carts.Commands;
+using Shop.Application.Services.Fainances.Commands;
+using Shop.Application.Services.Carts.Queries;
 
 namespace Shop.Application.Services.FacadPattern
 {
@@ -108,7 +110,24 @@ namespace Shop.Application.Services.FacadPattern
                 return _cartService = _cartService ?? new CartService(_context);
             }
         }
-               
+
+        private IPaymentServices _paymentServices;
+        public IPaymentServices PaymentServices
+        {
+            get
+            {
+                return _paymentServices = _paymentServices ?? new PaymentServices(_context);
+            }
+        }
+
+        private IGetCartService _getCartService;
+        public IGetCartService GetCartService
+        {
+            get
+            {
+                return _getCartService = _getCartService ?? new GetCartService(_context);
+            }
+        }
 
         #endregion
     }

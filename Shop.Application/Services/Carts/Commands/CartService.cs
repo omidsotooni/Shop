@@ -255,6 +255,7 @@ namespace Shop.Application.Services.Carts.Commands
                     {
                         ProductCount = cart.CartItems.Count(),
                         SumAmount = cart.CartItems.Sum(o => o.Price * o.Count),
+                        CartId = cart.Id,
                         CartItems = cart.CartItems.Select(o => new CartItemDto
                         {
                             Count = o.Count,
@@ -278,6 +279,7 @@ namespace Shop.Application.Services.Carts.Commands
             }
         }
 
+       
         #endregion
     }
 }

@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Carts\Queries\" />
     <Folder Include="Services\Common\Commands\" />
+    <Folder Include="Services\Fainances\Queries\" />
   </ItemGroup>
 
 </Project>

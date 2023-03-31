@@ -1,4 +1,6 @@
 ﻿using Shop.Application.Services.Carts.Commands;
+using Shop.Application.Services.Carts.Queries;
+using Shop.Application.Services.Fainances.Commands;
 using Shop.Application.Services.HomePage.Commands.AddNewSlider;
 using Shop.Application.Services.HomePage.Commands.DeleteSliderService;
 using Shop.Application.Services.HomePage.Commands.EditSliderService;
@@ -48,6 +50,14 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Cart Services
         /// </summary>
         ICartService CartService { get; }
-       
+        /// <summary>
+        /// Payment Services
+        /// </summary>
+        IPaymentServices PaymentServices { get; }
+        /// <summary>
+        /// Get Cart Service
+        /// </summary>
+        IGetCartService GetCartService { get; }
+
     }
 }
