@@ -44,10 +44,6 @@ namespace Shop.Presentation.Contexts
             //Seed Data
             SeedData(modelBuilder);
 
-            // اعمال ایندکس بر روی فیلد ایمیل
-            // اعمال عدم تکراری بودن ایمیل
-            modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
-
             // اعمال ایندکس بر روی فیلد ایمیل واعمال عدم تکراری بودن ایمیل
             modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
 
