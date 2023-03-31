@@ -1,4 +1,6 @@
-﻿using Shop.Application.Interfaces.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using Shop.Application.Interfaces.Contexts;
+using Shop.Application.Services.Users.Commands.UserLogin;
 using Shop.Common;
 using Shop.Common.Dto;
 using Shop.Domain.Entities.Users;
@@ -8,11 +10,18 @@ namespace Shop.Application.Services.Users.Commands.RegisterUser
 {
     public class RegisterUserService : IRegisterUserService
     {
+        #region Fields
         private readonly IDataBaseContext _context;
+        #endregion
+
+        #region Constructor
         public RegisterUserService(IDataBaseContext context)
         {
             _context = context;
         }
+        #endregion
+
+        #region Methods
         public ResultDto<ResultRegisterUserDto> Execute(RequsetRegisterUserDto _request)
         {
 
@@ -52,6 +61,20 @@ namespace Shop.Application.Services.Users.Commands.RegisterUser
                         },
                         IsSuccess = false,
                         Message = "رمز عبور را وارد نمایید"
+                    };
+                }
+
+                var FindUser = _context.Users.Where(o => o.Email.Equals(_request.Email)).FirstOrDefault();
+                if (FindUser != null)
+                {
+                    return new ResultDto<ResultRegisterUserDto>()
+                    {
+                        Data = new ResultRegisterUserDto()
+                        {
+                            UserId = 0,
+                        },
+                        IsSuccess = false,
+                        Message = "ایمیل وارد شده قبلا در سایت ثبت نام کرده است!",
                     };
                 }
                 if (_request.Password != _request.RePasword)
@@ -117,7 +140,7 @@ namespace Shop.Application.Services.Users.Commands.RegisterUser
                     Message = "ثبت نام کاربر انجام شد.",
                 };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new ResultDto<ResultRegisterUserDto>()
                 {
@@ -130,5 +153,7 @@ namespace Shop.Application.Services.Users.Commands.RegisterUser
                 };
             }
         }
+
+        #endregion
     }
 }
