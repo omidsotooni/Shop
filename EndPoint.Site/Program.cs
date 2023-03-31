@@ -13,9 +13,17 @@ using Shop.Application.Services.Users.Commands.UserLogin;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.Products.FacadPattern;
 using Shop.Application.Services.FacadPattern;
+using Shop.Common.Roles;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(UserRoles.Admin, policy => policy.RequireRole(UserRoles.Admin));
+    options.AddPolicy(UserRoles.Operator, policy => policy.RequireRole(UserRoles.Operator));
+    options.AddPolicy(UserRoles.Customer, policy => policy.RequireRole(UserRoles.Customer));
+});
 
 builder.Services.AddAuthentication(options =>
 {
@@ -24,7 +32,7 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 }).AddCookie(options =>
 {
-    options.LoginPath = new PathString("/");
+    options.LoginPath = new PathString("/Authentication/Signin");
     options.ExpireTimeSpan = TimeSpan.FromMinutes(15.0);
 });
 
@@ -73,8 +81,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
