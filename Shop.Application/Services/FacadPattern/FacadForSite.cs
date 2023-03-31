@@ -12,6 +12,7 @@ using Shop.Application.Services.HomePage.Queries.GetHomePageImageAndSlidersForSi
 using Shop.Application.Services.Carts.Commands;
 using Shop.Application.Services.Fainances.Commands;
 using Shop.Application.Services.Carts.Queries;
+using Shop.Application.Services.Fainances.Queries;
 
 namespace Shop.Application.Services.FacadPattern
 {
@@ -128,6 +129,16 @@ namespace Shop.Application.Services.FacadPattern
                 return _getCartService = _getCartService ?? new GetCartService(_context);
             }
         }
+
+        private IGetPaymentServices _getPaymentServices;
+        public IGetPaymentServices GetPaymentServices
+        {
+            get
+            {
+                return _getPaymentServices = _getPaymentServices ?? new GetPaymentServices(_context);
+            }
+        }
+
 
         #endregion
     }
