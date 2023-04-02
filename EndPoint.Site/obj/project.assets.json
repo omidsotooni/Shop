@@ -1865,6 +1865,19 @@
           }
         }
       },
+      "RestSharp/106.15.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -3684,19 +3697,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
-        }
-      },
-      "ZarinPal/3.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp2.2/Dto.dll": {},
-          "lib/netcoreapp2.2/Service.dll": {},
-          "lib/netcoreapp2.2/ZarinPal.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.2/Dto.dll": {},
-          "lib/netcoreapp2.2/Service.dll": {},
-          "lib/netcoreapp2.2/ZarinPal.dll": {}
         }
       },
       "Shop.Application/1.0.0": {
@@ -6157,6 +6157,22 @@
         "lib/netstandard2.0/NuGet.Versioning.xml",
         "nuget.versioning.6.3.1.nupkg.sha512",
         "nuget.versioning.nuspec"
+      ]
+    },
+    "RestSharp/106.15.0": {
+      "sha512": "HM7ohR6AscxedNenrrl93DSZG6hvdnA7O+NHyCl/6ZKTfn8psQ9rRmUpcb9eWr+140vmfxoVemql0bUoeGEW3A==",
+      "type": "package",
+      "path": "restsharp/106.15.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/RestSharp.dll",
+        "lib/net452/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.106.15.0.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -10445,20 +10461,6 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "ZarinPal/3.0.1": {
-      "sha512": "1XPTvVdTa+ywa61JOK7TXVNqzHfwg/8bnMqKh9ISvHWk8HEhhrFXhuC/F5c/xDz9smay7254gD6T4WicgS+FeQ==",
-      "type": "package",
-      "path": "zarinpal/3.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netcoreapp2.2/Dto.dll",
-        "lib/netcoreapp2.2/Service.dll",
-        "lib/netcoreapp2.2/ZarinPal.dll",
-        "zarinpal.3.0.1.nupkg.sha512",
-        "zarinpal.nuspec"
-      ]
-    },
     "Shop.Application/1.0.0": {
       "type": "project",
       "path": "../Shop.Application/Shop.Application.csproj",
@@ -10487,9 +10489,9 @@
       "Microsoft.EntityFrameworkCore.Design >= 6.0.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.13",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 6.0.4",
+      "RestSharp >= 106.15.0",
       "Shop.Persistence >= 1.0.0",
-      "Swashbuckle.AspNetCore >= 6.3.0",
-      "Zarinpal >= 3.0.1"
+      "Swashbuckle.AspNetCore >= 6.3.0"
     ]
   },
   "packageFolders": {
@@ -10557,13 +10559,13 @@
             "target": "Package",
             "version": "[6.0.4, )"
           },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[106.15.0, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.3.0, )"
-          },
-          "Zarinpal": {
-            "target": "Package",
-            "version": "[3.0.1, )"
           }
         },
         "imports": [

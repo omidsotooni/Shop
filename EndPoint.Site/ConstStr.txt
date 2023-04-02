@@ -1,0 +1,13 @@
+﻿param1					:		Value1
+MerchantIdZarinpal		:		XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+RequestUrlForZarinpal	:		sandbox.zarinpal.com/pg/v4/payment/request.json
+GatewayUrlZarinpal		:		sandbox.zarinpal.com/pg/StartPay
+CallBackurlZarinpal		:		Payment/VerifyZarinpal?PaymentGuid=
+HttpCallBackurl			:		https
+PortCallBackurl			:		7000
+ServerCallBackurl		:		localhost
+MerchantIdIDPay			:		XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+RequestUrlForIDPay		:		sandbox.zarinpal.com/pg/v4/payment/request.json
+GatewayUrlIDPay			:		sandbox.zarinpal.com/pg/StartPay
+CallBackurlIDPay		:		Payment/Verify?PaymentGuid=
+param2					:		Value2

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+YUjRfHr6qZO0kbNrEoPymn4+cP6AGvhx0EpQg8DfDlIkxXpHx3xgHxEy0X55ZX4BxIyT/7MJH36kM0LdOUgeA==",
+  "dgSpecHash": "sNkxYFHK6ZMG6XTOyNMr2x6ifgrorifm2Cc38PTsJtzj6lBC9jGEnkp6VyNGS3Wy0jAz91u0FetlhI6iLxV6lA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj",
   "expectedPackageFiles": [
@@ -82,6 +82,7 @@
     "C:\\Users\\Lenovo\\.nuget\\packages\\nuget.projectmodel\\6.3.1\\nuget.projectmodel.6.3.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\nuget.protocol\\6.3.1\\nuget.protocol.6.3.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\nuget.versioning\\6.3.1\\nuget.versioning.6.3.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\restsharp\\106.15.0\\restsharp.106.15.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -186,8 +187,7 @@
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Lenovo\\.nuget\\packages\\zarinpal\\3.0.1\\zarinpal.3.0.1.nupkg.sha512"
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
