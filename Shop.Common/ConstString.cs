@@ -53,13 +53,13 @@ namespace Shop.Common
                 }
             }
         }
-        public static string CallBackurl
+        public static string CallBackurlZarinpal
         {
             get
             {
                 try
                 {
-                    return ReadConfig("CallBackurl");
+                    return ReadConfig("CallBackurlZarinpal");
                 }
                 catch (Exception)
                 {
@@ -165,5 +165,35 @@ namespace Shop.Common
                 }
             }
         }
+        public static string IsSandboxIDPay
+        {
+            get
+            {
+                try
+                {
+                    return ReadConfig("IsSandboxIDPay");
+                }
+                catch (Exception)
+                {
+                    return "data not found!";
+                }
+            }
+        }
+        public static string CallBackurlIDPay
+        {
+            get
+            {
+                try
+                {
+                    return ReadConfig("CallBackurlIDPay");
+                }
+                catch (Exception)
+                {
+                    return "data not found!";
+                }
+            }
+        }
+
+
     }
 }

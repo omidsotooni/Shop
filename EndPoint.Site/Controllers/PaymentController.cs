@@ -1,12 +1,17 @@
 ﻿
 using EndPoint.Site.Models.ZarinpalModels;
 using EndPoint.Site.Utilities;
-using EndPoint.Site.Zarinpal;
+using EndPoint.Site.RestApis;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Common;
 using Shop.Common.Dto;
+using EndPoint.Site.Models.IDPayModels;
+using Shop.Domain.Entities.Finances;
+using RestSharp.Extensions;
+using static Shop.Common.Utility;
+using NuGet.Configuration;
 
 namespace EndPoint.Site.Controllers
 {
@@ -18,7 +23,9 @@ namespace EndPoint.Site.Controllers
         private readonly CookiesManeger _cookiesManeger;
         private readonly string MerchantIdZarinpal = ConstString.MerchantIdZarinpal;
         private readonly string MerchantIdIDPay = ConstString.MerchantIdIDPay;
-        private readonly string CallbackUrl = ConstString.CallBackurl;
+        private readonly string CallbackUrl = ConstString.CallBackurlZarinpal;
+        private readonly string CallBackurlIDPay = ConstString.CallBackurlIDPay;
+
         #endregion
 
         #region Constructor
@@ -30,7 +37,7 @@ namespace EndPoint.Site.Controllers
         #endregion
 
         #region Methods
-        public IActionResult Index(Banking banking)
+        public async Task<IActionResult> Index(Banking banking)
         {
             long? UserId = ClaimUtility.GetUserId(User);
             var cartItems = _facadForSite.CartService.GetMyCart(_cookiesManeger.GetBrowserId(HttpContext), UserId);
@@ -46,13 +53,14 @@ namespace EndPoint.Site.Controllers
                         Message = "سبد خرید متعلق به شما نیست!"
                     });
                 }
+                string Description = "پرداخت فاکتور شماره: ";
                 var requestPay = _facadForSite.PaymentServices.AddRequestPayment(cartItems.Data.SumAmount, UserId.Value);
                 switch (banking)
                 {
                     case Banking.Zarinpal:
-                        // Send to ZarinPal               
+                        // Send to ZarinPal
                         var request = SendToZarinpal(requestPay.Data.Amount, MerchantIdZarinpal, requestPay.Data.PaymentGuid,
-                            requestPay.Data.RequestPaymentId, CallbackUrl, requestPay.Data.Email, "09011234567");
+                            requestPay.Data.RequestPaymentId, CallbackUrl, requestPay.Data.Email, "09011234567", Description);
                         var response = ZarinpalRestApi.Payment(request);
                         if (response.Data.Code == 100)
                         {
@@ -62,6 +70,17 @@ namespace EndPoint.Site.Controllers
                         TempData["Message"] = response.Data.Code;
                         break;
                     case Banking.IDPay:
+                        var requestIDPay = SendToIDPay("فروشگاه", requestPay.Data.Amount, requestPay.Data.PaymentGuid, requestPay.Data.RequestPaymentId
+                            , requestPay.Data.Email, "09011234567", Description, CallBackurlIDPay);
+                        var responseIDPay = await IDPayRestApi.PaymentIDPay(requestIDPay, MerchantIdIDPay);
+                        if (responseIDPay.link.HasValue())
+                        {
+                            return Redirect(responseIDPay.link);
+                        }
+                        else
+                        {
+                            TempData["Message"] = responseIDPay.error_message;
+                        }
                         break;
                     default:
                         break;
@@ -110,18 +129,59 @@ namespace EndPoint.Site.Controllers
             }
             return RedirectToAction("ResultPayment", viewModel);
         }
+        public IActionResult VerifyIDPay()
+        {
+            var viewModel = new ResultDto();
+            var request = new ResultPaymentIDPay
+            {
+                status = int.Parse(Request.Query["status"]),
+                track_id = Request.Query["track_id"],
+                id = Request.Query["id"],
+                order_id = Request.Query["order_id"],
+                amount = decimal.Parse(Request.Query["amount"]),
+                card_no = Request.Query["card_no"],
+                hashed_card_no = Request.Query["hashed_card_no"],
+                date = double.Parse(Request.Query["date"]),
+            };
+            if (!request.IsOK)
+            {
+                ViewBag.ID = request.id;
+                ViewBag.OrderID = request.order_id;
+                viewModel.Message = request.Message;
+                viewModel.IsSuccess = false;
+            }
+            else
+            {
+                // تایید تراکنش
+                var res = IDPayRestApi.VerifyIDPay(request, MerchantIdIDPay).Result;
+                if (res.error_code != null)
+                {
+                    viewModel.Message = request.Message;
+                    viewModel.IsSuccess = false;
+                }
+                else
+                {
+                    viewModel.Message = request.Message;
+                    viewModel.IsSuccess = true;
+                    ViewBag.ID = res.id;
+                    ViewBag.OrderID = res.order_id;
+                }
+            }
+
+            return RedirectToAction("ResultPayment", viewModel);
+        }
         public IActionResult ResultPayment(ResultDto viewModel)
         {
             return View(viewModel);
         }
-        public PaymentRequest SendToZarinpal(int Amount, string MerchantId, Guid PaymentGuid, long RequestPaymentId, string Callback, string Email, string Mobile)
+        public PaymentRequest SendToZarinpal(int Amount, string MerchantId, Guid PaymentGuid, long RequestPaymentId, string Callback, string Email, string Mobile, string Description)
         {
             var request = new PaymentRequest
             {
                 MerchantId = MerchantId,
                 Amount = Amount * 10,
                 CallbackUrl = $"{Request.Scheme}://{Request.Host}/{Callback}{PaymentGuid}",
-                Description = "پرداخت فاکتور شماره: " + RequestPaymentId,
+                Description = Description + RequestPaymentId,
                 Metadata = new PaymentRequestMetadata // Either none, or all
                 {
                     Email = Email,
@@ -130,17 +190,20 @@ namespace EndPoint.Site.Controllers
             };
             return request;
         }
-        public enum Banking
+        public RequestIDPay SendToIDPay(string Name, int Amount, Guid PaymentGuid, long RequestPaymentId, string Email, string Mobile, string Description, string CallBack)
         {
-            /// <summary>
-            /// Zarinpal
-            /// </summary>
-            Zarinpal = 0,
-            /// <summary>
-            /// IDPay
-            /// </summary>
-            IDPay = 1,            
+            var request = new RequestIDPay(PaymentGuid.ToString())
+            {
+                amount = Amount,
+                name = Name,
+                phone = Mobile,
+                mail = Email,
+                desc = Description + RequestPaymentId,
+                callback = $"{Request.Scheme}://{Request.Host}/{CallBack}{PaymentGuid}",
+            };
+            return request;
         }
+
         #endregion
     }
 }

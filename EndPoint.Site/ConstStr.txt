@@ -7,7 +7,8 @@ HttpCallBackurl			:		https
 PortCallBackurl			:		7000
 ServerCallBackurl		:		localhost
 MerchantIdIDPay			:		XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-RequestUrlForIDPay		:		sandbox.zarinpal.com/pg/v4/payment/request.json
-GatewayUrlIDPay			:		sandbox.zarinpal.com/pg/StartPay
-CallBackurlIDPay		:		Payment/Verify?PaymentGuid=
+RequestUrlForIDPay		:		api.idpay.ir/v1.1/
+GatewayUrlIDPay			:		api.idpay.ir/v1.1/payment/verify
+CallBackurlIDPay		:		Payment/VerifyIDPay?PaymentGuid=
+IsSandboxIDPay			:		true
 param2					:		Value2

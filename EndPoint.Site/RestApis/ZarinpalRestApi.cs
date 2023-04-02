@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace EndPoint.Site.Zarinpal
+namespace EndPoint.Site.RestApis
 {
     public class ZarinpalRestApi
     {

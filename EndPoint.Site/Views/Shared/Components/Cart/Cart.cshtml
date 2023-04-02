@@ -1,4 +1,6 @@
-﻿@using Shop.Application.Services.Carts.Commands;
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Shop.Application.Services.Carts.Commands;
+@using static Shop.Common.Utility;
 @model CartDto
 @{
     Layout = null;
@@ -61,8 +63,15 @@
                         <span>تومان</span>
                     </span>
                 </div>
+                <div class="form-control">
+                        <span for="basicInput">انتخاب درگاه پرداخت</span>
+                        <select class="form-control" name="banking" asp-items="@Html.GetEnumSelectList<Banking>()">
+                            <option selected="selected" value="">انتخاب درگاه پرداخت</option>
+                        </select>
+                        <p><small class="text-muted">پیش فرض به IDPay وصل می شود.</small></p>
+                </div>
                 <div class="mini-card-button">
-                    <a href="~/Cart/Index" class="view-card">مشاهده سبد خرید</a>
+                    <a href="~/Cart/Index" class="view-card">مشاهده سبد خرید</a>                    
                     <a href="~/Payment/Index" class="card-checkout">تسویه حساب</a>
                 </div>
             </div>

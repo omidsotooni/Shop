@@ -66,6 +66,41 @@ namespace Shop.Common
                 str += ex.Message;
             return str;
         }
+        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
+        {
+            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            return dtDateTime;
+        }
+        public static string GetStatusIDPay(int status)
+        {
+            switch (status)
+            {
+                case 1: return "پرداخت انجام نشده است";
+                case 2: return "پرداخت ناموفق بوده است";
+                case 3: return "خطا رخ داده است";
+                case 4: return "بلوکه شده";
+                case 5: return "برگشت به پرداخت کننده";
+                case 6: return "برگشت خورده سیستمی";
+                case 10: return "در انتظار تایید پرداخت";
+                case 100: return "پرداخت تایید شده است";
+                case 101: return "پرداخت قبلا تایید شده است";
+                case 200: return "به دریافت کننده واریز شد";
+                default: return "";
+            }
+        }
+        public enum Banking
+        {
+            /// <summary>
+            /// IDPay
+            /// </summary>
+            IDPay = 0,
+            /// <summary>
+            /// Zarinpal
+            /// </summary>
+            Zarinpal = 1,
+        }
+
         #endregion
     }
     public class UploadDto

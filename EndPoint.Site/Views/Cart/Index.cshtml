@@ -1,4 +1,6 @@
-﻿@using Shop.Application.Services.Carts.Commands;
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Shop.Application.Services.Carts.Commands;
+@using static Shop.Common.Utility;
 @model CartDto
 @{
     ViewData["Title"] = "سبد خرید";
@@ -82,8 +84,25 @@
                         <div class="checkout-summary">
                             <ul class="checkout-summary-summary">
                                 <li class="cart-subtotal">
-                                    <span class="amount">قیمت کل</span>
-                                    <span> @SumTotal.ToString("n0") &nbsp; تومان </span>
+                                    <div class=" align-items-center">
+                                        <div class="col-md-6 pr mt-5">
+                                            <span class="amount">قیمت کل</span>
+                                            <span> @SumTotal.ToString("n0") &nbsp; تومان </span>
+                                        </div>
+                                        <div class="col-md-6 pr mt-5">
+                                            <fieldset class="form-group">
+                                                <label for="basicInput">درگاه پرداخت</label>
+                                                <select class="form-control" name="Banking">
+                                                    <option selected="selected" value="">انتخاب درگاه پرداخت</option>
+                                                    <option value="0">IDPay</option>
+                                                    <option value="1">Zarinpal</option>
+                                                </select>
+                                                <p><small class="text-muted">درگاه پرداخت را انتخاب نمائید، پیش فرض به IDPay وصل می شود.</small></p>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                   
                                 </li>
 
                                 @*<li class="shipping-totals">
@@ -126,7 +145,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <div class="col-md-2 pl mt-5">
+                                        <div class="col-md-3 pl mt-5">
                                             <div class="proceed-to-checkout">
                                                 <a href="~/Payment/Index" class="checkout-button d-block">تسویه حساب</a>
                                             </div>
