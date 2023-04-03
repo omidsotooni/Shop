@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Shop.Common;
 using System.Net;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 
@@ -10,27 +11,28 @@ namespace EndPoint.Site.RestApis
 {
     public class IDPayRestApi
     {
-        private static readonly HttpClient HttpClient = new HttpClient();
+        private static HttpClient httpClient = new HttpClient();
         private static readonly string BaseApiUrlIDPay = "https://" + ConstString.RequestUrlForIDPay;
         private static readonly string BaseWebUrlIDPay = "https://" + ConstString.GatewayUrlIDPay;
         private static readonly string SandboxStr = ConstString.IsSandboxIDPay.ToLower();
         public static async Task<PaymentResponseIDPay> PaymentIDPay(RequestIDPay requestIDPay, string MerchantID)
         {
             var sandbox = SandboxStr == "true"? "1" : "0";
-            HttpClient.DefaultRequestHeaders.Accept.Clear();
-            HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpClient.DefaultRequestHeaders.Add("X-API-KEY", MerchantID);
-            HttpClient.DefaultRequestHeaders.Add("X-SANDBOX", sandbox);
+            httpClient.BaseAddress = new Uri(BaseApiUrlIDPay);
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient.DefaultRequestHeaders.Add("X-API-KEY", MerchantID);
+            httpClient.DefaultRequestHeaders.Add("X-SANDBOX", sandbox);
             
             var request = new HttpRequestMessage
             {
-                RequestUri = new Uri($"{BaseApiUrlIDPay}/payment"),
+                RequestUri = new Uri($"{BaseApiUrlIDPay}payment"),
                 Method = HttpMethod.Post
             };
             request.Content = new StringContent(JsonConvert.SerializeObject(requestIDPay),
                     Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
-            response = await HttpClient.SendAsync(request);
+            response = await httpClient.SendAsync(request);
             if (response.StatusCode == HttpStatusCode.BadGateway)
                 throw new IDPayException(response.StatusCode, "Cannot contact IDPay Server");
             if ((int)response.StatusCode >= 400 && (int)response.StatusCode < 500)
@@ -45,10 +47,10 @@ namespace EndPoint.Site.RestApis
         public static async Task<PaymentInfoIDPay> VerifyIDPay(ResultPaymentIDPay resultPaymentIDPay, string MerchantID)
         {
             var sandbox = SandboxStr == "true" ? "1" : "0";
-            HttpClient.DefaultRequestHeaders.Accept.Clear();
-            HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpClient.DefaultRequestHeaders.Add("X-API-KEY", MerchantID);
-            HttpClient.DefaultRequestHeaders.Add("X-SANDBOX", sandbox);
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient.DefaultRequestHeaders.Add("X-API-KEY", MerchantID);
+            httpClient.DefaultRequestHeaders.Add("X-SANDBOX", sandbox);
             var request = new HttpRequestMessage
             {
                 RequestUri = new Uri($"{BaseWebUrlIDPay}"),
@@ -57,7 +59,7 @@ namespace EndPoint.Site.RestApis
             request.Content = new StringContent(JsonConvert.SerializeObject(resultPaymentIDPay),
                     Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
-            response = await HttpClient.SendAsync(request);
+            response = await httpClient.SendAsync(request);
             if (response.StatusCode == HttpStatusCode.BadGateway)
                 throw new IDPayException(response.StatusCode, "Cannot contact IDPay Server");
             if ((int)response.StatusCode >= 400 && (int)response.StatusCode < 500)
