@@ -270,7 +270,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

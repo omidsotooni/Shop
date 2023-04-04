@@ -92,10 +92,8 @@
                                         <div class="col-md-6 pr mt-5">
                                             <fieldset class="form-group">
                                                 <label for="basicInput">درگاه پرداخت</label>
-                                                <select class="form-control" name="Banking">
-                                                    <option selected="selected" value="">انتخاب درگاه پرداخت</option>
-                                                    <option value="0">IDPay</option>
-                                                    <option value="1">Zarinpal</option>
+                                                <select class="form-control" name="banking" asp-items="@Html.GetEnumSelectList<Banking>()">
+                                                    <option selected="selected" value="">انتخاب درگاه پرداخت</option>                                                    
                                                 </select>
                                                 <p><small class="text-muted">درگاه پرداخت را انتخاب نمائید، پیش فرض به IDPay وصل می شود.</small></p>
                                             </fieldset>

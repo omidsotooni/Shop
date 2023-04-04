@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FF3OZZZ48oCrGeCwaX2Uge8S9BWeOF7DKaQE9jJMGDg=",
+  "Hash": "hZcpBKt4fIYVKuVe+6uqw4IgO41r3Ni6mmgNj5u7GQ8=",
   "Source": "EndPoint.Site",
   "BasePath": "_content/EndPoint.Site",
   "Mode": "Default",
@@ -7767,6 +7767,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UserTemplate\\assets\\images\\emptyBasket.png"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\UserTemplate\\assets\\images\\footer\\license\\idpay.png",
+      "SourceId": "EndPoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\",
+      "BasePath": "_content/EndPoint.Site",
+      "RelativePath": "UserTemplate/assets/images/footer/license/idpay.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UserTemplate\\assets\\images\\footer\\license\\idpay.png"
     },
     {
       "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\UserTemplate\\assets\\images\\footer\\license\\L-1.png",

@@ -3735,6 +3735,9 @@
       "Shop.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Shop.Common": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Shop.Domain.dll": {}
         },

@@ -1,4 +1,5 @@
 ﻿using Shop.Domain.Entities.Commons;
+using Shop.Domain.Entities.Orders;
 
 namespace Shop.Domain.Entities.Users
 {
@@ -9,5 +10,6 @@ namespace Shop.Domain.Entities.Users
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public ICollection<UserInRole> UserInRoles { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

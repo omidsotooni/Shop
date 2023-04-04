@@ -13,6 +13,8 @@ using Shop.Application.Services.Carts.Commands;
 using Shop.Application.Services.Fainances.Commands;
 using Shop.Application.Services.Carts.Queries;
 using Shop.Application.Services.Fainances.Queries;
+using Shop.Application.Services.Orders.Commands;
+using Shop.Application.Services.Orders.Queries;
 
 namespace Shop.Application.Services.FacadPattern
 {
@@ -139,6 +141,23 @@ namespace Shop.Application.Services.FacadPattern
             }
         }
 
+        private IOrderServices _orderServices;
+        public IOrderServices OrderServices
+        {
+            get
+            {
+                return _orderServices = _orderServices ?? new OrderServices(_context);
+            }
+        }
+
+        private IGetOrdersServices _getOrdersServices;
+        public IGetOrdersServices GetOrdersServices
+        {
+            get
+            {
+                return _getOrdersServices = _getOrdersServices ?? new GetOrdersServices(_context);
+            }
+        }
 
         #endregion
     }

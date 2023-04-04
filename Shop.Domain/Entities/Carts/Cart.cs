@@ -9,6 +9,7 @@ namespace Shop.Domain.Entities.Carts
         public long? UserId { get; set; }
         public Guid BrowserId { get; set; }
         public bool Expired { get; set; }
+        public bool Finished { get; set; }
         public ICollection<CartItem> CartItems { get; set; }
     }
 }

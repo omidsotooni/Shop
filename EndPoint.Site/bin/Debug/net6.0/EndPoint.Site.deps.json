@@ -2345,6 +2345,9 @@
         }
       },
       "Shop.Domain/1.0.0": {
+        "dependencies": {
+          "Shop.Common": "1.0.0"
+        },
         "runtime": {
           "Shop.Domain.dll": {}
         }

@@ -31,6 +31,7 @@ namespace Shop.Application.Services.Fainances.Queries
                         Data = new GetPaymentDto()
                         {
                             Amount = payment.Amount,
+                            Id = payment.Id,
                         }
                     };
                 }

@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using System.Xml.Linq;
 
 namespace Shop.Common
 {
@@ -94,13 +97,58 @@ namespace Shop.Common
             /// <summary>
             /// IDPay
             /// </summary>
+            [Display(Name = "درگاه آیدی پی")]
             IDPay = 0,
             /// <summary>
             /// Zarinpal
             /// </summary>
+            [Display(Name = "درگاه زرین پال")]
             Zarinpal = 1,
         }
-
+        public enum OrderState
+        {
+            /// <summary>
+            /// سفارش ناموفق
+            /// </summary>
+            [Display(Name = "سفارش ناموفق")]
+            UnSuccess = 0,
+            /// <summary>
+            /// سفارش در حال پردازش
+            /// </summary>
+            [Display(Name = "در حالی پردازش")]
+            Processing = 1,
+            /// <summary>
+            /// سفارش لغو شده توسط کاربر
+            /// </summary>
+            [Display(Name = "لغو شده")]
+            Canceled = 2,
+            /// <summary>
+            /// سفارش تحویل شده به کاربر
+            /// </summary>
+            [Display(Name = "تحویل شده")]
+            Delivered = 3,
+            /// <summary>
+            /// سفارش موفق
+            /// </summary>
+            [Display(Name = "سفارش موفق")]
+            Success = 4,
+        }
+        public static string KhorshidiDate(DateTime dateTime)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            string date = string.Format("{0}/{1}/{2}", pc.GetYear(dateTime),
+                pc.GetMonth(dateTime), pc.GetDayOfMonth(dateTime));
+            date += " ساعت ";
+            date += string.Format("{0}:{1}", pc.GetHour(dateTime), pc.GetMinute(dateTime));
+            return date;
+        }
+        public static string ConvertDateToKhorshidi(DateTime dateTime)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            return string.Format("{0}/{1}/{2}T{3}:{4}", pc.GetYear(dateTime),
+                pc.GetMonth(dateTime), pc.GetDayOfMonth(dateTime),
+                pc.GetHour(dateTime), pc.GetMinute(dateTime));
+        }
         #endregion
     }
     public class UploadDto

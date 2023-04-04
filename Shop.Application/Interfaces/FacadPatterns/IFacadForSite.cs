@@ -10,6 +10,8 @@ using Shop.Application.Services.HomePage.Commands.SliderSatusChangeService;
 using Shop.Application.Services.HomePage.Queries.GetHomePageImageAndSlidersForSite;
 using Shop.Application.Services.HomePage.Queries.GetHomePageImagesService;
 using Shop.Application.Services.HomePage.Queries.GetSliderForAdminService;
+using Shop.Application.Services.Orders.Commands;
+using Shop.Application.Services.Orders.Queries;
 
 namespace Shop.Application.Interfaces.FacadPatterns
 {
@@ -63,6 +65,13 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Get Payment Services
         /// </summary>
         IGetPaymentServices GetPaymentServices { get; }
-
+        /// <summary>
+        /// Orders services
+        /// </summary>
+        IOrderServices OrderServices { get; }
+        /// <summary>
+        /// Get Order Services
+        /// </summary>
+        IGetOrdersServices GetOrdersServices { get; }
     }
 }

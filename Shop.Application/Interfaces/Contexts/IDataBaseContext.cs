@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Shop.Domain.Entities.Carts;
 using Shop.Domain.Entities.Finances;
 using Shop.Domain.Entities.HomePages;
+using Shop.Domain.Entities.Orders;
 using Shop.Domain.Entities.Products;
 using Shop.Domain.Entities.Users;
 
@@ -22,6 +23,8 @@ namespace Shop.Application.Interfaces.Contexts
         DbSet<Cart> Carts { get; set; }
         DbSet<CartItem> CartItems { get; set; }
         DbSet<Payment> Payments { get; set; }
+        DbSet<Order> Orders { get; set; }
+        DbSet<OrderDetail> OrderDetails { get; set; }
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();

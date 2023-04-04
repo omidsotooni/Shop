@@ -1,4 +1,5 @@
 ﻿using Shop.Domain.Entities.Commons;
+using Shop.Domain.Entities.Orders;
 using Shop.Domain.Entities.Users;
 
 namespace Shop.Domain.Entities.Finances
@@ -13,5 +14,6 @@ namespace Shop.Domain.Entities.Finances
         public DateTime? PayDate { get; set; }
         public string Authority { get; set; }
         public long RefId { get; set; } = 0;
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

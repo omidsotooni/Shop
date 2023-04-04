@@ -12,6 +12,8 @@ using Shop.Domain.Entities.Finances;
 using RestSharp.Extensions;
 using static Shop.Common.Utility;
 using NuGet.Configuration;
+using Shop.Application.Services.Orders.Commands;
+using Shop.Domain.Entities.Users;
 
 namespace EndPoint.Site.Controllers
 {
@@ -95,60 +97,135 @@ namespace EndPoint.Site.Controllers
 
         public IActionResult VerifyZarinpal(Guid PaymentGuid, string authority, string status)
         {
+            long? UserId = ClaimUtility.GetUserId(User);
+            var cart = _facadForSite.CartService.GetMyCart(_cookiesManeger.GetBrowserId(HttpContext), UserId);
+            var paymentReq = _facadForSite.GetPaymentServices.GetPayment(PaymentGuid);
+
             var viewModel = new ResultDto();
             if (status == "NOK")
             {
                 viewModel.IsSuccess = false;
                 viewModel.Message = "پرداخت ناموفق!";
+                _facadForSite.OrderServices.AddNewOrder(new RequestAddNewOrderSericeDto
+                {
+                    CartId = cart.Data.CartId,
+                    UserId = UserId.Value,
+                    PaymentId = paymentReq.Data.Id,
+                    Status = false,
+                    Address = "User Address",
+                    BankingGateway = Banking.Zarinpal,
+                    Authority = "",
+                    RefId = 0,
+                });
             }
             else if (status == "OK")
             {
-                var requestPay = _facadForSite.GetPaymentServices.GetPayment(PaymentGuid);
                 var request = new VerifyRequest
                 {
                     MerchantId = MerchantIdZarinpal,
                     Authority = authority,
-                    Amount = requestPay.Data.Amount * 10
+                    Amount = paymentReq.Data.Amount * 10
                 };
                 var response = ZarinpalRestApi.Verify(request);
                 if (response.Data.Code == 100) // Successful
                 {
                     viewModel.IsSuccess = true;
                     viewModel.Message = $"پرداخت موفق، شماره تراکنش: {response.Data.RefId}";
+                    _facadForSite.OrderServices.AddNewOrder(new RequestAddNewOrderSericeDto
+                    {
+                        CartId = cart.Data.CartId,
+                        UserId = UserId.Value,
+                        PaymentId = paymentReq.Data.Id,
+                        Status = true,
+                        Address = "User Address",
+                        BankingGateway = Banking.Zarinpal,
+                        Authority = authority,
+                        RefId = response.Data.RefId,
+                    });
+                    //redirect to orders
+                    return RedirectToAction("Index", "Orders");
                 }
                 else if (response.Data.Code == 101) // Repeated successful
                 {
                     viewModel.IsSuccess = true;
                     viewModel.Message = $"این تراکنشن قبلا با موفقیت انجام شده است، شماره تراکنش: {response.Data.RefId}";
+                    return RedirectToAction("Index", "Orders");
                 }
                 else // Error
                 {
                     viewModel.IsSuccess = false;
                     viewModel.Message = $"پرداخت ناموفق! کد خطا: {response.Data.Code}";
+                    _facadForSite.OrderServices.AddNewOrder(new RequestAddNewOrderSericeDto
+                    {
+                        CartId = cart.Data.CartId,
+                        UserId = UserId.Value,
+                        PaymentId = paymentReq.Data.Id,
+                        Status = false,
+                        Address = "User Address",
+                        BankingGateway = Banking.Zarinpal,
+                        Authority = "",
+                        RefId = 0,
+                    });
+                    return RedirectToAction("Index", "Orders");
                 }
             }
             return RedirectToAction("ResultPayment", viewModel);
         }
-        public IActionResult VerifyIDPay()
+        public IActionResult VerifyIDPay(Guid PaymentGuid)
         {
+            long? UserId = ClaimUtility.GetUserId(User);
+            var cart = _facadForSite.CartService.GetMyCart(_cookiesManeger.GetBrowserId(HttpContext), UserId);
+            var paymentReq = _facadForSite.GetPaymentServices.GetPayment(PaymentGuid);
             var viewModel = new ResultDto();
-            var request = new ResultPaymentIDPay
+            var request = new ResultPaymentIDPay();            
+            try
             {
-                status = int.Parse(Request.Query["status"]),
-                track_id = Request.Query["track_id"],
-                id = Request.Query["id"],
-                order_id = Request.Query["order_id"],
-                amount = decimal.Parse(Request.Query["amount"]),
-                card_no = Request.Query["card_no"],
-                hashed_card_no = Request.Query["hashed_card_no"],
-                date = double.Parse(Request.Query["date"]),
-            };
+                request = new ResultPaymentIDPay
+                {
+                    status = int.Parse(Request.Query["status"]),
+                    track_id = Request.Query["track_id"],
+                    id = Request.Query["id"],
+                    order_id = Request.Query["order_id"],
+                    amount = decimal.Parse(Request.Query["amount"]),
+                    card_no = Request.Query["card_no"],
+                    hashed_card_no = Request.Query["hashed_card_no"],
+                    date = double.Parse(Request.Query["date"]),
+                };
+            }
+            catch (Exception)
+            {
+                request = new ResultPaymentIDPay
+                {
+                    status = int.Parse("0"),
+                    track_id = "track_id",
+                    id = "id",
+                    order_id = "order_id",
+                    amount = decimal.Parse("0"),
+                    card_no = "card_no",
+                    hashed_card_no = "hashed_card_no",
+                    date = double.Parse("0"),
+                };
+                request.IsOK = false;
+            }
             if (!request.IsOK)
             {
                 ViewBag.ID = request.id;
                 ViewBag.OrderID = request.order_id;
                 viewModel.Message = request.Message;
                 viewModel.IsSuccess = false;
+                _facadForSite.OrderServices.AddNewOrder(new RequestAddNewOrderSericeDto
+                {
+                    CartId = cart.Data.CartId,
+                    UserId = UserId.Value,
+                    PaymentId = paymentReq.Data.Id,
+                    Status = false,
+                    Address = "User Address",
+                    BankingGateway = Banking.IDPay,
+                    Authority = request.order_id,
+                    RefId = 0,
+                });
+                //redirect to orders
+                return RedirectToAction("Index", "Orders");
             }
             else
             {
@@ -158,6 +235,19 @@ namespace EndPoint.Site.Controllers
                 {
                     viewModel.Message = request.Message;
                     viewModel.IsSuccess = false;
+                    _facadForSite.OrderServices.AddNewOrder(new RequestAddNewOrderSericeDto
+                    {
+                        CartId = cart.Data.CartId,
+                        UserId = UserId.Value,
+                        PaymentId = paymentReq.Data.Id,
+                        Status = false,
+                        Address = "User Address",
+                        BankingGateway = Banking.IDPay,
+                        Authority = request.order_id,
+                        RefId = 0,
+                    });
+                    //redirect to orders
+                    return RedirectToAction("Index", "Orders");
                 }
                 else
                 {
@@ -165,10 +255,21 @@ namespace EndPoint.Site.Controllers
                     viewModel.IsSuccess = true;
                     ViewBag.ID = res.id;
                     ViewBag.OrderID = res.order_id;
+                    _facadForSite.OrderServices.AddNewOrder(new RequestAddNewOrderSericeDto
+                    {
+                        CartId = cart.Data.CartId,
+                        UserId = UserId.Value,
+                        PaymentId = paymentReq.Data.Id,
+                        Status = true,
+                        Address = "User Address",
+                        BankingGateway = Banking.IDPay,
+                        Authority = res.order_id,
+                        RefId = long.Parse(res.track_id),
+                    });
+                    //redirect to orders
+                    return RedirectToAction("Index", "Orders");
                 }
             }
-
-            return RedirectToAction("ResultPayment", viewModel);
         }
         public IActionResult ResultPayment(ResultDto viewModel)
         {
