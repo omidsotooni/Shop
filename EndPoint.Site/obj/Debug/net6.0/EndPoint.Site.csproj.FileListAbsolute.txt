@@ -1072,7 +1072,6 @@ C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\EndPoint.Site.exe
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\EndPoint.Site.deps.json
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\EndPoint.Site.runtimeconfig.json
-C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\EndPoint.Site.pdb
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\LazZiya.TagHelpers.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\MessagePack.dll
@@ -1127,6 +1126,7 @@ C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\NuGet.ProjectModel.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\NuGet.Protocol.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\NuGet.Versioning.dll
+C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\RestSharp.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -1340,5 +1340,5 @@ C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\obj\Debug\net6.
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\obj\Debug\net6.0\refint\EndPoint.Site.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\obj\Debug\net6.0\EndPoint.Site.pdb
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\obj\Debug\net6.0\EndPoint.Site.genruntimeconfig.cache
+C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\EndPoint.Site.pdb
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\obj\Debug\net6.0\ref\EndPoint.Site.dll
-C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\RestSharp.dll

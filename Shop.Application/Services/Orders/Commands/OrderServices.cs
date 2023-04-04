@@ -41,7 +41,7 @@ namespace Shop.Application.Services.Orders.Commands
                     Order order = new Order()
                     {
                         Address = request.Address,
-                        OrderState = OrderState.Processing,
+                        OrderState = request.Status == true ? OrderState.Processing : OrderState.UnSuccess,
                         Payment = payment,
                         User = user,
                         BankingGateway = request.BankingGateway,

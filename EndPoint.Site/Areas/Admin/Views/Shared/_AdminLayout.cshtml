@@ -66,13 +66,19 @@
                             <a href="#"><i class="fa fa-first-order"></i><span data-i18n="" class="menu-title">مدیریت سفارشات</span><span class="tag badge badge-pill badge-danger mt-1">11M</span></a></a>
                             <ul class="menu-content">
                                 <li>
+                                    <a href="~/Admin/Orders/Index?orderState=Success" class="menu-item">سفارشات موفق</a>
+                                </li>
+                                <li>
                                     <a href="~/Admin/Orders/Index?orderState=Processing" class="menu-item">در حال پردازش</a>
+                                </li>
+                                <li>
+                                    <a href="~/Admin/Orders/Index?orderState=Canceled" class="menu-item"> لغو شده</a>
                                 </li>
                                 <li>
                                     <a href="~/Admin/Orders/Index?orderState=Delivered" class="menu-item">تحویل شده ها </a>
                                 </li>
                                 <li>
-                                    <a href="~/Admin/Orders/Index?orderState=Canceled" class="menu-item"> لغو شده</a>
+                                    <a href="~/Admin/Orders/Index?orderState=UnSuccess" class="menu-item">سفارشات ناموفق</a>
                                 </li>
                             </ul>
                         </li>

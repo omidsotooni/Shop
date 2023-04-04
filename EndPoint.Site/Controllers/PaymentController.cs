@@ -75,15 +75,14 @@ namespace EndPoint.Site.Controllers
                         var requestIDPay = SendToIDPay("فروشگاه", requestPay.Data.Amount, requestPay.Data.PaymentGuid, requestPay.Data.RequestPaymentId
                             , requestPay.Data.Email, "09011234567", Description, CallBackurlIDPay);
                         var responseIDPay = await IDPayRestApi.PaymentIDPay(requestIDPay, MerchantIdIDPay);
-                        if (responseIDPay.link.HasValue())
+                        if (responseIDPay != null && responseIDPay.link.HasValue())
                         {
                             return Redirect(responseIDPay.link);
                         }
                         else
-                        {
-                            TempData["Message"] = responseIDPay.error_message;
+                        {                            
+                            return RedirectToAction("VerifyIDPay", "Payment", new { PaymentGuid = requestPay.Data.PaymentGuid });
                         }
-                        break;
                     default:
                         break;
                 }
@@ -177,7 +176,7 @@ namespace EndPoint.Site.Controllers
             var cart = _facadForSite.CartService.GetMyCart(_cookiesManeger.GetBrowserId(HttpContext), UserId);
             var paymentReq = _facadForSite.GetPaymentServices.GetPayment(PaymentGuid);
             var viewModel = new ResultDto();
-            var request = new ResultPaymentIDPay();            
+            var request = new ResultPaymentIDPay();
             try
             {
                 request = new ResultPaymentIDPay
