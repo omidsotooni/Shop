@@ -1,28 +1,29 @@
-﻿namespace EndPoint.Site.Models.IDPayModels
+﻿using Newtonsoft.Json;
+
+namespace EndPoint.Site.Models.IDPayModels
 {
     public class RequestIDPay
-    {        
-        private string OrderID;
-        public string order_id
-        {
-            get
-            {
-                return OrderID;
-            }
-        }
-        public decimal amount { get; set; }
-        public string name { get; set; }
-        public string phone { get; set; }
-        public string mail { get; set; }
-        public string desc { get; set; }
-        public string callback { get; set; }
+    {
+        [JsonProperty("order_id")]
+        public string OrderId { get; set; }
 
-        public RequestIDPay(string _OrderID)
-        {
-            if (string.IsNullOrEmpty(_OrderID))
-                OrderID = Guid.NewGuid().ToString();
-            else
-                OrderID = _OrderID;
-        }
+        [JsonProperty("amount")]
+        public int Amount { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("mail")]
+        public string Mail { get; set; }
+
+        [JsonProperty("desc")]
+        public string Desc { get; set; }
+
+        [JsonProperty("callback")]
+        public string Callback { get; set; }
     }
+
 }

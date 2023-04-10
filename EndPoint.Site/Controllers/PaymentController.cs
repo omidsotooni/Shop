@@ -74,15 +74,14 @@ namespace EndPoint.Site.Controllers
                     case Banking.IDPay:
                         var requestIDPay = SendToIDPay("فروشگاه", requestPay.Data.Amount, requestPay.Data.PaymentGuid, requestPay.Data.RequestPaymentId
                             , requestPay.Data.Email, "09011234567", Description, CallBackurlIDPay);
-                        var responseIDPay = await IDPayRestApi.PaymentIDPay(requestIDPay, MerchantIdIDPay);
-                        if (responseIDPay != null && responseIDPay.link.HasValue())
+                        IDPayRestApi idpaypayRestApi = new IDPayRestApi();
+                        var responseIDPay = await idpaypayRestApi.PaymentIDPay(requestIDPay);
+                        if (responseIDPay != null && responseIDPay.Status == 201)
                         {
-                            return Redirect(responseIDPay.link);
+                            RequestResponsSuccess? responseData = (responseIDPay.Data as RequestResponsSuccess);                            
+                            return Redirect(responseData.Link);
                         }
-                        else
-                        {                            
-                            return RedirectToAction("VerifyIDPay", "Payment", new { PaymentGuid = requestPay.Data.PaymentGuid });
-                        }
+                        break;
                     default:
                         break;
                 }
@@ -229,8 +228,9 @@ namespace EndPoint.Site.Controllers
             else
             {
                 // تایید تراکنش
-                var res = IDPayRestApi.VerifyIDPay(request, MerchantIdIDPay).Result;
-                if (res.error_code != null)
+                IDPayRestApi idpayRestApi = new IDPayRestApi();
+                var res = idpayRestApi.VerifyIDPay(request, MerchantIdIDPay).Result;
+                if (res is PaymentInfoIDPay)
                 {
                     viewModel.Message = request.Message;
                     viewModel.IsSuccess = false;
@@ -292,14 +292,16 @@ namespace EndPoint.Site.Controllers
         }
         public RequestIDPay SendToIDPay(string Name, int Amount, Guid PaymentGuid, long RequestPaymentId, string Email, string Mobile, string Description, string CallBack)
         {
-            var request = new RequestIDPay(PaymentGuid.ToString())
+            string GuidPayment = PaymentGuid.ToString();
+            var request = new RequestIDPay()
             {
-                amount = Amount,
-                name = Name,
-                phone = Mobile,
-                mail = Email,
-                desc = Description + RequestPaymentId,
-                callback = $"{Request.Scheme}://{Request.Host}/{CallBack}{PaymentGuid}",
+                Amount = Amount,
+                Desc = Description + RequestPaymentId,
+                Mail = Email,
+                Phone = Mobile,
+                Name = Name,
+                OrderId = RequestPaymentId.ToString(),
+                Callback = $"{Request.Scheme}://{Request.Host}/{CallBack}{GuidPayment}",
             };
             return request;
         }

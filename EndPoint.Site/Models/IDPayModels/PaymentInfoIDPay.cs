@@ -4,8 +4,6 @@ namespace EndPoint.Site.Models.IDPayModels
 {
     public class PaymentInfoIDPay
     {
-        public int error_code { get; set; }
-        public string error_message { get; set; }
         public int status { get; set; }
         public string track_id { get; set; }
         public string id { get; set; }
@@ -22,7 +20,13 @@ namespace EndPoint.Site.Models.IDPayModels
                 return Utility.UnixTimeStampToDateTime(date);
             }
         }
-        public bool IsOK { get; set; }
+        public bool IsOK
+        {
+            get
+            {
+                return status == 100;
+            }
+        }
         public string Message
         {
             get
