@@ -1,10 +1,11 @@
-﻿using Shop.Application.Interfaces.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using Shop.Application.Interfaces.Contexts;
 using Shop.Common;
 using Shop.Common.Dto;
 
 namespace Shop.Application.Services.Fainances.Queries
 {
-    public class GetPaymentServices: IGetPaymentServices
+    public class GetPaymentServices : IGetPaymentServices
     {
         #region Fields
         private readonly IDataBaseContext _context;
@@ -53,6 +54,46 @@ namespace Shop.Application.Services.Fainances.Queries
                 };
             }
         }
+        public ResultDto<PaymentsListForAdminDto> GetPaymentForAdmin(int Page = 1, int PageSize = 10)
+        {
+            try
+            {
+                int rowCount = 0;
+                var payment = _context.Payments.Include(o => o.User).ToPaged(Page, PageSize, out rowCount)
+                    .ToList().Select(x => new PaymentForAdminDto
+                    {
+                        Id = x.Id,
+                        Amount = x.Amount,
+                        Authority = x.Authority,
+                        Guid = x.PaymentGuid,
+                        IsPaid = x.IsPaid,
+                        PaymentDate = x.PayDate,
+                        RefId = x.RefId,
+                        UserId = x.UserId,
+                        UserName = x.User.FullName
+                    }).ToList();
+                return new ResultDto<PaymentsListForAdminDto>()
+                {
+                    Data = new PaymentsListForAdminDto()
+                    {
+                        PaymentForAdminDtos = payment,
+                        CurrentPage = Page,
+                        PageSize = PageSize,
+                        RowCount = rowCount,
+                    },
+                    IsSuccess = true,
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<PaymentsListForAdminDto>()
+                {
+                    IsSuccess = false,
+                };
+            }
+        }
+
         #endregion
     }
 }

@@ -142,6 +142,17 @@ namespace Shop.Common
             date += string.Format("{0}:{1}", pc.GetHour(dateTime), pc.GetMinute(dateTime));
             return date;
         }
+        public static string KhorshidiDateNull(DateTime? dateTime)
+        {
+            if (dateTime == null)
+                dateTime = DateTime.Now;
+            PersianCalendar pc = new PersianCalendar();
+            string date = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)dateTime),
+                pc.GetMonth((DateTime)dateTime), pc.GetDayOfMonth((DateTime)dateTime));
+            date += " ساعت ";
+            date += string.Format("{0}:{1}", pc.GetHour((DateTime)dateTime), pc.GetMinute((DateTime)dateTime));
+            return date;
+        }
         public static string ConvertDateToKhorshidi(DateTime dateTime)
         {
             PersianCalendar pc = new PersianCalendar();
