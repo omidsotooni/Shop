@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.HomePage.Commands.AddNewSlider;
 using Shop.Application.Services.HomePage.Commands.EditSliderService;
@@ -7,6 +8,7 @@ using Shop.Common.Dto;
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Operator")]
     public class SlidersController : Controller
     {
         #region Fields

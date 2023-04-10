@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.Products.Commands.AddNewProduct;
@@ -8,6 +9,7 @@ using Shop.Common.Dto;
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Operator")]
     public class ProductsController : Controller
     {
         #region Fields

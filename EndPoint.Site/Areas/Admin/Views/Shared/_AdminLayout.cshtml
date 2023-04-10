@@ -1,4 +1,5 @@
-﻿@{
+﻿@using EndPoint.Site.Utilities;
+@{
     Layout = null;
 }
 
@@ -46,87 +47,103 @@
             <div class="sidebar-content">
                 <div class="nav-container">
                     <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-                        <li class="has-sub nav-item">
-                            <a href="#"><i class="icon-home"></i><span data-i18n="" class="menu-title">داشبورد</span><span class="tag badge badge-pill badge-danger mt-1">2</span></a>
-                        </li>
-                        <li class="has-sub nav-item">
-                            <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">مدیریت کاربران</span><span class="tag badge badge-pill badge-danger mt-1">5M</span></a>
-                            <ul class="menu-content">
-                                <li>
-                                    <a href="~/Admin/Users/Index" class="menu-item">لیست کاربران</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/Users/Create" class="menu-item">ثبت نام کاربر جدید *</a>
-                                </li>
-                            </ul>
-                        </li>
 
+                        @if (ClaimUtility.GetRolse(User).Where(o => o == "Admin").Count() >= 1)
+                        {
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="icon-home"></i><span data-i18n="" class="menu-title">داشبورد</span><span class="tag badge badge-pill badge-danger mt-1">2</span></a>
+                            </li>
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">مدیریت کاربران</span><span class="tag badge badge-pill badge-danger mt-1">5M</span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/Users/Index" class="menu-item">لیست کاربران</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Users/Create" class="menu-item">ثبت نام کاربر جدید *</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="fa fa-first-order"></i><span data-i18n="" class="menu-title">مدیریت پرداخت ها</span><span class="tag badge badge-pill badge-danger mt-1">11M</span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/Payment/Index" class="menu-item">پرداخت ها</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        @if (ClaimUtility.GetRolse(User).Where(o => o == "Admin").Count() >= 1 || ClaimUtility.GetRolse(User).Where(o => o == "Operator").Count() >= 1)
+                        {
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="fa fa-first-order"></i><span data-i18n="" class="menu-title">مدیریت سفارشات</span><span class="tag badge badge-pill badge-danger mt-1">11M</span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/Orders/Index?orderState=Success" class="menu-item">سفارشات موفق</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Orders/Index?orderState=Processing" class="menu-item">در حال پردازش</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Orders/Index?orderState=Canceled" class="menu-item"> لغو شده</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Orders/Index?orderState=Delivered" class="menu-item">تحویل شده ها </a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Orders/Index?orderState=UnSuccess" class="menu-item">سفارشات ناموفق</a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                        <li class="has-sub nav-item">
-                            <a href="#"><i class="fa fa-first-order"></i><span data-i18n="" class="menu-title">مدیریت سفارشات</span><span class="tag badge badge-pill badge-danger mt-1">11M</span></a></a>
-                            <ul class="menu-content">
-                                <li>
-                                    <a href="~/Admin/Orders/Index?orderState=Success" class="menu-item">سفارشات موفق</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/Orders/Index?orderState=Processing" class="menu-item">در حال پردازش</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/Orders/Index?orderState=Canceled" class="menu-item"> لغو شده</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/Orders/Index?orderState=Delivered" class="menu-item">تحویل شده ها </a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/Orders/Index?orderState=UnSuccess" class="menu-item">سفارشات ناموفق</a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="icon-docs"></i><span data-i18n="" class="menu-title"> دسته بندی ها </span><span class="tag badge badge-pill badge-danger mt-1">45</span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/Categories/Index" class="menu-item">دسته بندی ها</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Categories/AddNewCategory" class="menu-item">افزودن دسته بندی جدید *</a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                        <li class="has-sub nav-item">
-                            <a href="#"><i class="icon-docs"></i><span data-i18n="" class="menu-title"> دسته بندی ها </span><span class="tag badge badge-pill badge-danger mt-1">45</span></a>
-                            <ul class="menu-content">
-                                <li>
-                                    <a href="~/Admin/Categories/Index" class="menu-item">دسته بندی ها</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/Categories/AddNewCategory" class="menu-item">افزودن دسته بندی جدید *</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub nav-item">
-                            <a href="#"><i class="icon-bag"></i><span data-i18n="" class="menu-title"> محصولات </span><span class="tag badge badge-pill badge-danger mt-1">600</span></a>
-                            <ul class="menu-content">
-                                <li>
-                                    <a href="~/Admin/Products/Index" class="menu-item">محصولات</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/Products/AddNewProduct" class="menu-item">افزودن محصول جدید *</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub nav-item">
-                            <a href="#"><i class="icon-picture"></i><span data-i18n="" class="menu-title"> اسلایدرها </span><span class="tag badge badge-pill badge-danger mt-1">18</span></a>
-                            <ul class="menu-content">
-                                <li>
-                                    <a href="~/Admin/Sliders/Index" class="menu-item">اسلایدرها</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/Sliders/AddNewSlider" class="menu-item">افزودن اسلایدر جدید *</a>
-                                </li>
-                            </ul>
-                        </li>
-                         <li class="has-sub nav-item">
-                            <a href="#"><i class="icon-picture"></i><span data-i18n="" class="menu-title"> تصاویر صفحه اصلی </span><span class="tag badge badge-pill badge-danger mt-1">40</span></a>
-                            <ul class="menu-content">
-                                <li>
-                                    <a href="~/Admin/HomePageImages/Index" class="menu-item">تصاویر صفحه اصلی</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/HomePageImages/Add" class="menu-item">افزودن تصویر جدید *</a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="icon-bag"></i><span data-i18n="" class="menu-title"> محصولات </span><span class="tag badge badge-pill badge-danger mt-1">600</span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/Products/Index" class="menu-item">محصولات</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Products/AddNewProduct" class="menu-item">افزودن محصول جدید *</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="icon-picture"></i><span data-i18n="" class="menu-title"> اسلایدرها </span><span class="tag badge badge-pill badge-danger mt-1">18</span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/Sliders/Index" class="menu-item">اسلایدرها</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Sliders/AddNewSlider" class="menu-item">افزودن اسلایدر جدید *</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="icon-picture"></i><span data-i18n="" class="menu-title"> تصاویر صفحه اصلی </span><span class="tag badge badge-pill badge-danger mt-1">40</span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/HomePageImages/Index" class="menu-item">تصاویر صفحه اصلی</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/HomePageImages/Add" class="menu-item">افزودن تصویر جدید *</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
 
                     </ul>
                 </div>

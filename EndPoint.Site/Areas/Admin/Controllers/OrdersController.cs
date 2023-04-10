@@ -7,7 +7,7 @@ using static Shop.Common.Utility;
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin,Operator, Customer")]
+    [Authorize(Roles = "Admin,Operator")]
     public class OrdersController : Controller
     {
         #region Fields

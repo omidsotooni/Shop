@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Shop.Application.Services.Users.Commands.EditUser;
 using Shop.Application.Services.Users.Commands.RegisterUser;
@@ -10,6 +11,7 @@ using Shop.Application.Services.Users.Queries.GetUsers;
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class UsersController : Controller
     {
         private readonly IGetUsersService _getUsersService;

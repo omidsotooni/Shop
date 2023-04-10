@@ -68,7 +68,7 @@
             },
             "RestSharp": {
               "target": "Package",
-              "version": "[106.15.0, )"
+              "version": "[110.1.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

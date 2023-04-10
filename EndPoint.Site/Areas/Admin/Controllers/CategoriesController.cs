@@ -1,17 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging.Abstractions;
-using Microsoft.Extensions.Logging;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Common.Dto;
 using Shop.Domain.Entities.Products;
-using System.Xml.Linq;
-using Shop.Application.Services.Products.Queries.GetCategories;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Operator")]
     public class CategoriesController : Controller
     {
         #region Fields

@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.HomePage.Commands.HomePageImagesService;
 using Shop.Common.Dto;
-using Shop.Domain.Entities.HomePages;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Operator")]
     public class HomePageImagesController : Controller
     {
         #region Fields

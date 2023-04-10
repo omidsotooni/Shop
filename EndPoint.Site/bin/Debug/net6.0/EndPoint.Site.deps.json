@@ -13,7 +13,7 @@
           "Microsoft.EntityFrameworkCore.Design": "6.0.4",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.13",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.4",
-          "RestSharp": "106.15.0",
+          "RestSharp": "110.1.0",
           "Shop.Persistence": "1.0.0",
           "Swashbuckle.AspNetCore": "6.3.0"
         },
@@ -98,7 +98,7 @@
       "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
-          "System.Text.Encodings.Web": "6.0.0"
+          "System.Text.Encodings.Web": "7.0.0"
         }
       },
       "Microsoft.AspNetCore.Http.Features/5.0.17": {
@@ -133,7 +133,7 @@
           "System.Reflection.MetadataLoadContext": "6.0.0",
           "System.Security.Principal.Windows": "5.0.0",
           "System.Text.Encoding.CodePages": "6.0.0",
-          "System.Text.Json": "6.0.0",
+          "System.Text.Json": "7.0.2",
           "System.Threading.Tasks.Dataflow": "6.0.0"
         },
         "runtime": {
@@ -786,7 +786,7 @@
           "Microsoft.Build.Framework": "17.3.2",
           "Microsoft.CodeAnalysis.Common": "4.0.0",
           "Microsoft.CodeAnalysis.Workspaces.Common": "4.0.0",
-          "System.Text.Json": "6.0.0"
+          "System.Text.Json": "7.0.2"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll": {
@@ -1373,11 +1373,14 @@
           }
         }
       },
-      "RestSharp/106.15.0": {
+      "RestSharp/110.1.0": {
+        "dependencies": {
+          "System.Text.Json": "7.0.2"
+        },
         "runtime": {
-          "lib/netstandard2.0/RestSharp.dll": {
-            "assemblyVersion": "106.15.0.0",
-            "fileVersion": "106.15.0.0"
+          "lib/net6.0/RestSharp.dll": {
+            "assemblyVersion": "110.1.0.0",
+            "fileVersion": "110.1.0.0"
           }
         }
       },
@@ -2229,15 +2232,35 @@
           "System.Text.Encoding": "4.3.0"
         }
       },
-      "System.Text.Encodings.Web/6.0.0": {
+      "System.Text.Encodings.Web/7.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll": {
+            "rid": "browser",
+            "assetType": "runtime",
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
         }
       },
-      "System.Text.Json/6.0.0": {
+      "System.Text.Json/7.0.2": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
-          "System.Text.Encodings.Web": "6.0.0"
+          "System.Text.Encodings.Web": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Text.Json.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.323.6910"
+          }
         }
       },
       "System.Text.RegularExpressions/4.3.0": {
@@ -2917,12 +2940,12 @@
       "path": "nuget.versioning/6.3.1",
       "hashPath": "nuget.versioning.6.3.1.nupkg.sha512"
     },
-    "RestSharp/106.15.0": {
+    "RestSharp/110.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HM7ohR6AscxedNenrrl93DSZG6hvdnA7O+NHyCl/6ZKTfn8psQ9rRmUpcb9eWr+140vmfxoVemql0bUoeGEW3A==",
-      "path": "restsharp/106.15.0",
-      "hashPath": "restsharp.106.15.0.nupkg.sha512"
+      "sha512": "sha512-h9ERwfMeLp+BJ3cEwxxe1KIkTjB/yokJAjj3JNO5tKcMZI2Rx+bJe//DkVG3aX5g669Pi5Ifc4kFPrNKtTinsg==",
+      "path": "restsharp/110.1.0",
+      "hashPath": "restsharp.110.1.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -3582,19 +3605,19 @@
       "path": "system.text.encoding.extensions/4.3.0",
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
     },
-    "System.Text.Encodings.Web/6.0.0": {
+    "System.Text.Encodings.Web/7.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Vg8eB5Tawm1IFqj4TVK1czJX89rhFxJo9ELqc/Eiq0eXy13RK00eubyU6TJE6y+GQXjyV5gSfiewDUZjQgSE0w==",
-      "path": "system.text.encodings.web/6.0.0",
-      "hashPath": "system.text.encodings.web.6.0.0.nupkg.sha512"
+      "sha512": "sha512-OP6umVGxc0Z0MvZQBVigj4/U31Pw72ITihDWP9WiWDm+q5aoe0GaJivsfYGq53o6dxH7DcXWiCTl7+0o2CGdmg==",
+      "path": "system.text.encodings.web/7.0.0",
+      "hashPath": "system.text.encodings.web.7.0.0.nupkg.sha512"
     },
-    "System.Text.Json/6.0.0": {
+    "System.Text.Json/7.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zaJsHfESQvJ11vbXnNlkrR46IaMULk/gHxYsJphzSF+07kTjPHv+Oc14w6QEOfo3Q4hqLJgStUaYB9DBl0TmWg==",
-      "path": "system.text.json/6.0.0",
-      "hashPath": "system.text.json.6.0.0.nupkg.sha512"
+      "sha512": "sha512-/LZf/JrGyilojqwpaywb+sSz8Tew7ij4K/Sk+UW8AKfAK7KRhR6mKpKtTm06cYA7bCpGTWfYksIW+mVsdxPegQ==",
+      "path": "system.text.json/7.0.2",
+      "hashPath": "system.text.json.7.0.2.nupkg.sha512"
     },
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",

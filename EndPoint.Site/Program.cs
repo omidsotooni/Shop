@@ -34,6 +34,7 @@ builder.Services.AddAuthentication(options =>
 {
     options.LoginPath = new PathString("/Authentication/Signin");
     options.ExpireTimeSpan = TimeSpan.FromMinutes(15.0);
+    options.AccessDeniedPath = new PathString("/Authentication/Signin");
 });
 
 // AddEntityFrameWorkSqlServer or AddEntityFrameWorkPostgreSQL | AddEntityFrameworkNpgsql();

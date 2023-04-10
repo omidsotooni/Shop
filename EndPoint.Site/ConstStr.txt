@@ -6,7 +6,7 @@ CallBackurlZarinpal		:		Payment/VerifyZarinpal?PaymentGuid=
 HttpCallBackurl			:		https
 PortCallBackurl			:		7000
 ServerCallBackurl		:		localhost
-MerchantIdIDPay			:		XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+MerchantIdIDPay			:		57b30e0d-b5b8-4291-adcd-0b1c6c94fd84
 RequestUrlForIDPay		:		api.idpay.ir/v1.1/
 GatewayUrlIDPay			:		api.idpay.ir/v1.1/payment/verify
 CallBackurlIDPay		:		Payment/VerifyIDPay?PaymentGuid=
