@@ -2,9 +2,11 @@
 using Microsoft.EntityFrameworkCore.Storage;
 using Shop.Application.Interfaces.Contexts;
 using Shop.Common.Roles;
+using Shop.Domain.Entities.Blog;
 using Shop.Domain.Entities.Carts;
 using Shop.Domain.Entities.Finances;
 using Shop.Domain.Entities.HomePages;
+using Shop.Domain.Entities.Languages;
 using Shop.Domain.Entities.Orders;
 using Shop.Domain.Entities.Products;
 using Shop.Domain.Entities.Users;
@@ -34,6 +36,10 @@ namespace Shop.Presentation.Contexts
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<BlogEntity> BlogEntities { get; set; }
+        public DbSet<BlogCategory> BlogCategories { get; set; }
+        public DbSet<FAQBlog> FAQBlogs { get; set; }
+        public DbSet<Language> Languages { get; set; }
 
         public IDbContextTransaction BeginTransaction()
         {
@@ -58,7 +64,9 @@ namespace Shop.Presentation.Contexts
             SeedData(modelBuilder);
 
             // اعمال ایندکس بر روی فیلد ایمیل واعمال عدم تکراری بودن ایمیل
-            modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
+            modelBuilder.Entity<User>().HasIndex(o => o.Email).IsUnique();
+            // ایندکس گذاری روی فیلد آدرس مطلب
+            modelBuilder.Entity<BlogEntity>().HasIndex(o => o.Slug).IsUnique();
 
             //-- عدم نمایش اطلاعات حذف شده
             ApplyQueryFilter(modelBuilder);
@@ -80,6 +88,9 @@ namespace Shop.Presentation.Contexts
             modelBuilder.Entity<Payment>().HasQueryFilter(o => !o.IsRemoved);
             modelBuilder.Entity<Order>().HasQueryFilter(o => !o.IsRemoved);
             modelBuilder.Entity<OrderDetail>().HasQueryFilter(o => !o.IsRemoved);
+            modelBuilder.Entity<BlogEntity>().HasQueryFilter(o => !o.IsRemoved);
+            modelBuilder.Entity<BlogCategory>().HasQueryFilter(o => !o.IsRemoved);
+            modelBuilder.Entity<FAQBlog>().HasQueryFilter(o => !o.IsRemoved);
         }
 
         private void SeedData(ModelBuilder modelBuilder)
@@ -88,6 +99,7 @@ namespace Shop.Presentation.Contexts
             modelBuilder.Entity<Role>().HasData(new Role { Id = 1, Name = nameof(UserRoles.Admin) });
             modelBuilder.Entity<Role>().HasData(new Role { Id = 2, Name = nameof(UserRoles.Operator) });
             modelBuilder.Entity<Role>().HasData(new Role { Id = 3, Name = nameof(UserRoles.Customer) });
+            modelBuilder.Entity<Role>().HasData(new Role { Id = 4, Name = nameof(UserRoles.Author) });
         }
     }
 }

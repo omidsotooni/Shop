@@ -3711,6 +3711,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.4",
           "Shop.Common": "1.0.0",
           "Shop.Domain": "1.0.0",
+          "Shop.Infrastructure": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "compile": {
@@ -3746,6 +3747,19 @@
         },
         "runtime": {
           "bin/placeholder/Shop.Domain.dll": {}
+        }
+      },
+      "Shop.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Shop.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Shop.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shop.Infrastructure.dll": {}
         }
       },
       "Shop.Persistence/1.0.0": {
@@ -10506,6 +10520,11 @@
       "type": "project",
       "path": "../Shop.Domain/Shop.Domain.csproj",
       "msbuildProject": "../Shop.Domain/Shop.Domain.csproj"
+    },
+    "Shop.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Shop.Infrastructure/Shop.Infrastructure.csproj",
+      "msbuildProject": "../Shop.Infrastructure/Shop.Infrastructure.csproj"
     },
     "Shop.Persistence/1.0.0": {
       "type": "project",

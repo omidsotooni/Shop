@@ -1,0 +1,282 @@
+﻿@using Shop.Common;
+@using static Shop.Common.Utility;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "اضافه کردن مطلب جدید";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="basic-elements">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                        <h4 class="card-title mb-0">اطلاعات مطلب جدید را وارد نمایید</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="px-3">
+                        <div class="form">
+                            <div class="form-body">
+                                <div class="row">
+
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">عنوان مطلب</label>
+                                            <input type="hidden" id="UserId" value="@ViewBag.UserId" />
+                                            <input type="text"  id="Title" class="form-control" placeholder="عنوان مطلب را وارد نمائید">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">آدرس مطلب</label>
+                                            <input type="text" id="Slug" class="form-control" placeholder="آدرس مطلب را ترجیحا انگلیسی وارد نمائید">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">توضیح کوتاه برای مطلب</label>
+                                            <textarea id="Description" class="form-control" placeholder="یک توضیح کوتاه حدود 160 کاراکتر وارد نمائید" minlength="20" maxlength="200" rows="2"></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">تک های مطلب(لیستی از کلمات کلیدی جدا شده با کاما بسازید)</label>
+                                            <input type="text" id="Tags" class="form-control" placeholder="تگ های مطلب را وارد نمائید، لیستی از کلمات کلیدی جدا شده با کاما بسازید مانند: لپ تاب، کامپیوتر، موبایل">
+                                        </fieldset>
+                                    </div>
+                                    
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">دسته بندی مطلب </label>
+                                            <select class="form-control" name="BlogCategories" id="BlogCategories" asp-items="@ViewBag.BlogCategories"></select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">وضعیت مطلب </label>                                           
+                                            <select class="form-control" name="BlogStatus" id="BlogStatus" asp-items="@Html.GetEnumSelectList<BlogStatus>()">
+                                                <option selected="selected" value="">انتخاب وضعیت مطلب</option>
+                                                <p><small class="text-muted">پیش فرض بصورت پیش نویس ذخیره میشود.</small></p>
+                                            </select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">زبان</label>
+                                            <select class="form-control" name="Language" id="Language" asp-items="@Html.GetEnumSelectList<Languages>()">
+                                                <option selected="selected" value="">انتخاب زبان مطلب</option>
+                                                <p><small class="text-muted">پیش فرض بصورت فارسی ذخیره میشود.</small></p>
+                                            </select>
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">تصویر </label>
+                                            <input type="file" class="form-control" accept="image/*" id="Images">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">زمان مطالعه</label>
+                                            <input type="number" class="form-control" id="ReadingTime">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">IsFollowed؟</label>
+                                            <input type="checkbox" class="form-control" id="IsFollowed">
+                                        </fieldset>
+                                    </div>                                    
+                                    <div class="col-xl-2 col-lg-6 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">IsIndexed؟</label>
+                                            <input type="checkbox" class="form-control" id="IsIndexed">
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">آدرس کنونیکال</label>
+                                            <input type="text" class="form-control" id="Canonical" placeholder="آدرس کنونیکال را بدون دامنه وارد نمائید مانند: /blog/ArticleAddress در صورت عدم نیاز خالی بگذارید">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">آدرس ویدئو</label>
+                                            <input type="text" class="form-control" id="VideoUrl" placeholder="آدرس ویدئو را وارد نمائید مانند: https://www.youtube.com/watch?v=address در صورت عدم نیاز خالی بگذارید">
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">آدرس ریدایرکت</label>
+                                            <input type="text" class="form-control" id="UrlRedirect" placeholder="آدرس ریدایرکت را بدون دامنه نمائید مانند: /blog/RedirectToArticleAddress در صورت عدم نیاز خالی بگذارید">
+                                        </fieldset>
+                                    </div>
+                                    
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">محتوای اصلی مطلب</label>
+                                            <textarea id="Content" class="form-control" placeholder="محتوای اصلی مطلب را وارد نمائید." rows="5"></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <hr /><hr />
+                                    <p>افزودن سوالات متداول برای این مطلب</p>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput">سوال</label>
+                                            <textarea id="Question" class="form-control " placeholder="سوال" rows="1"></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-10 col-lg-8 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <label for="basicInput"> پاسخ </label>
+                                            <textarea id="Answer" class="form-control " placeholder="پاسخ" rows="1"></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-4 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <br />
+                                            <a class="btn btn-success" id="btnAddFAQs"><i class="fa fa-plus"></i> افزودن سوال متداول</a>
+                                        </fieldset>
+                                    </div>
+                                    <br class="clear" />
+                                    <table id="tbl_FAQs" class="col-md-12 table table-bordered table-hover table-condensed table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                   سوال
+                                                </th>
+                                                <th>
+                                                    پاسخ
+                                                </th>
+                                                <th>
+                                                    عملیات
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+
+                                    <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                        <fieldset class="form-group">
+                                            <br />
+                                            <a id="btnAddBlog" class="btn btn-success col-md-12"><i class="fa fa-plus"></i> افزودن مطلب</a>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+    {
+    <link href="~/Sweetalert/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Sweetalert/sweetalert2.min.js"></script>   
+    <script>
+
+        $("#btnAddFAQs").on("click", function () {
+            var Question = $("#Question").val();
+            var Answer = $("#Answer").val();
+            if (Question == "" || Answer == "") {
+                swal.fire(
+                    'هشدار!',
+                    "سوال و پاسخ را باید وارد کنید",
+                    'warning'
+                );
+            }
+            else {
+                $('#tbl_FAQs tbody').append('<tr> <td>' + Question + '</td>  <td>' + Answer + '</td> <td> <a class="idFAQs btnDelete btn btn-danger"> حذف </a> </td> </tr>');
+                $("#Question").val('');
+                $("#Answer").val('');
+            }
+        });
+
+        $("#tbl_FAQs").on('click', '.idFAQs', function () {
+            $(this).closest('tr').remove();
+        });
+
+        $('#btnAddBlog').on('click', function () {
+            var data = new FormData();
+            // Get values from textbox's and etc
+            data.append("Content", $("#Content").val());
+            data.append("UrlRedirect", $("#UrlRedirect").val());
+            data.append("VideoUrl", $("#VideoUrl").val());
+            data.append("Canonical", $("#Canonical").val());
+            data.append("IsIndexed", $("#IsIndexed").attr("checked") ? true : false);
+            data.append("IsFollowed", $("#IsFollowed").attr("checked") ? true : false);
+            data.append("ReadingTime", $("#ReadingTime").val());
+            data.append("LanguageId", $('#Language').find('option:selected').val());
+            data.append("BlogStatus", $('#BlogStatus').find('option:selected').val());
+            data.append("BlogCategoryId", $('#BlogCategories').find('option:selected').val());
+            data.append("Description", $("#Description").val());
+            data.append("Slug", $("#Slug").val());
+            data.append("Title", $("#Title").val());
+            data.append("UserId", $("#UserId").val());
+            data.append("Tags", $("#Tags").val());
+            //Receiving the photos selected by the user and placing the photos in the data variable
+            var blogImages = document.getElementById("Images");
+
+            if (blogImages.files.length > 0) {
+                for (var i = 0; i < blogImages.files.length; i++) {
+                    data.append('Images-' + i, blogImages.files[i]);
+                }
+            }
+            //Get FAQs of blog from table
+            var dataFAQsViewModel = $('#tbl_FAQs tr:gt(0)').map(function () {
+                return {
+                    Question: $(this.cells[0]).text(),
+                    Answer: $(this.cells[1]).text(),
+                };
+            }).get();
+
+            $.each(dataFAQsViewModel, function (i, val) {
+                data.append('[' + i + '].Question', val.Question);
+                data.append('[' + i + '].Answer', val.Answer);
+
+            });
+            // Send to controller
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: "AddNewBlog",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (data) {
+                    if (data.isSuccess == true) {
+                        swal.fire(
+                            'موفق!',
+                            data.message,
+                            'success'
+                        ).then(function (isConfirm) {
+                            location.reload();
+                        });
+                    }
+                    else {
+
+                        swal.fire(
+                            'هشدار!',
+                            data.message,
+                            'warning'
+                        );
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+
+            ajaxRequest.done(function (xhr, textStatus) {
+                // Do other operation
+            });
+        });
+    </script>
+}

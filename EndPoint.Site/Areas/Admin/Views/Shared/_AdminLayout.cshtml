@@ -73,6 +73,26 @@
                                 </ul>
                             </li>
                         }
+                        @if (ClaimUtility.GetRolse(User).Where(o => o == "Admin").Count() >= 1 || ClaimUtility.GetRolse(User).Where(o => o == "Author").Count() >= 1)
+                        {
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="fa fa-paper-plane-o"></i><span data-i18n="" class="menu-title"> مطالب وبلاگ </span><span class="tag badge badge-pill badge-danger mt-1">50</span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/Blog/Index" class="menu-item">لیست مطالب</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Blog/AddNewBlog" class="menu-item">افزودن مطلب جدید *</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Blog/IndexBlogCategories" class="menu-item">دسته بندی مطالب</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Blog/AddNewBlogCategory" class="menu-item">افزودن دسته بندی جدید *</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                         @if (ClaimUtility.GetRolse(User).Where(o => o == "Admin").Count() >= 1 || ClaimUtility.GetRolse(User).Where(o => o == "Operator").Count() >= 1)
                         {
                             <li class="has-sub nav-item">

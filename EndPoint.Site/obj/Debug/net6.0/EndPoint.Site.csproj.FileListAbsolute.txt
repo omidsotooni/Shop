@@ -1345,3 +1345,5 @@ C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\obj\Debug\net6.
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\Shop.Infrastructure.dll
+C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\bin\Debug\net6.0\Shop.Infrastructure.pdb

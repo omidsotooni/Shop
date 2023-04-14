@@ -40,7 +40,7 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// <summary>
         /// Edit Product
         /// </summary>
-        public IEditProductService EditProductService { get; }
+        IEditProductService EditProductService { get; }
 
     }
 }

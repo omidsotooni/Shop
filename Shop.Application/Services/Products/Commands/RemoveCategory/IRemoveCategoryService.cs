@@ -4,6 +4,6 @@ namespace Shop.Application.Services.Products.Commands.RemoveCategory
 {
     public interface IRemoveCategoryService
     {
-        public ResultDto Execute(long CategoryId);
+        ResultDto Execute(long CategoryId);
     }
 }

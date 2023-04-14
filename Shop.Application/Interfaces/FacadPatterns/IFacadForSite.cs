@@ -1,4 +1,6 @@
-﻿using Shop.Application.Services.Carts.Commands;
+﻿using Shop.Application.Services.Blog.Commands;
+using Shop.Application.Services.Blog.Queries;
+using Shop.Application.Services.Carts.Commands;
 using Shop.Application.Services.Carts.Queries;
 using Shop.Application.Services.Fainances.Commands;
 using Shop.Application.Services.Fainances.Queries;
@@ -73,5 +75,13 @@ namespace Shop.Application.Interfaces.FacadPatterns
         /// Get Order Services
         /// </summary>
         IGetOrdersServices GetOrdersServices { get; }
+        /// <summary>
+        /// Blog Services
+        /// </summary>
+        IBlogServices BlogServices { get; }
+        /// <summary>
+        /// Get Blog Services
+        /// </summary>
+        IGetBlogServices GetBlogServices { get; }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using Shop.Domain.Entities.Blog;
 using Shop.Domain.Entities.Carts;
 using Shop.Domain.Entities.Finances;
 using Shop.Domain.Entities.HomePages;
+using Shop.Domain.Entities.Languages;
 using Shop.Domain.Entities.Orders;
 using Shop.Domain.Entities.Products;
 using Shop.Domain.Entities.Users;
@@ -25,6 +27,10 @@ namespace Shop.Application.Interfaces.Contexts
         DbSet<Payment> Payments { get; set; }
         DbSet<Order> Orders { get; set; }
         DbSet<OrderDetail> OrderDetails { get; set; }
+        DbSet<BlogEntity> BlogEntities { get; set; }
+        DbSet<BlogCategory> BlogCategories { get; set; }
+        DbSet<FAQBlog> FAQBlogs { get; set; }
+        DbSet<Language> Languages { get; set; }
 
         int SaveChanges(bool acceptAllChangesOnSuccess);
         int SaveChanges();

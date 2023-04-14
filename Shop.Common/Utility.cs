@@ -2,12 +2,15 @@
 using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
+using System.Text;
 using System.Xml.Linq;
 
 namespace Shop.Common
 {
     public static class Utility
     {
+        public static readonly string Dash = "-";
+        public static readonly string Space = " ";
         #region Methods
         /// <summary>
         /// Pagination
@@ -133,6 +136,29 @@ namespace Shop.Common
             [Display(Name = "سفارش موفق")]
             Success = 4,
         }
+        public enum BlogStatus
+        {
+            /// <summary>
+            /// وبلاگ های غیرفعال
+            /// </summary>
+            [Display(Name = "منتشر نشده")]
+            NotPublished = 0,
+            /// <summary>
+            /// وبلاگ هایی که در سایت نمایش داده می شوند
+            /// </summary>
+            [Display(Name = "منتشر شده")]
+            Published = 1,
+            /// <summary>
+            /// وبلاگ های پیش نویس که هنوز آماده نشده اند
+            /// </summary>
+            [Display(Name = "پیش نویس")]
+            Draft = 2,
+            /// <summary>
+            /// وبلاگ هایی که وضعیت آنها مشخص نیست
+            /// </summary>
+            [Display(Name = "نامشخص")]
+            Unknown = 3
+        }
         public static string KhorshidiDate(DateTime dateTime)
         {
             PersianCalendar pc = new PersianCalendar();
@@ -160,6 +186,56 @@ namespace Shop.Common
                 pc.GetMonth(dateTime), pc.GetDayOfMonth(dateTime),
                 pc.GetHour(dateTime), pc.GetMinute(dateTime));
         }
+        public static string CreateSlug(string title)
+        {
+            title = title.Trim()?.ToLowerInvariant().Replace(Space, Dash, StringComparison.OrdinalIgnoreCase) ?? string.Empty;
+            title = RemoveDiacritics(title);
+            title = RemoveReservedUrlCharacters(title);
+
+            return title.ToLowerInvariant();
+        }
+        private static string RemoveDiacritics(string text)
+        {
+            var normalizedString = text.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder();
+
+            foreach (var c in normalizedString)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
+        }
+        private static string RemoveReservedUrlCharacters(string text)
+        {
+            var reservedCharacters = new List<string> { "!", "#", "$", "&", "'", "(", ")", "*", ",", "/", ":", ";", "=", "?", "@", "[", "]", "\"", "%", ".", "<", ">", "\\", "^", "_", "'", "{", "}", "|", "~", "`", "+" };
+
+            foreach (var chr in reservedCharacters)
+            {
+                text = text.Replace(chr, string.Empty, StringComparison.OrdinalIgnoreCase);
+            }
+
+            return text;
+        }
+
+        public enum Languages
+        {
+            /// <summary>
+            /// انگلیسی
+            /// </summary>
+            [Display(Name = "انگلیسی")]
+            English = 0,
+            /// <summary>
+            /// فارسی
+            /// </summary>
+            [Display(Name = "فارسی")]
+            Persian = 1,            
+        }
+
         #endregion
     }
     public class UploadDto

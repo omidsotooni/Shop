@@ -23,6 +23,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy(UserRoles.Admin, policy => policy.RequireRole(UserRoles.Admin));
     options.AddPolicy(UserRoles.Operator, policy => policy.RequireRole(UserRoles.Operator));
     options.AddPolicy(UserRoles.Customer, policy => policy.RequireRole(UserRoles.Customer));
+    options.AddPolicy(UserRoles.Author, policy => policy.RequireRole(UserRoles.Author));
 });
 
 builder.Services.AddAuthentication(options =>

@@ -15,6 +15,8 @@ using Shop.Application.Services.Carts.Queries;
 using Shop.Application.Services.Fainances.Queries;
 using Shop.Application.Services.Orders.Commands;
 using Shop.Application.Services.Orders.Queries;
+using Shop.Application.Services.Blog.Commands;
+using Shop.Application.Services.Blog.Queries;
 
 namespace Shop.Application.Services.FacadPattern
 {
@@ -158,6 +160,25 @@ namespace Shop.Application.Services.FacadPattern
                 return _getOrdersServices = _getOrdersServices ?? new GetOrdersServices(_context);
             }
         }
+
+        private IBlogServices _blogServices;
+        public IBlogServices BlogServices
+        {
+            get
+            {
+                return _blogServices = _blogServices?? new BlogServices(_context, _environment);
+            }
+        }
+
+        private IGetBlogServices _getBlogServices;
+        public IGetBlogServices GetBlogServices
+        {
+            get
+            {
+                return _getBlogServices = _getBlogServices ?? new GetBlogServices(_context);
+            }
+        }
+
 
         #endregion
     }
