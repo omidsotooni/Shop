@@ -10,5 +10,7 @@ namespace Shop.Application.Services.Blog.Commands
         ResultDto AddNewBlogCategory(string CategoryText);
         ResultDto DeleteBlogCategory(long blogCategoryId);
         ResultDto EditBlogCategory(BlogCategory blogCategory);
+        ResultDto<EditBlogDto> EditBlog(EditBlogDto editBlogDto);
+        ResultDto DeleteBlog(long blogId);
     }
 }

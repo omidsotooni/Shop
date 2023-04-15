@@ -27,7 +27,8 @@ namespace Shop.Application.Services.HomePage.Commands.HomePageImagesService
             using var transaction = _context.BeginTransaction();
             try
             {
-                var SrcFile = Utility.UploadFile(request.file, _environment).FileNameAddress;
+                string ImageFor = "HomePages";
+                var SrcFile = Utility.UploadFile(request.file, _environment, ImageFor).FileNameAddress;
                 if (SrcFile != null)
                 {
                     request.Src = SrcFile;
@@ -147,6 +148,7 @@ namespace Shop.Application.Services.HomePage.Commands.HomePageImagesService
             using var transaction = _context.BeginTransaction();
             try
             {
+                string ImageFor = "HomePages";
                 var hpi = _context.HomePageImages.Where(o => o.Id == HomePageImageForEdit.Id).FirstOrDefault();
                 if (hpi == null)
                 {
@@ -158,7 +160,7 @@ namespace Shop.Application.Services.HomePage.Commands.HomePageImagesService
                 }
                 if(HomePageImageForEdit.file != null)
                 {
-                    hpi.Src = Utility.UploadFile(HomePageImageForEdit.file, _environment).FileNameAddress;
+                    hpi.Src = Utility.UploadFile(HomePageImageForEdit.file, _environment, ImageFor).FileNameAddress;
                 }
                 hpi.AltName = HomePageImageForEdit.AltName;
                 hpi.IsActive = HomePageImageForEdit.IsActive;

@@ -4,8 +4,9 @@ using static Shop.Common.Utility;
 
 namespace Shop.Infrastructure.Dtos.BlogDtos
 {
-    public class AddNewBlogDto
+    public class EditBlogDto
     {
+        public long Id { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
@@ -17,6 +18,7 @@ namespace Shop.Infrastructure.Dtos.BlogDtos
         public bool IsIndexed { get; set; } = false;
         public bool IsFollowed { get; set; } = false;
         public string Tags { get; set; }
+        public string StrTags { get; set; }
         [Required]
         public string Description { get; set; }
         [Required]
@@ -25,8 +27,10 @@ namespace Shop.Infrastructure.Dtos.BlogDtos
 
         [Required]
         public long BlogCategoryId { get; set; }
-        public List<IFormFile> BlogImages { get; set; }
-        public List<FAQBlogList> FAQBlogs { get; set; }
+        public string CategoryText { get; set; }
+        public List<IFormFile> NewBlogImages { get; set; }
+        public string PictureSrc { get; set; }
+        public List<FAQBlogListForEdit> FAQBlogs { get; set; }
         public List<long> FAQBlogsId { get; set; }
         public string UrlRedirect { get; set; } = String.Empty;
         public string VideoUrl { get; set; } = String.Empty;

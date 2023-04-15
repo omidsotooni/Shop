@@ -214,7 +214,7 @@
             data.append("IsFollowed", $("#IsFollowed").attr("checked") ? true : false);
             data.append("ReadingTime", $("#ReadingTime").val());
             data.append("LanguageId", $('#Language').find('option:selected').val());
-            data.append("BlogStatus", $('#BlogStatus').find('option:selected').val());
+            data.append("BlogStatus", $('#BlogStatus').find('option:selected').val().toString());
             data.append("BlogCategoryId", $('#BlogCategories').find('option:selected').val());
             data.append("Description", $("#Description").val());
             data.append("Slug", $("#Slug").val());

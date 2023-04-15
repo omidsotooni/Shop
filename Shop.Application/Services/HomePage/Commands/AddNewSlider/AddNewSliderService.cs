@@ -27,7 +27,8 @@ namespace Shop.Application.Services.HomePage.Commands.AddNewSlider
         {
             try
             {
-                var SrcFile = Utility.UploadFile(file , _environment);               
+                string ImageFor = "HomePages";
+                var SrcFile = Utility.UploadFile(file , _environment, ImageFor);               
                 requestAdd.Src = SrcFile.FileNameAddress;
                 Slider slider = new Slider()
                 {

@@ -184,6 +184,116 @@ namespace Shop.Application.Services.Blog.Queries
             }
         }
 
+        public ResultDto<EditBlogDto> GetBlogByIdForEdit(long blogId)
+        {
+            try
+            {
+                var blog = _context.BlogEntities.Include(x => x.Language).Include(x => x.BlogCategory)
+                    .Include(x => x.FAQBlogs).Include(x => x.User).Where(o => o.Id == blogId).FirstOrDefault();
+                if(blog is null)
+                {
+                    return new ResultDto<EditBlogDto>()
+                    {
+                        IsSuccess = false,
+                        Message = "پست مورد نظر پیدا نشد!",
+                    };
+                }
+                return new ResultDto<EditBlogDto>()
+                {
+                    Data = new EditBlogDto()
+                    {
+                        Id = blog.Id,
+                        BlogCategoryId = blog.BlogCategoryId,
+                        CategoryText = blog.BlogCategory.CategoryText,
+                        BlogStatus = blog.BlogStatus,
+                        Slug = blog.Slug,
+                        PictureSrc = blog.PictureSrc,
+                        Canonical = blog.Canonical,
+                        Content = blog.Content,
+                        Description = blog.Description,
+                        IsFollowed = blog.IsFollowed,
+                        IsIndexed = blog.IsIndexed,
+                        LanguageId = (long)(blog.LanguageId == null ? 1 : blog.LanguageId),
+                        Tags = string.Join(",", blog.Tags),
+                        Title = blog.Title,
+                        UserId = blog.UserId,
+                        ReadingTime = blog.ReadingTime,
+                        UrlRedirect = blog.UrlRedirect,
+                        VideoUrl = blog.VideoUrl,
+                        ViewCount = blog.ViewCount,
+                        FAQBlogs = blog.FAQBlogs.ToList().Select(o => new FAQBlogListForEdit()
+                        {
+                            Id = o.Id,
+                            Answer = o.Answer,
+                            Question = o.Question,
+                            
+                        }).ToList(),
+                    },
+                    IsSuccess = true,
+                    Message = "",
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<EditBlogDto>()
+                {
+                    IsSuccess = false,
+                };
+            }
+        }
+
+        public ResultDto<BlogForAdminDto> GetBlogs(int Page = 1, int PageSize = 20)
+        {
+            try
+            {
+                int rowCount = 0;
+                var blogs = _context.BlogEntities.Include(x => x.Language).Include(x => x.BlogCategory)
+                    .Include(x => x.FAQBlogs).ToPaged(Page, PageSize, out rowCount)
+                    .Select(o => new BlogsFormAdminListDto
+                    {
+                        Id = o.Id,
+                        BlogStatus = o.BlogStatus,
+                        Canonical = o.Canonical,
+                        CategoryText = o.BlogCategory.CategoryText,
+                        Content = o.Content,
+                        Description = o.Description,
+                        IsFollowed = o.IsFollowed,
+                        IsIndexed = o.IsIndexed,
+                        LanguageTitle = o.Language.Title,
+                        PictureSrc = o.PictureSrc,
+                        ReadingTime = o.ReadingTime,
+                        Slug = o.Slug,
+                        Tags = string.Join(",", o.Tags),
+                        Title = o.Title,
+                        UrlRedirect = o.UrlRedirect,
+                        VideoUrl = o.VideoUrl,
+                        ViewCount = o.ViewCount,                        
+                    }).ToList();
+                return new ResultDto<BlogForAdminDto>()
+                {
+                    Data = new BlogForAdminDto()
+                    {
+                        Blogs = blogs,
+                        CurrentPage = Page,
+                        PageSize = PageSize,
+                        RowCount = rowCount
+                    },
+                    IsSuccess = true,
+                    Message = "",
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<BlogForAdminDto>()
+                {
+                    IsSuccess = false,
+                };
+            }
+        }
+
+
         #endregion
     }
 }

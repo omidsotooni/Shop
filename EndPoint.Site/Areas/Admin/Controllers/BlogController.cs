@@ -25,9 +25,10 @@ namespace EndPoint.Site.Areas.Admin.Controllers
         }
         #endregion
         #region Methods
-        public IActionResult Index()
+        public IActionResult Index(int Page = 1, int PageSize = 20)
         {
-            return View();
+            //return View(_productFacad.GetProductForAdminService.Execute(Page, PageSize).Data);
+            return View(_facadForSite.GetBlogServices.GetBlogs(Page, PageSize).Data);
         }
         [HttpGet]
         public IActionResult AddNewBlog()
@@ -103,6 +104,33 @@ namespace EndPoint.Site.Areas.Admin.Controllers
             }
             var result = _facadForSite.BlogServices.EditBlogCategory(Item);
             return Json(result);
+        }
+        public IActionResult EditBlog(long Id)
+        {
+            ViewBag.UserId = ClaimUtility.GetUserId(User);
+            ViewBag.BlogCategories = new SelectList(_facadForSite.GetBlogServices.GetAllBlogCategories().Data, "Id", "Name");
+            var result = _facadForSite.GetBlogServices.GetBlogByIdForEdit(Id).Data;
+            if (result != null)
+                return View(result);
+            return View();
+        }        
+        [HttpPost]
+        public IActionResult EditBlog(EditBlogDto editBlogDto)
+        {
+            List<IFormFile> images = new List<IFormFile>();
+            for (int i = 0; i < Request.Form.Files.Count; i++)
+            {
+                var file = Request.Form.Files[i];
+                images.Add(file);
+            }
+            editBlogDto.NewBlogImages = images;
+            var result = _facadForSite.BlogServices.EditBlog(editBlogDto);
+            return Json(result);
+        }
+        [HttpPost]        
+        public IActionResult DeleteBlog(long BlogId)
+        {
+            return Json(_facadForSite.BlogServices.DeleteBlog(BlogId));
         }
 
         #endregion

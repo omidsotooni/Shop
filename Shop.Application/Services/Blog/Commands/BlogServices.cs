@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Hosting;
 using Shop.Common;
 using Shop.Domain.Entities.Blog;
 using Shop.Domain.Entities.Languages;
-using Microsoft.EntityFrameworkCore;
 using static Shop.Common.Utility;
 
 namespace Shop.Application.Services.Blog.Commands
@@ -32,6 +31,7 @@ namespace Shop.Application.Services.Blog.Commands
             using var transaction = _context.BeginTransaction();
             try
             {
+                string ImageFor = "Blog";
                 var blog = _context.BlogEntities.FirstOrDefault(e => e.Slug == addNewBlogDto.Slug);
                 if (blog is not null)
                 {
@@ -59,7 +59,7 @@ namespace Shop.Application.Services.Blog.Commands
                         Message = "دسته بندی‌ای برای مطلب پیدا نشد، لطفا دسته بندی را انتخاب کنید.",
                     };
                 }
-                var imageAddress = Utility.UploadFile(addNewBlogDto.BlogImages.First(), _environment).FileNameAddress;
+                var imageAddress = Utility.UploadFile(addNewBlogDto.BlogImages.First(), _environment, ImageFor).FileNameAddress;
                 var lang = _context.Languages.FirstOrDefault(o => o.Title.ToLower() == ((Utility.Languages)addNewBlogDto.LanguageId).ToString().ToLower());
                 if (lang is null)
                 {
@@ -239,6 +239,114 @@ namespace Shop.Application.Services.Blog.Commands
                 {
                     IsSuccess = false,
                     Message = "دسته بندی ثبت نشد!"
+                };
+            }
+        }
+
+        public ResultDto<EditBlogDto> EditBlog(EditBlogDto editBlogDto)
+        {
+            string ImageFor = "Blog";
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var blog = _context.BlogEntities.Find(editBlogDto.Id);
+                if (blog is null)
+                {
+                    return new ResultDto<EditBlogDto>()
+                    {
+                        IsSuccess = false,
+                        Message = "مطلب مورد نظر پیدا نشد!",
+                    };
+                }
+                blog.UpdateTime = DateTime.Now;
+                blog.BlogCategoryId = editBlogDto.BlogCategoryId;
+                blog.BlogStatus = editBlogDto.BlogStatus;
+                blog.Content = editBlogDto.Content;
+                blog.Title = editBlogDto.Title;
+                blog.Description = editBlogDto.Description;
+                blog.UserId = editBlogDto.UserId; // ClaimUtility.GetUserId(User);                
+                if (editBlogDto.Tags is not null)
+                {
+                    blog.Tags.Clear();
+                    editBlogDto.Tags.Split(",", StringSplitOptions.RemoveEmptyEntries)
+                        .Select(t => t.Trim().ToLowerInvariant()).ToList().ForEach(blog.Tags.Add);
+                }
+                if (editBlogDto.Canonical is not null)
+                {
+                    blog.Canonical = editBlogDto.Canonical;
+                }
+                if (editBlogDto.VideoUrl is not null)
+                {
+                    blog.VideoUrl = editBlogDto.VideoUrl;
+                }
+                if (editBlogDto.UrlRedirect is not null)
+                {
+                    blog.UrlRedirect = editBlogDto.UrlRedirect;
+                }
+                blog.Slug = !string.IsNullOrWhiteSpace(editBlogDto.Slug) ? Utility.CreateSlug(editBlogDto.Slug) : Utility.CreateSlug(editBlogDto.Title);                
+                blog.LanguageId = editBlogDto.LanguageId;
+                blog.ReadingTime = editBlogDto.ReadingTime;
+                blog.IsFollowed = editBlogDto.IsFollowed;
+                blog.IsIndexed = editBlogDto.IsIndexed;
+                if (editBlogDto.NewBlogImages is not null && editBlogDto.NewBlogImages.Count() > 0)
+                {
+                    editBlogDto.PictureSrc = Utility.UploadFile(editBlogDto.NewBlogImages.First(), _environment, ImageFor).FileNameAddress;
+                    blog.PictureSrc = editBlogDto.PictureSrc;
+                }
+                _context.SaveChanges();
+                transaction.Commit();
+
+                var blogState = EnumHelpers<BlogStatus>.GetDisplayValue(editBlogDto.BlogStatus);
+                return new ResultDto<EditBlogDto>()
+                {
+                    IsSuccess = true,
+                    Message = $"مطلب مورد نظر با وضعیت {blogState} ویرایش شد",
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<EditBlogDto>()
+                {
+                    IsSuccess = false,
+                    Message = "مطلب ویرایش نشد!",
+                };
+            }
+        }
+
+        public ResultDto DeleteBlog(long blogId)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var blog = _context.BlogEntities.Find(blogId);
+                if (blog is null)
+                {
+                    return new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "مطلب مورد نظر پیدا نشد!",
+                    };
+                }
+                blog.RemoveTime = DateTime.Now;
+                blog.IsRemoved = true;
+                _context.SaveChanges();
+                transaction.Commit();
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "مطلب مورد نظر حذف شد",
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Utility.ExceptionMessage(ex);
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "مطلب حذف نشد!"
                 };
             }
         }

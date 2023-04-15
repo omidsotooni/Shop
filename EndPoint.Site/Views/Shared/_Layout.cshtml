@@ -68,6 +68,13 @@
                                                                     <a href="~/Admin/Users/Index" class="account-link">پنل کاربری</a>
                                                                 </li>
                                                             }
+
+                                                            @if (User.IsInRole("Author"))
+                                                            {
+                                                                <li class="account-item">
+                                                                    <a href="~/Admin/Blog/Index" class="account-link">پنل کاربری</a>
+                                                                </li>
+                                                            }
                                                             @if (User.IsInRole("Operator"))
                                                             {
                                                                 <li class="account-item">

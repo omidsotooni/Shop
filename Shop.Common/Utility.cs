@@ -32,11 +32,19 @@ namespace Shop.Common
         /// <param name="file"></param>
         /// <param name="environment"></param>
         /// <returns></returns>
-        public static UploadDto UploadFile(IFormFile file, IHostingEnvironment environment)
+        public static UploadDto UploadFile(IFormFile file, IHostingEnvironment environment, string imageFor)
         {
             if (file != null)
             {
-                string folder = $@"images\HomePages\Slider\";
+                string folder = $@"images\" + imageFor;
+                if (imageFor == "HomePages")
+                {
+                    folder += @"\Slider\";
+                }
+                else
+                {
+                    folder += @"\" + imageFor + @"\";
+                }
                 var uploadsRootFolder = Path.Combine(environment.WebRootPath, folder);
                 if (!Directory.Exists(uploadsRootFolder))
                 {
@@ -233,7 +241,7 @@ namespace Shop.Common
             /// فارسی
             /// </summary>
             [Display(Name = "فارسی")]
-            Persian = 1,            
+            Persian = 1,
         }
 
         #endregion

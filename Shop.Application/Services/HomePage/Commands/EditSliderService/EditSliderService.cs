@@ -29,6 +29,7 @@ namespace Shop.Application.Services.HomePage.Commands.EditSliderService
             using var transaction = _context.BeginTransaction();
             try
             {
+                string ImageFor = "HomePages";
                 var s = _context.Sliders.Find(Slider.Id);
                 if (s == null)
                 {
@@ -40,7 +41,7 @@ namespace Shop.Application.Services.HomePage.Commands.EditSliderService
                 }
                 if(file != null)
                 {
-                    s.Src = Utility.UploadFile(file, _environment).FileNameAddress;
+                    s.Src = Utility.UploadFile(file, _environment, ImageFor).FileNameAddress;
                 }
                 s.AltName = Slider.AltName;
                 s.IsActive = Slider.IsActive;
