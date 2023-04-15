@@ -13,5 +13,6 @@ namespace Shop.Application.Services.Blog.Queries
         Task<ResultDto<List<FAQBlog>>> GetFAQBlogList(long blogId);
         ResultDto<EditBlogDto> GetBlogByIdForEdit(long blogId);        
         ResultDto<BlogForAdminDto> GetBlogs(int Page = 1, int PageSize = 20);
+        ResultDto<ResultBlogForSiteListDto> GetBlogsForSite(string SearchKey, int Page, int PageSize);
     }
 }

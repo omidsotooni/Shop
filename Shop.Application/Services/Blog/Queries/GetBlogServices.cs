@@ -293,6 +293,54 @@ namespace Shop.Application.Services.Blog.Queries
             }
         }
 
+        public ResultDto<ResultBlogForSiteListDto> GetBlogsForSite(string SearchKey, int Page, int PageSize)
+        {
+            try
+            {
+                int rowCount = 0;
+                var blogQuery = _context.BlogEntities.Where(o => o.BlogStatus == Utility.BlogStatus.Published)
+                    .Include(o => o.BlogCategory).Include(o => o.User).AsQueryable();
+                if (!string.IsNullOrWhiteSpace(SearchKey))
+                {
+                    blogQuery = blogQuery.Where(x => x.Title.Contains(SearchKey) || x.Description.Contains(SearchKey) 
+                    || x.BlogCategory.CategoryText.Contains(SearchKey) || x.Content.Contains(SearchKey)).AsQueryable();
+                }
+                var AllBlogs = blogQuery.ToPaged(Page, PageSize, out rowCount)
+                    .Select(o => new BlogsForSitetDto
+                    {
+                        Slug = o.Slug,
+                        Title = o.Title,
+                        PictureSrc = o.PictureSrc,
+                        CategoryText = o.BlogCategory.CategoryText,
+                        ViewCount = o.ViewCount,
+                        Description = o.Description,
+                        InsertDate = o.InsertTime,
+                        UserName = o.User.FullName,
+                    }).ToList();
+
+                return new ResultDto<ResultBlogForSiteListDto>()
+                {
+                    Data = new ResultBlogForSiteListDto()
+                    {
+                        Blogs = AllBlogs,
+                        CurrentPage = Page,
+                        PageSize = PageSize,
+                        RowCount = rowCount,
+                    },
+                    IsSuccess = true,
+                    Message = "",
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<ResultBlogForSiteListDto>()
+                {
+                    IsSuccess = false,
+                };
+            }
+        }
+
 
         #endregion
     }

@@ -176,6 +176,13 @@ namespace Shop.Common
             date += string.Format("{0}:{1}", pc.GetHour(dateTime), pc.GetMinute(dateTime));
             return date;
         }
+        public static string KhorshidiJustDate(DateTime dateTime)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            string date = string.Format("{0}/{1}/{2}", pc.GetYear(dateTime),
+                pc.GetMonth(dateTime), pc.GetDayOfMonth(dateTime));            
+            return date;
+        }
         public static string KhorshidiDateNull(DateTime? dateTime)
         {
             if (dateTime == null)
