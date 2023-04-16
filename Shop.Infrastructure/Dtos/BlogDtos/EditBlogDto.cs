@@ -40,5 +40,5 @@ namespace Shop.Infrastructure.Dtos.BlogDtos
         public long ViewCount { get; set; }
         [Required]
         public int ReadingTime { get; set; }
-    }
+    }    
 }

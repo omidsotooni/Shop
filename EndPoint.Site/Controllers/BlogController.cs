@@ -22,6 +22,20 @@ namespace EndPoint.Site.Controllers
             return View(_facadForSite.GetBlogServices.GetBlogsForSite(SearchKey, Page, PageSize).Data);
         }
 
+        [Route("/Blog/{slug}")]
+        public IActionResult Article(string Slug)
+        {
+            if (Slug == null)
+            {
+                return RedirectToAction("NotFound404", "Home");
+            }
+            var res = _facadForSite.GetBlogServices.GetBlogBySlug(Slug).Data;
+            if (res == null)
+            {
+                return RedirectToAction("NotFound404", "Home");
+            }
+            return View(res);
+        }
         #endregion
     }
 }

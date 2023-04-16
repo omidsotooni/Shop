@@ -53,29 +53,57 @@ namespace Shop.Application.Services.Blog.Queries
             }
         }
 
-        public async Task<ResultDto<BlogEntity>> GetBlogBySlug(string slug)
+        public ResultDto<DetailBlogDto> GetBlogBySlug(string slug)
         {
             try
             {
-                var blog = await _context.BlogEntities.FirstOrDefaultAsync(e => e.Slug == slug);
-                if(blog == null)
+                var blog = _context.BlogEntities.Where(b => b.Slug == slug).Include(cat => cat.BlogCategory)
+                    .Include(lang => lang.Language).Include(usr => usr.User).Include(faq => faq.FAQBlogs)
+                    .FirstOrDefault();
+                if (blog == null)
                 {
-                    return new ResultDto<BlogEntity>()
+                    return new ResultDto<DetailBlogDto>()
                     {
                         IsSuccess = false,
                         Message = "مطلب مورد نظر پیدا نشد!"
                     };
                 }
-                return new ResultDto<BlogEntity>()
+                blog.ViewCount++;
+                _context.SaveChanges();
+
+                return new ResultDto<DetailBlogDto>()
                 {
+                    Data = new DetailBlogDto
+                    {
+                        Canonical = blog.Canonical,
+                        CategoryText = blog.BlogCategory.CategoryText,
+                        Content = blog.Content,
+                        Description = blog.Description,
+                        FAQBlogs = blog.FAQBlogs.Select(x => new FAQBlogDetail
+                        {
+                            Answer = x.Answer,
+                            Question = x.Question,
+                        }).ToList(),
+                        IsFollowed = blog.IsFollowed,
+                        IsIndexed = blog.IsIndexed,
+                        LanguageTitle = blog.Language.Title,
+                        PictureSrc = blog.PictureSrc,
+                        ReadingTime = blog.ReadingTime,
+                        Slug = blog.Slug,
+                        Tags = string.Join(",", blog.Tags),
+                        Title = blog.Title,
+                        UrlRedirect = blog.UrlRedirect,
+                        UserName = blog.User.FullName,
+                        VideoUrl = blog.VideoUrl,
+                        ViewCount = blog.ViewCount,
+                    },
                     IsSuccess = true,
-                    Data = blog,
                 };
             }
             catch (Exception ex)
             {
                 Utility.ExceptionMessage(ex);
-                return new ResultDto<BlogEntity>()
+                return new ResultDto<DetailBlogDto>()
                 {
                     IsSuccess = false,
                     Message = "مطلب مورد نظر پیدا نشد!"
@@ -88,7 +116,7 @@ namespace Shop.Application.Services.Blog.Queries
             try
             {
                 var blogCategory = await _context.BlogCategories.FirstOrDefaultAsync(o => o.Id == blogCategoryId);
-                if(blogCategory == null)
+                if (blogCategory == null)
                 {
                     return new ResultDto<BlogCategory>()
                     {
@@ -111,7 +139,7 @@ namespace Shop.Application.Services.Blog.Queries
                     Message = "دسته بندی پیدا نشد!",
                 };
             }
-        }       
+        }
 
         public async Task<ResultDto<List<FAQBlog>>> GetFAQBlogList(long blogId)
         {
@@ -190,7 +218,7 @@ namespace Shop.Application.Services.Blog.Queries
             {
                 var blog = _context.BlogEntities.Include(x => x.Language).Include(x => x.BlogCategory)
                     .Include(x => x.FAQBlogs).Include(x => x.User).Where(o => o.Id == blogId).FirstOrDefault();
-                if(blog is null)
+                if (blog is null)
                 {
                     return new ResultDto<EditBlogDto>()
                     {
@@ -226,7 +254,7 @@ namespace Shop.Application.Services.Blog.Queries
                             Id = o.Id,
                             Answer = o.Answer,
                             Question = o.Question,
-                            
+
                         }).ToList(),
                     },
                     IsSuccess = true,
@@ -268,7 +296,7 @@ namespace Shop.Application.Services.Blog.Queries
                         Title = o.Title,
                         UrlRedirect = o.UrlRedirect,
                         VideoUrl = o.VideoUrl,
-                        ViewCount = o.ViewCount,                        
+                        ViewCount = o.ViewCount,
                     }).ToList();
                 return new ResultDto<BlogForAdminDto>()
                 {
@@ -302,7 +330,7 @@ namespace Shop.Application.Services.Blog.Queries
                     .Include(o => o.BlogCategory).Include(o => o.User).AsQueryable();
                 if (!string.IsNullOrWhiteSpace(SearchKey))
                 {
-                    blogQuery = blogQuery.Where(x => x.Title.Contains(SearchKey) || x.Description.Contains(SearchKey) 
+                    blogQuery = blogQuery.Where(x => x.Title.Contains(SearchKey) || x.Description.Contains(SearchKey)
                     || x.BlogCategory.CategoryText.Contains(SearchKey) || x.Content.Contains(SearchKey)).AsQueryable();
                 }
                 var AllBlogs = blogQuery.ToPaged(Page, PageSize, out rowCount)

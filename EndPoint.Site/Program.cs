@@ -89,6 +89,26 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "Blog",
+    pattern: "{controller=Blog}/{action=Index}/{text}",
+    new
+    {
+        controller = "Blog",
+        action = "Index"
+    }
+    );
+app.MapControllerRoute(
+    name: "Blog",
+    pattern: "{controller=Blog}/{BlogCategory}/{text}",
+    new
+    {
+        controller = "Blog",
+        action = "Article",
+        text = "text",
+        BlogCategory = "BlogShop"
+    }
+    );
 
 app.UseEndpoints(endpoints =>
 {

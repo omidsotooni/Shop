@@ -28,12 +28,12 @@
                                     <a title="@item.CategoryText" href="#">@item.CategoryText</a> </span>
                                 <span style="float:left;"> <i class="fa fa-eye"></i> بازدید: @item.ViewCount </span>
                                 <div class="thumb">
-                                    <a title="@item.Title" href="~/Blog/Detail/@item.Slug" class="d-block">
+                                    <a title="@item.Title" href="~/Blog/@item.Slug" class="d-block">
                                         <img src="~/@item.PictureSrc">
                                     </a>
                                 </div>
                                 <div class="title">
-                                    <a title="@item.Title" href="~/Blog/Detail/@item.Slug">@item.Title</a>
+                                    <a title="@item.Title" href="~/Blog/@item.Slug">@item.Title</a>
                                 </div>
                                 <p>
                                     @item.Description.Substring(0, 100)
