@@ -18,7 +18,9 @@
         public string VideoUrl { get; set; }
         public string Canonical { get; set; }
         public long ViewCount { get; set; }
-        public string UserName { get; set; }        
+        public string UserName { get; set; }     
+        public DateTime DatePublished { get; set; }
+        public DateTime? LastModified { get; set; }
     }
     public class FAQBlogDetail
     {

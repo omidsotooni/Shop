@@ -96,6 +96,8 @@ namespace Shop.Application.Services.Blog.Queries
                         UserName = blog.User.FullName,
                         VideoUrl = blog.VideoUrl,
                         ViewCount = blog.ViewCount,
+                        DatePublished = blog.InsertTime,
+                        LastModified = blog.UpdateTime == null ? DateTime.Now : blog.UpdateTime,
                     },
                     IsSuccess = true,
                 };
@@ -331,7 +333,8 @@ namespace Shop.Application.Services.Blog.Queries
                 if (!string.IsNullOrWhiteSpace(SearchKey))
                 {
                     blogQuery = blogQuery.Where(x => x.Title.Contains(SearchKey) || x.Description.Contains(SearchKey)
-                    || x.BlogCategory.CategoryText.Contains(SearchKey) || x.Content.Contains(SearchKey)).AsQueryable();
+                    || x.BlogCategory.CategoryText.Contains(SearchKey) || x.Content.Contains(SearchKey) 
+                    || x.Tags.Contains(SearchKey)).AsQueryable();
                 }
                 var AllBlogs = blogQuery.ToPaged(Page, PageSize, out rowCount)
                     .Select(o => new BlogsForSitetDto
@@ -344,7 +347,7 @@ namespace Shop.Application.Services.Blog.Queries
                         Description = o.Description,
                         InsertDate = o.InsertTime,
                         UserName = o.User.FullName,
-                    }).ToList();
+                    }).OrderByDescending(o => o.InsertDate).ToList();
 
                 return new ResultDto<ResultBlogForSiteListDto>()
                 {

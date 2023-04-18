@@ -11,6 +11,7 @@ namespace Shop.Common
     {
         public static readonly string Dash = "-";
         public static readonly string Space = " ";
+        public static readonly string Head = "Head";
         #region Methods
         /// <summary>
         /// Pagination

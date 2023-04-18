@@ -14,68 +14,71 @@
 <div class="col-lg-12 col-md-12 col-xs-12 pl">
     <div class="shop-archive-content mt-3 d-block">
         <div class="archive-header">
-            <h2 class="archive-header-title">فروشگاه مقالات ( @Model.RowCount پست )</h2>
+            <h2 class="archive-header-title">مقالات فروشگاه ( @Model.RowCount پست )</h2>
         </div>
-        <div class="product-items">
-            <div class="tab-content" id="articles">
-                <div class="row">
-                    @foreach (var item in Model.Blogs)
-                    {
-                        <div class="col-lg-4 col-md-4 col-xs-12 col-xs-12 order-1 d-block mb-3">
-                            <section class="product-box product product-type-simple" style="padding:15px 15px 15px;">
-                                <span style="float:right;">
-                                    <i class="fa fa-list-alt"></i> دسته:
-                                    <a title="@item.CategoryText" href="#">@item.CategoryText</a> </span>
-                                <span style="float:left;"> <i class="fa fa-eye"></i> بازدید: @item.ViewCount </span>
-                                <div class="thumb">
-                                    <a title="@item.Title" href="~/Blog/@item.Slug" class="d-block">
-                                        <img src="~/@item.PictureSrc">
-                                    </a>
-                                </div>
-                                <div class="title">
-                                    <a title="@item.Title" href="~/Blog/@item.Slug">@item.Title</a>
-                                </div>
-                                <p>
-                                    @item.Description.Substring(0, 100)
-                                </p>
-                                <div>
+        @if (Model.Blogs.Any())
+        {
+            <div class="product-items">
+                <div class="tab-content" id="articles">
+                    <div class="row">
+                        @foreach (var item in Model.Blogs)
+                        {
+                            <div class="col-lg-4 col-md-4 col-xs-12 col-xs-12 order-1 d-block mb-3">
+                                <section class="product-box product product-type-simple" style="padding:15px 15px 15px;">
                                     <span style="float:right;">
-                                        <i class="fa fa-clock-o"></i>
-                                        @{
-                                            string InsertDate = Utility.KhorshidiJustDate(item.InsertDate);
-                                        }
-                                        تاریخ انتشار: @InsertDate
+                                        <i class="fa fa-list-alt"></i> دسته:
+                                        <a title="@item.CategoryText" href="#">@item.CategoryText</a>
                                     </span>
-                                    <span style="float:left;"> <i class="fa fa-user"></i> نویسنده: <a title="@item.UserName" href="#">@item.UserName</a> </span>
-                                </div>
-                            </section>
-                        </div>
-                    }
+                                    <span style="float:left;"> <i class="fa fa-eye"></i> بازدید: @item.ViewCount </span>
+                                    <div class="thumb">
+                                        <a title="@item.Title" href="~/Blog/@item.Slug" class="d-block">
+                                            <img src="~/@item.PictureSrc">
+                                        </a>
+                                    </div>
+                                    <div class="title">
+                                        <a title="@item.Title" href="~/Blog/@item.Slug">@item.Title</a>
+                                    </div>
+                                    <p>
+                                        @item.Description.Substring(0, 100)
+                                    </p>
+                                    <div>
+                                        <span style="float:right;">
+                                            <i class="fa fa-clock-o"></i>
+                                            @{
+                                                string InsertDate = Utility.KhorshidiJustDate(item.InsertDate);
+                                            }
+                                            تاریخ انتشار: @InsertDate
+                                        </span>
+                                        <span style="float:left;"> <i class="fa fa-user"></i> نویسنده: <a title="@item.UserName" href="#">@item.UserName</a> </span>
+                                    </div>
+                                </section>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="pagination-product">
-            <nav aria-label="Page navigation example">
-                <div class="text-center">
-                    <paging total-records="@Model.RowCount"
+            <div class="pagination-product">
+                <nav aria-label="Page navigation example">
+                    <div class="text-center">
+                        <paging total-records="@Model.RowCount"
                             page-no="@pageNumber == 0 ? 1 : pageNumber"
                             page-size="@pageSize == 0 ? 20: pageSize"
                             show-prev-next="true"
                             show-total-pages="true"
                             show-total-records="true"
                             show-page-size-nav="true"
-                            show-first-numbered-page="true"
-                            show-last-numbered-page="true"
-                            gap-size="2"
+                                show-first-numbered-page="true"
+                                show-last-numbered-page="true"
+                                gap-size="2"
                             max-displayed-pages="4"
                             query-string-key-page-no="Page"
                             query-string-key-page-size="PageSize"
-                            query-string-value="@@(Request.QueryString.Value)"
+                                query-string-value="@@(Request.QueryString.Value)"
                             page-size-dropdown-items="10-20-30-50-100-500"
-                            page-size-nav-block-size="10"
-                            page-size-nav-max-items="4"
-                            page-size-nav-on-change="get"
-                            page-size-nav-form-method="this.form.submit();"
+                                page-size-nav-block-size="10"
+                                page-size-nav-max-items="4"
+                                page-size-nav-on-change="get"
+                                page-size-nav-form-method="this.form.submit();"
                             class="row"
                             class-paging-control-div="col"
                             class-info-div="col"
@@ -96,9 +99,21 @@
                             sr-text-last="آخرین"
                             sr-text-previous="پیشین"
                             sr-text-next="پسین">
-                    </paging>
+                        </paging>
+                    </div>
+                </nav>
+            </div>
+        }
+        else
+        {
+            <div class="product-items">
+                <div class="tab-content" id="articles">
+                    <p>
+                        متاسفانه مقاله ای پیدا نشد!
+                    </p>
                 </div>
-            </nav>
-        </div>
+            </div>
+
+        }
     </div>
 </div>

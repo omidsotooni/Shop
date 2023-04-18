@@ -1,4 +1,5 @@
 ﻿@using EndPoint.Site.Utilities;
+@using Shop.Common;
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -15,6 +16,7 @@
     <!-- main-style---------------------------------->
     <link rel="stylesheet" href="~/UserTemplate/assets/css/main.css">
     <link rel="stylesheet" href="~/UserTemplate/assets/css/responsive.css">
+    @RenderSection(Utility.Head, required: false)
 </head>
 <body>
     <!-- header-------------------------------->

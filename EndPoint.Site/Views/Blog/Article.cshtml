@@ -1,8 +1,67 @@
-﻿
+﻿@using Shop.Infrastructure.Dtos.BlogDtos;
+@model DetailBlogDto
 @{
-    ViewData["Title"] = "Article";
+    ViewData["Title"] = "مقالات فروشگاه اینترنتی";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string host = $"{Context.Request.Scheme}://{Context.Request.Host}";
 }
 
-<h1>Article</h1>
+@section Head {
+    <link rel="canonical" href="@(host + $"/Blog/{Model.Slug}/")" />
+}
+<article class="container" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <header>
+        <h1 itemprop="name headline"><a href="@(host + $"/Blog/{Model.Slug}/")" rel="canonical" itemprop="url">@Model.Title</a></h1>
+        <time datetime="@Model.DatePublished.ToString("s")" itemprop="datePublished">تاریخ انتشار @Model.DatePublished.ToString("MMM d, yyyy")</time>
+    </header>
+    <div itemprop="articleBody mainEntityOfPage" cdnify>
+        <p>@Model.Description</p>
+        @Model.Content
+    </div>
+    <footer>
+        @* for files of article
+        <svg width="24" height="24" aria-hidden="true" role="img" aria-labelledby="_cats-@Model.Title" focusable="false" viewBox="0 0 24 24">
+        <title id="_cats-@Model.Title">Categories</title>
+        <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" fill="gray"></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>*@
 
+        @if (Model.Tags.Any())
+        {
+            <svg width="24" height="24" aria-hidden="true" role="img" aria-labelledby="_tags-@Model.Title" focusable="false" viewBox="0 0 24 24">
+                <title id="_tags-@Model.Title">کلمات کلیدی</title>
+                <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z" fill="gray"></path>
+                <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+            <text>کلمات کلیدی: </text>
+            <br />
+            @foreach (var tag in Model.Tags.Split(","))
+            {
+                <a href="~/Blog?SearchKey=@tag">
+                    @tag &ensp;
+                </a>
+            }            
+        }
+
+        @*        @if (settings.Value.DisplayComments)
+        {
+        <svg width="24" height="24" aria-hidden="true" role="img" aria-labelledby="_comments-@Model.ID" focusable="false" viewBox="0 0 24 24">
+        <title id="_comments-@Model.ID">Comments</title>
+        <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z" fill="gray"></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+        href="@(host + $"/Blog/{Model.Slug}/")"
+
+
+        }*@
+        <br/>
+        <a href="@(host + $"/Blog/{Model.Slug}/#comments")" itemprop="discussionUrl" title="برو به بخش نظرات">
+            @*<span itemprop="commentCount">@Model.Comments.Count</span> @(Model.Comments.Count == 1 ? "comment" : "comments")*@
+            برو به بخش نظرات
+        </a>
+
+        <meta itemprop="author" content="@Model.UserName" />
+        <meta itemprop="dateModified" content="@Model.LastModified.Value.ToString("s")" />
+        <meta itemprop="mainEntityOfPage" content="@(host + $"/Blog/{Model.Slug}/")" />
+    </footer>
+</article>
