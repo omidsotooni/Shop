@@ -24,7 +24,37 @@
         <title id="_cats-@Model.Title">Categories</title>
         <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" fill="gray"></path>
         <path d="M0 0h24v24H0z" fill="none"></path>
-        </svg>*@
+        </svg>
+
+        *@
+
+        @if (@Model.FAQBlogs.Any())
+        {
+            <div class="row">
+                <section class="container my-5" id="maincontent">
+                    <h6 class="faq-heading">سوالات متداول <small>برای مشاهده روی سوالات کلیک نمائید.</small> </h6>
+                    <section id="accordion">
+                        @foreach (var item in @Model.FAQBlogs)
+                        {
+                            <a class="py-3 d-block h-100 w-100 position-relative z-index-1 pr-1 text-secondary border-top" aria-controls="maincontent" aria-expanded="false" data-toggle="collapse" href="#faq-@item.Id" role="button">
+                                <div class="position-relative h4 m-0 pr-3">
+                                    @item.Question
+                                    <div class="position-absolute top-0 right-0 h-100 d-flex align-items-center">
+                                        <i class="fa fa-plus"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="collapse" id="faq-@item.Id" style="">
+                                <div class="card card-body border-0 p-0">
+                                    <p>@item.Answer</p>
+                                </div>
+                            </div>
+                        }
+                    </section>
+                </section>
+            </div>
+        }
+
 
         @if (Model.Tags.Any())
         {
@@ -35,12 +65,16 @@
             </svg>
             <text>کلمات کلیدی: </text>
             <br />
-            @foreach (var tag in Model.Tags.Split(","))
-            {
-                <a href="~/Blog?SearchKey=@tag">
-                    @tag &ensp;
-                </a>
-            }            
+            <div class="row">
+                @foreach (string tag in Model.Tags.Split(","))
+                {
+                    <div class="col-2 mt-2">
+                        <a href="~/Blog?SearchKey=@tag">
+                            <div class="bg-white text-center fs-small tag rounded">@tag &ensp;</div>
+                        </a>
+                    </div>
+                }
+            </div>
         }
 
         @*        @if (settings.Value.DisplayComments)
@@ -54,7 +88,21 @@
 
 
         }*@
-        <br/>
+        <br />
+        <div style="font-size:80%">
+            <div style="float:right">
+                <a href="@(host + $"/Blog/{Model.Slug}")" target="_blank" rel="prev" title="مقاله قبلی: @Model.Title">
+                    <i class="fa fa-angle-right"></i><small>مقاله قبلی: @Model.Title</small>
+                </a>
+            </div>
+            <div style="float:left">
+                <a href="@(host + $"/Blog/{Model.Slug}")" target="_blank" rel="next" title="مقاله بعدی: @Model.Title">
+                    <small>مقاله بعدی: @Model.Title</small><i class="fa fa-angle-left"></i>
+                </a>
+            </div>
+        </div>
+
+        <br />
         <a href="@(host + $"/Blog/{Model.Slug}/#comments")" itemprop="discussionUrl" title="برو به بخش نظرات">
             @*<span itemprop="commentCount">@Model.Comments.Count</span> @(Model.Comments.Count == 1 ? "comment" : "comments")*@
             برو به بخش نظرات

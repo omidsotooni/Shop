@@ -83,6 +83,7 @@ namespace Shop.Application.Services.Blog.Queries
                         {
                             Answer = x.Answer,
                             Question = x.Question,
+                            Id = x.Id,
                         }).ToList(),
                         IsFollowed = blog.IsFollowed,
                         IsIndexed = blog.IsIndexed,

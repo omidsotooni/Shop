@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cJC+CsHdovG0FI6fwkBC8KDzsxqML6NNX3qxi6DBdb0=",
+  "Hash": "af6AZwtP2mD9UVL11eiw9HPvQ8M3gI23NHisTyqPvyQ=",
   "Source": "EndPoint.Site",
   "BasePath": "_content/EndPoint.Site",
   "Mode": "Default",
@@ -4333,6 +4333,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\AdminTemplate\\app-assets\\vendors\\js\\typeahead\\typeahead.bundle.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\css\\faqcss.css",
+      "SourceId": "EndPoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\",
+      "BasePath": "_content/EndPoint.Site",
+      "RelativePath": "css/faqcss.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\faqcss.css"
     },
     {
       "Identity": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\wwwroot\\css\\site.css",
