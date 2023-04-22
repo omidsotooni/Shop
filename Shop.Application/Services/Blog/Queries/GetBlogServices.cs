@@ -95,6 +95,7 @@ namespace Shop.Application.Services.Blog.Queries
                         Title = blog.Title,
                         UrlRedirect = blog.UrlRedirect,
                         UserName = blog.User.FullName,
+                        AuthorUrl = blog.User.UserUrl,
                         VideoUrl = blog.VideoUrl,
                         ViewCount = blog.ViewCount,
                         DatePublished = blog.InsertTime,
@@ -340,6 +341,7 @@ namespace Shop.Application.Services.Blog.Queries
                 var AllBlogs = blogQuery.ToPaged(Page, PageSize, out rowCount)
                     .Select(o => new BlogsForSitetDto
                     {
+                        Id = o.Id,
                         Slug = o.Slug,
                         Title = o.Title,
                         PictureSrc = o.PictureSrc,
@@ -348,6 +350,7 @@ namespace Shop.Application.Services.Blog.Queries
                         Description = o.Description,
                         InsertDate = o.InsertTime,
                         UserName = o.User.FullName,
+                        AuthorUrl = o.User.UserUrl,
                     }).OrderByDescending(o => o.InsertDate).ToList();
 
                 return new ResultDto<ResultBlogForSiteListDto>()

@@ -19,6 +19,7 @@
         public string Canonical { get; set; }
         public long ViewCount { get; set; }
         public string UserName { get; set; }     
+        public string AuthorUrl { get; set; }
         public DateTime DatePublished { get; set; }
         public DateTime? LastModified { get; set; }
     }

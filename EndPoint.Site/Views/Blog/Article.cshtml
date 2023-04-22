@@ -7,28 +7,95 @@
 }
 
 @section Head {
-    <link rel="canonical" href="@(host + $"/Blog/{Model.Slug}/")" />
+    <!-- canonical !-->
+    <link rel="canonical" href="@Model.Canonical == null ? @(host + $"/Blog/{Model.Slug}/") : @Model.Canonical" />
+    <!-- NewsArticle Schema ld+json !-->
+    <script defer type="application/ld+json">
+        {
+          "@@context" : "http://schema.org",
+           "@@type" : "NewsArticle",
+           "provider" : {
+                          "@@type" : "Organization",
+                          "name"   : "فروشگاه اینترنتی",
+                          "alternateName": "Iranian online shop",
+                          "description": "Iranian online shop.",
+                          "url": "https://omidsotooni.github.io/",
+                          "logo": "~/UserTemplate/assets/images/logo.png",
+                          "contactPoint": [
+                              {
+                                  "@@type": "ContactPoint", "telephone": "+989011234567", "contactType": "education", "areaServed": "IR", "availableLanguage": "Persian"
+                              }
+                              ,
+                              {
+                                  "@@type": "ContactPoint", "telephone": "+989011234567", "contactType": "technical support", "areaServed": "IR", "availableLanguage": "Persian"
+                              }
+                          ],
+                          "sameAs": [
+                              "https://omidsotooni.github.io/",
+                              "https://omidsotooni.github.io/"
+                          ] },
+          "datePublished" : "@Model.DatePublished.ToString("s")",
+          "image" : "@(Model.Title == null ? "blog image" : Model.Title)",
+          "genre" : "@Html.Raw(Model.CategoryText)",
+          "headline" : "@Html.Raw(Model.Title)",
+          "author":[ {
+              "@@type": "Person",
+              "name": "@(Model.UserName == null || Model.UserName == "" ? "Omid Sotooni" : Model.UserName)",
+              "url": "@(Model.AuthorUrl == null || Model.AuthorUrl == "" ? "https://omidsotooni.github.io/" : Model.AuthorUrl)"
+                }]
+        }
+    </script>
+    <!-- FAQ Schema ld+json !-->
+    <script type="application/ld+json" defer>
+        {
+        @if (@Model.FAQBlogs.Count() > 0)
+        {
+            <text>
+                        "@@context": "https://schema.org",
+                        "@@type": "FAQPage",
+                        "mainEntity": [
+            </text>
+            @foreach (var item in @Model.FAQBlogs)
+            {
+                <text>
+                            {
+                                "@@type": "Question",
+                                "name": "@item.Question",
+                                "acceptedAnswer": {
+                                    "@@type": "Answer",
+                                    "text": "@item.Answer"
+                                }
+                            }
+                </text>
+                @if (@Model.FAQBlogs.LastOrDefault()?.Id != item.Id)
+                {
+                    <text>
+                                    ,
+                    </text>
+                }
+            }
+            <text>
+                            ]
+            </text>
+        }
+        }
+    </script>
 }
+
 <article class="container" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
     <header>
         <h1 itemprop="name headline"><a href="@(host + $"/Blog/{Model.Slug}/")" rel="canonical" itemprop="url">@Model.Title</a></h1>
         <time datetime="@Model.DatePublished.ToString("s")" itemprop="datePublished">تاریخ انتشار @Model.DatePublished.ToString("MMM d, yyyy")</time>
     </header>
     <div itemprop="articleBody mainEntityOfPage" cdnify>
-        <p>@Model.Description</p>
+        <div>
+            <p>@Model.Description</p>
+            <img src="~/@Model.PictureSrc" class="img-fluid" />
+        </div>
         @Model.Content
     </div>
     <footer>
-        @* for files of article
-        <svg width="24" height="24" aria-hidden="true" role="img" aria-labelledby="_cats-@Model.Title" focusable="false" viewBox="0 0 24 24">
-        <title id="_cats-@Model.Title">Categories</title>
-        <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" fill="gray"></path>
-        <path d="M0 0h24v24H0z" fill="none"></path>
-        </svg>
-
-        *@
-
-        @if (@Model.FAQBlogs.Any())
+        @if (@Model.FAQBlogs.Count() > 0)
         {
             <div class="row">
                 <section class="container my-5" id="maincontent">
@@ -54,8 +121,6 @@
                 </section>
             </div>
         }
-
-
         @if (Model.Tags.Any())
         {
             <svg width="24" height="24" aria-hidden="true" role="img" aria-labelledby="_tags-@Model.Title" focusable="false" viewBox="0 0 24 24">
@@ -76,18 +141,6 @@
                 }
             </div>
         }
-
-        @*        @if (settings.Value.DisplayComments)
-        {
-        <svg width="24" height="24" aria-hidden="true" role="img" aria-labelledby="_comments-@Model.ID" focusable="false" viewBox="0 0 24 24">
-        <title id="_comments-@Model.ID">Comments</title>
-        <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z" fill="gray"></path>
-        <path d="M0 0h24v24H0z" fill="none"></path>
-        </svg>
-        href="@(host + $"/Blog/{Model.Slug}/")"
-
-
-        }*@
         <br />
         <div>
             <ul class="next_prev clr">
@@ -103,20 +156,6 @@
                 </li>
             </ul>
         </div>
-
-       @* <div style="font-size:80%">
-            <div style="float:right">
-                <a href="@(host + $"/Blog/{Model.Slug}")" target="_blank" rel="prev" title="مقاله قبلی: @Model.Title">
-                    <i class="fa fa-angle-right"></i><small>مقاله قبلی: @Model.Title</small>
-                </a>
-            </div>
-            <div style="float:left">
-                <a href="@(host + $"/Blog/{Model.Slug}")" target="_blank" rel="next" title="مقاله بعدی: @Model.Title">
-                    <small>مقاله بعدی: @Model.Title</small><i class="fa fa-angle-left"></i>
-                </a>
-            </div>
-        </div>*@
-
         <br />
         <a href="@(host + $"/Blog/{Model.Slug}/#comments")" itemprop="discussionUrl" title="برو به بخش نظرات">
             @*<span itemprop="commentCount">@Model.Comments.Count</span> @(Model.Comments.Count == 1 ? "comment" : "comments")*@

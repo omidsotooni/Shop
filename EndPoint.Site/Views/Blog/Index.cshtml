@@ -10,6 +10,74 @@
     int.TryParse(Context.Request.Query["Page"], out pageNumber);
     int.TryParse(Context.Request.Query["PageSize"], out pageSize);
 }
+@section Head {
+    <!-- NewsArticle Schema ld+json !-->
+<script defer type="application/ld+json">
+    {
+      "@@context" : "http://schema.org",
+      "@@type" : "NewsArticle",
+      "provider" :
+                {
+                    "@@type" : "Organization",
+                    "name"   : "فروشگاه اینترنتی",
+                    "alternateName": "Iranian online shop",
+                    "description": "Iranian online shop.",
+                    "url": "https://omidsotooni.github.io/",
+                    "logo": "UserTemplate/assets/images/logo.png",
+                    "contactPoint": [
+                                  {
+                                      "@@type": "ContactPoint", "telephone": "+989011234567", "contactType": "education", "areaServed": "IR", "availableLanguage": "Persian"
+                                  }
+                                  ,
+                                  {
+                                      "@@type": "ContactPoint", "telephone": "+989011234567", "contactType": "technical support", "areaServed": "IR", "availableLanguage": "Persian"
+                                  }
+                      ],
+                          "sameAs": [
+                                  "https://omidsotooni.github.io/",
+                                  "https://omidsotooni.github.io/"
+                      ]
+                },        
+        "headline" : [
+    @foreach (var item in Model.Blogs)
+    {
+        <text>
+            "@Html.Raw(item.Title)"
+        </text>
+        @if (Model.Blogs.LastOrDefault()?.Id != item.Id)
+        {
+            <text>
+                ,
+            </text>
+        }
+    }
+        ],
+        "genre" : [
+    @foreach (var item in Model.Blogs)
+    {
+        <text>
+            @{
+                var url = @item.CategoryText == null ? "Academy online shop" : @item.CategoryText;
+            }
+            "@Html.Raw(url)"
+        </text>
+        @if (Model.Blogs.LastOrDefault()?.Id != item.Id)
+        {
+            <text>
+                ,
+            </text>
+        }
+    }
+        ]
+        ,"author":[ {
+          "@@type": "Person",
+                "name": "@(Model.Blogs.First().UserName == null || Model.Blogs.First().UserName == "" ? "Omid Sotooni" : Model.Blogs.First().UserName)",
+                "url":  "@(Model.Blogs.First().AuthorUrl == null || Model.Blogs.First().AuthorUrl == "" ? "https://omidsotooni.github.io/" : Model.Blogs.First().AuthorUrl)"
+            }]
+
+    }
+</script>
+}
 
 <div class="col-lg-12 col-md-12 col-xs-12 pl">
     <div class="shop-archive-content mt-3 d-block">
