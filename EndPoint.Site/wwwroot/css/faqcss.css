@@ -46,3 +46,126 @@ a.text-secondary:hover {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+
+.next_prev {
+    background-color: #4297d3;
+    padding: 20px;
+    border-radius: 10px;
+    height: 70px;
+}
+
+.clr:before, .clr:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.clr:after {
+    clear: both;
+}
+
+ul.next_prev {
+    position: relative;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.next_prev .previous {
+    float: right;
+    border: 0;
+    width: calc(50% - 10px);
+}
+
+.next_prev i {
+    font-size: 26px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: #4297d3;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    border-radius: 100%;
+    transition: all .2s ease-in-out;
+}
+
+.next_prev .previous i, .next_prev .next i {
+    color: rgb(150 0 0);
+    background-color: rgb(255 255 255);
+}
+
+.next_prev .previous i {
+    left: auto;
+    right: 0;
+}
+
+.next_prev a {
+    position: relative;
+}
+
+.next_prev h4 {
+    color: white;
+}
+
+.next_prev .previous h4 {
+    padding: 0;
+    padding-right: 70px;
+}
+
+.next_prev h4 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -6px 0 0 0;
+    font-size: 16px;
+    padding-left: 70px;
+}
+
+.next_prev small {
+    font-size: .8em;
+}
+
+.row small {
+    opacity: .8;
+    display: block;
+    font-size: .9em;
+    font-weight: normal;
+}
+
+.next_prev .next {
+    float: left;
+    text-align: left;
+    margin-left: initial;
+    margin-right: auto;
+    width: 50%;
+}
+
+ul.next_prev li {
+    background: none !important;
+}
+
+.h_iframe-aparat_embed_frame {
+    position: relative;
+    margin-top: 3px;
+}
+
+    .h_iframe-aparat_embed_frame .ratio {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .h_iframe-aparat_embed_frame > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }

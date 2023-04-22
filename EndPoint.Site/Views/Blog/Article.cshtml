@@ -89,7 +89,22 @@
 
         }*@
         <br />
-        <div style="font-size:80%">
+        <div>
+            <ul class="next_prev clr">
+                <li class="previous">
+                    <a href="@(host + $"/Blog/{Model.Slug}")" target="_blank" rel="prev" title="مقاله قبلی: @Model.Title">
+                        <i class="fa fa-angle-right"></i><h4><small>مقاله قبلی</small><br /> @Model.Title</h4>
+                    </a>
+                </li>
+                <li class="next">
+                    <a href="@(host + $"/Blog/{Model.Slug}")" target="_blank" rel="next" title="مقاله بعدی: @Model.Title">
+                        <h4><small>مقاله بعدی</small><br /> @Model.Title</h4><i class="fa fa-angle-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+       @* <div style="font-size:80%">
             <div style="float:right">
                 <a href="@(host + $"/Blog/{Model.Slug}")" target="_blank" rel="prev" title="مقاله قبلی: @Model.Title">
                     <i class="fa fa-angle-right"></i><small>مقاله قبلی: @Model.Title</small>
@@ -100,7 +115,7 @@
                     <small>مقاله بعدی: @Model.Title</small><i class="fa fa-angle-left"></i>
                 </a>
             </div>
-        </div>
+        </div>*@
 
         <br />
         <a href="@(host + $"/Blog/{Model.Slug}/#comments")" itemprop="discussionUrl" title="برو به بخش نظرات">
