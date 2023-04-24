@@ -27,7 +27,6 @@ namespace EndPoint.Site.Areas.Admin.Controllers
         #region Methods
         public IActionResult Index(int Page = 1, int PageSize = 20)
         {
-            //return View(_productFacad.GetProductForAdminService.Execute(Page, PageSize).Data);
             return View(_facadForSite.GetBlogServices.GetBlogs(Page, PageSize).Data);
         }
         [HttpGet]
@@ -132,7 +131,72 @@ namespace EndPoint.Site.Areas.Admin.Controllers
         {
             return Json(_facadForSite.BlogServices.DeleteBlog(BlogId));
         }
-
+        public IActionResult IndexFAQsBlog(int Page = 1, int PageSize = 20)
+        {
+            return View(_facadForSite.GetBlogServices.GetFAQBlogList(Page, PageSize).Data);
+        }
+        public IActionResult AddNewFAQ()
+        {
+            ViewBag.Blogs = new SelectList(_facadForSite.GetBlogServices.GetAllBlogForAddFAQ().Data, "Id", "Name");
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddNewFAQ(string Question, string Answer, long BlogId)
+        {
+            if (string.IsNullOrEmpty(Question))
+            {
+                return Json( new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "سوال متداول را وارد نمایید",
+                });
+            }
+            if (string.IsNullOrEmpty(Answer))
+            {
+                return Json( new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "پاسخ را وارد نمایید",
+                });
+            }
+            if(BlogId == 0)
+            {
+                return Json( new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "پست/مقاله مرتبط را وارد نمایید",
+                });
+            }
+            var result = _facadForSite.BlogServices.AddNewFAQ(Question, Answer, BlogId);
+            return Json(result);
+        }
+        public ActionResult EditFAQBlog(long Id)
+        {
+            ViewBag.Blogs = new SelectList(_facadForSite.GetBlogServices.GetAllBlogForAddFAQ().Data, "Id", "Name");
+            var result = _facadForSite.GetBlogServices.GetFAQByIdForEdit(Id).Data;
+            if (result != null)
+                return View(result);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult EditFAQBlog(FAQBlog Item)
+        {
+            if (Item == null)
+            {
+                return Json(new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "برای ویرایش لطفا تغییرات سوال متداول مورد نظر را وارد نمائید.!"
+                });
+            }
+            var result = _facadForSite.BlogServices.EditFAQBlog(Item);
+            return Json(result);
+        }
+        [HttpPost]
+        public IActionResult DeleteFAQBlog(long faqId)
+        {
+            return Json(_facadForSite.BlogServices.DeleteFAQBlog(faqId));
+        }
         #endregion
     }
 }

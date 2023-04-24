@@ -132,117 +132,6 @@ namespace Shop.Application.Services.Blog.Commands
                 };
             }
         }
-
-        public ResultDto AddNewBlogCategory(string CategoryText)
-        {
-            using var transaction = _context.BeginTransaction();
-            try
-            {
-                if (string.IsNullOrEmpty(CategoryText))
-                {
-                    return new ResultDto()
-                    {
-                        IsSuccess = false,
-                        Message = "نام دسته بندی مطالب را وارد نمایید",
-                    };
-                }
-                BlogCategory blogCategory = new BlogCategory()
-                {
-                    CategoryText = CategoryText,
-                };
-                _context.BlogCategories.Add(blogCategory);
-                _context.SaveChanges();
-                transaction.Commit();
-                return new ResultDto()
-                {
-                    IsSuccess = true,
-                    Message = "دسته بندی مطالب با موفقیت اضافه شد",
-                };
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                Utility.ExceptionMessage(ex);
-                return new ResultDto()
-                {
-                    IsSuccess = false,
-                    Message = "دسته بندی ثبت نشد!"
-                };
-            }
-        }
-
-        public ResultDto DeleteBlogCategory(long blogCategoryId)
-        {
-            using var transaction = _context.BeginTransaction();
-            try
-            {
-                var blogCategory = _context.BlogCategories.Find(blogCategoryId);
-                if (blogCategory is null)
-                {
-                    return new ResultDto()
-                    {
-                        IsSuccess = false,
-                        Message = "دسته بندی مطالب پیدا نشد!"
-                    };
-                }
-                blogCategory.RemoveTime = DateTime.Now;
-                blogCategory.IsRemoved = true;
-                _context.SaveChanges();
-                transaction.Commit();
-                return new ResultDto()
-                {
-                    IsSuccess = true,
-                    Message = "دسته بندی مطالب حذف شد!"
-                };
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                Utility.ExceptionMessage(ex);
-                return new ResultDto()
-                {
-                    IsSuccess = false,
-                    Message = "دسته بندی ثبت نشد!"
-                };
-            }
-        }
-
-        public ResultDto EditBlogCategory(BlogCategory blogCategory)
-        {
-            using var transaction = _context.BeginTransaction();
-            try
-            {
-                var category = _context.BlogCategories.Find(blogCategory.Id);
-                if (category is null)
-                {
-                    return new ResultDto()
-                    {
-                        IsSuccess = false,
-                        Message = "دسته بندی مطالب پیدا نشد!"
-                    };
-                }
-                category.UpdateTime = DateTime.Now;
-                category.CategoryText = blogCategory.CategoryText;
-                _context.SaveChanges();
-                transaction.Commit();
-                return new ResultDto()
-                {
-                    IsSuccess = true,
-                    Message = "دسته بندی مطالب ویرایش شد!"
-                };
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                Utility.ExceptionMessage(ex);
-                return new ResultDto()
-                {
-                    IsSuccess = false,
-                    Message = "دسته بندی ثبت نشد!"
-                };
-            }
-        }
-
         public ResultDto<EditBlogDto> EditBlog(EditBlogDto editBlogDto)
         {
             string ImageFor = "Blog";
@@ -283,7 +172,7 @@ namespace Shop.Application.Services.Blog.Commands
                 {
                     blog.UrlRedirect = editBlogDto.UrlRedirect;
                 }
-                blog.Slug = !string.IsNullOrWhiteSpace(editBlogDto.Slug) ? Utility.CreateSlug(editBlogDto.Slug) : Utility.CreateSlug(editBlogDto.Title);                
+                blog.Slug = !string.IsNullOrWhiteSpace(editBlogDto.Slug) ? Utility.CreateSlug(editBlogDto.Slug) : Utility.CreateSlug(editBlogDto.Title);
                 blog.LanguageId = editBlogDto.LanguageId;
                 blog.ReadingTime = editBlogDto.ReadingTime;
                 blog.IsFollowed = editBlogDto.IsFollowed;
@@ -314,7 +203,6 @@ namespace Shop.Application.Services.Blog.Commands
                 };
             }
         }
-
         public ResultDto DeleteBlog(long blogId)
         {
             using var transaction = _context.BeginTransaction();
@@ -347,6 +235,237 @@ namespace Shop.Application.Services.Blog.Commands
                 {
                     IsSuccess = false,
                     Message = "مطلب حذف نشد!"
+                };
+            }
+        }
+
+        public ResultDto AddNewBlogCategory(string CategoryText)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                if (string.IsNullOrEmpty(CategoryText))
+                {
+                    return new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "نام دسته بندی مطالب را وارد نمایید",
+                    };
+                }
+                BlogCategory blogCategory = new BlogCategory()
+                {
+                    CategoryText = CategoryText,
+                };
+                _context.BlogCategories.Add(blogCategory);
+                _context.SaveChanges();
+                transaction.Commit();
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "دسته بندی مطالب با موفقیت اضافه شد",
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Utility.ExceptionMessage(ex);
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "دسته بندی ثبت نشد!"
+                };
+            }
+        }
+        public ResultDto DeleteBlogCategory(long blogCategoryId)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var blogCategory = _context.BlogCategories.Find(blogCategoryId);
+                if (blogCategory is null)
+                {
+                    return new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "دسته بندی مطالب پیدا نشد!"
+                    };
+                }
+                blogCategory.RemoveTime = DateTime.Now;
+                blogCategory.IsRemoved = true;
+                _context.SaveChanges();
+                transaction.Commit();
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "دسته بندی مطالب حذف شد!"
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Utility.ExceptionMessage(ex);
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "دسته بندی ثبت نشد!"
+                };
+            }
+        }
+        public ResultDto EditBlogCategory(BlogCategory blogCategory)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var category = _context.BlogCategories.Find(blogCategory.Id);
+                if (category is null)
+                {
+                    return new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "دسته بندی مطالب پیدا نشد!"
+                    };
+                }
+                category.UpdateTime = DateTime.Now;
+                category.CategoryText = blogCategory.CategoryText;
+                _context.SaveChanges();
+                transaction.Commit();
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "دسته بندی مطالب ویرایش شد!"
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Utility.ExceptionMessage(ex);
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "دسته بندی ثبت نشد!"
+                };
+            }
+        }
+
+        public ResultDto AddNewFAQ(string Question, string Answer, long BlogId)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var blog = _context.BlogEntities.FirstOrDefault(o => o.Id == BlogId);
+                if(blog == null)
+                {
+                    return new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "پست/مقاله مرتبط را وارد نمایید",
+                    };
+                }
+                FAQBlog fAQBlog = new FAQBlog()
+                {
+                    Answer = Answer,
+                    Question = Question,
+                    BlogId = blog.Id,
+                    BlogEntity = blog,
+                };
+                _context.FAQBlogs.Add(fAQBlog);
+                _context.SaveChanges();
+                transaction.Commit();
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "سوال متداول با موفقیت اضافه شد",
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Utility.ExceptionMessage(ex);
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "سوال متداول ثبت نشد!"
+                };
+            }
+        }
+        public ResultDto EditFAQBlog(FAQBlog fAQBlog)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var fAQ = _context.FAQBlogs.Find(fAQBlog.Id);
+                if (fAQ is null)
+                {
+                    return new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "سوال متداول پیدا نشد!"
+                    };
+                }
+                var blog = _context.BlogEntities.Find(fAQBlog.BlogId);
+                if(blog == null)
+                {
+                    return new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "مقاله مربتط پیدا نشد!"
+                    };
+                }
+                fAQ.UpdateTime = DateTime.Now;
+                fAQ.Question = fAQBlog.Question;
+                fAQ.Answer = fAQBlog.Answer;
+                fAQ.BlogId = blog.Id;
+                _context.SaveChanges();
+                transaction.Commit();
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "سوال متداول مورد نظر ویرایش شد!"
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Utility.ExceptionMessage(ex);
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "تغییرات سوال متداول ثبت نشد!"
+                };
+            }
+        }
+        public ResultDto DeleteFAQBlog(long faqId)
+        {
+            using var transaction = _context.BeginTransaction();
+            try
+            {
+                var fAQ = _context.FAQBlogs.Find(faqId);
+                if (fAQ is null)
+                {
+                    return new ResultDto()
+                    {
+                        IsSuccess = false,
+                        Message = "سوال متداول مورد نظر پیدا نشد!",
+                    };
+                }
+                fAQ.RemoveTime = DateTime.Now;
+                fAQ.IsRemoved = true;
+                _context.SaveChanges();
+                transaction.Commit();
+                return new ResultDto()
+                {
+                    IsSuccess = true,
+                    Message = "سوال متداول مورد نظر حذف شد",
+                };
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Utility.ExceptionMessage(ex);
+                return new ResultDto()
+                {
+                    IsSuccess = false,
+                    Message = "سوال متداول حذف نشد!"
                 };
             }
         }

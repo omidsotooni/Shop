@@ -6,13 +6,15 @@ namespace Shop.Application.Services.Blog.Queries
 {
     public interface IGetBlogServices
     {
+        ResultDto<BlogForAdminDto> GetBlogs(int Page = 1, int PageSize = 20);
         Task<ResultDto<BlogEntity>> GetBlogById(long blogId);
         ResultDto<DetailBlogDto> GetBlogBySlug(string slug);
+        ResultDto<ResultBlogForSiteListDto> GetBlogsForSite(string SearchKey, int Page, int PageSize);
+        ResultDto<List<AllBlogForAddFAQDto>> GetAllBlogForAddFAQ();
         Task<ResultDto<BlogCategory>> GetBlogCategory(long blogCategoryId);
         ResultDto<List<AllBlogCategoriesDto>> GetAllBlogCategories();
-        Task<ResultDto<List<FAQBlog>>> GetFAQBlogList(long blogId);
         ResultDto<EditBlogDto> GetBlogByIdForEdit(long blogId);        
-        ResultDto<BlogForAdminDto> GetBlogs(int Page = 1, int PageSize = 20);
-        ResultDto<ResultBlogForSiteListDto> GetBlogsForSite(string SearchKey, int Page, int PageSize);
+        ResultDto<FAQBlog> GetFAQByIdForEdit(long FAQId);
+        ResultDto<FAQForAdminDto> GetFAQBlogList(int Page = 1, int PageSize = 20);
     }
 }

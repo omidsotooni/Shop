@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xBZGROZXdCbG9nQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/AddNewFAQ.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xBZGROZXdGQVEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/EditBlog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xFZGl0QmxvZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,12 +36,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xFZGl0QmxvZ0NhdGVnb3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/EditFAQBlog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xFZGl0RkFRQmxvZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/IndexBlogCategories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xJbmRleEJsb2dDYXRlZ29yaWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/IndexFAQsBlog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xJbmRleEZBUXNCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Categories/AddNewCategory.cshtml]

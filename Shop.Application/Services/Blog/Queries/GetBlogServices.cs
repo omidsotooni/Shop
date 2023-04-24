@@ -23,6 +23,7 @@ namespace Shop.Application.Services.Blog.Queries
         #endregion
 
         #region Methods
+        // Blog
         public async Task<ResultDto<BlogEntity>> GetBlogById(long blogId)
         {
             try
@@ -52,7 +53,6 @@ namespace Shop.Application.Services.Blog.Queries
                 };
             }
         }
-
         public ResultDto<DetailBlogDto> GetBlogBySlug(string slug)
         {
             try
@@ -114,108 +114,6 @@ namespace Shop.Application.Services.Blog.Queries
                 };
             }
         }
-
-        public async Task<ResultDto<BlogCategory>> GetBlogCategory(long blogCategoryId)
-        {
-            try
-            {
-                var blogCategory = await _context.BlogCategories.FirstOrDefaultAsync(o => o.Id == blogCategoryId);
-                if (blogCategory == null)
-                {
-                    return new ResultDto<BlogCategory>()
-                    {
-                        IsSuccess = false,
-                        Message = "دسته بندی‌ای برای مطلب پیدا نشد، لطفا دسته بندی را انتخاب کنید.",
-                    };
-                }
-                return new ResultDto<BlogCategory>()
-                {
-                    Data = blogCategory,
-                    IsSuccess = true,
-                };
-            }
-            catch (Exception ex)
-            {
-                Utility.ExceptionMessage(ex);
-                return new ResultDto<BlogCategory>()
-                {
-                    IsSuccess = false,
-                    Message = "دسته بندی پیدا نشد!",
-                };
-            }
-        }
-
-        public async Task<ResultDto<List<FAQBlog>>> GetFAQBlogList(long blogId)
-        {
-            try
-            {
-                var faqBlog = _context.FAQBlogs.AsQueryable();
-                var faqBlogList = await faqBlog.Where(x => x.BlogId == blogId).Select(o => new FAQBlog
-                {
-                    Question = o.Question,
-                    Answer = o.Answer,
-                }).ToListAsync();
-                if (faqBlogList == null)
-                {
-                    return new ResultDto<List<FAQBlog>>()
-                    {
-                        IsSuccess = false,
-                        Message = "لیست سوالات متداول خالی است"
-                    };
-                }
-                return new ResultDto<List<FAQBlog>>()
-                {
-                    Data = faqBlogList,
-                    IsSuccess = true,
-                    Message = ""
-                };
-            }
-            catch (Exception ex)
-            {
-                Utility.ExceptionMessage(ex);
-                return new ResultDto<List<FAQBlog>>()
-                {
-                    IsSuccess = false,
-                    Message = "نویسنده پیدا نشد!",
-                };
-            }
-        }
-
-        public ResultDto<List<AllBlogCategoriesDto>> GetAllBlogCategories()
-        {
-            try
-            {
-                var blogCategories = _context.BlogCategories.Select(o => new AllBlogCategoriesDto
-                {
-                    Id = o.Id,
-                    Name = o.CategoryText,
-                }).ToList();
-                if (blogCategories is null)
-                {
-                    return new ResultDto<List<AllBlogCategoriesDto>>()
-                    {
-                        IsSuccess = false,
-                        Message = "لیست دسته بندی مطلب ها خالی است"
-                    };
-                }
-                return new ResultDto<List<AllBlogCategoriesDto>>()
-                {
-                    Data = blogCategories,
-                    IsSuccess = true,
-                    Message = ""
-                };
-            }
-            catch (Exception ex)
-            {
-                Utility.ExceptionMessage(ex);
-                return new ResultDto<List<AllBlogCategoriesDto>>()
-                {
-                    IsSuccess = false,
-                    Message = "لیست دسته بندی مطلب ها خالی است"
-                };
-            }
-        }
-
         public ResultDto<EditBlogDto> GetBlogByIdForEdit(long blogId)
         {
             try
@@ -274,7 +172,6 @@ namespace Shop.Application.Services.Blog.Queries
                 };
             }
         }
-
         public ResultDto<BlogForAdminDto> GetBlogs(int Page = 1, int PageSize = 20)
         {
             try
@@ -324,7 +221,6 @@ namespace Shop.Application.Services.Blog.Queries
                 };
             }
         }
-
         public ResultDto<ResultBlogForSiteListDto> GetBlogsForSite(string SearchKey, int Page, int PageSize)
         {
             try
@@ -335,7 +231,7 @@ namespace Shop.Application.Services.Blog.Queries
                 if (!string.IsNullOrWhiteSpace(SearchKey))
                 {
                     blogQuery = blogQuery.Where(x => x.Title.Contains(SearchKey) || x.Description.Contains(SearchKey)
-                    || x.BlogCategory.CategoryText.Contains(SearchKey) || x.Content.Contains(SearchKey) 
+                    || x.BlogCategory.CategoryText.Contains(SearchKey) || x.Content.Contains(SearchKey)
                     || x.Tags.Contains(SearchKey)).AsQueryable();
                 }
                 var AllBlogs = blogQuery.ToPaged(Page, PageSize, out rowCount)
@@ -372,6 +268,179 @@ namespace Shop.Application.Services.Blog.Queries
                 return new ResultDto<ResultBlogForSiteListDto>()
                 {
                     IsSuccess = false,
+                };
+            }
+        }
+        public ResultDto<List<AllBlogForAddFAQDto>> GetAllBlogForAddFAQ()
+        {
+            try
+            {
+                var blog = _context.BlogEntities.Select(o => new AllBlogForAddFAQDto
+                {
+                    Id = o.Id,
+                    Name = o.Title,
+                }).ToList();
+                if (blog == null)
+                {
+                    return new ResultDto<List<AllBlogForAddFAQDto>>()
+                    {
+                        IsSuccess = false,
+                        Message = "لیست مطالب خالی است"
+                    };
+                }
+                return new ResultDto<List<AllBlogForAddFAQDto>>()
+                {
+                    Data = blog,
+                    IsSuccess = true,
+                    Message = ""
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<List<AllBlogForAddFAQDto>>()
+                {
+                    IsSuccess = false,
+                    Message = "لیست مطالب خالی است"
+                };
+            }
+        }
+
+        // Blog Categories
+        public async Task<ResultDto<BlogCategory>> GetBlogCategory(long blogCategoryId)
+        {
+            try
+            {
+                var blogCategory = await _context.BlogCategories.FirstOrDefaultAsync(o => o.Id == blogCategoryId);
+                if (blogCategory == null)
+                {
+                    return new ResultDto<BlogCategory>()
+                    {
+                        IsSuccess = false,
+                        Message = "دسته بندی‌ای برای مطلب پیدا نشد، لطفا دسته بندی را انتخاب کنید.",
+                    };
+                }
+                return new ResultDto<BlogCategory>()
+                {
+                    Data = blogCategory,
+                    IsSuccess = true,
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<BlogCategory>()
+                {
+                    IsSuccess = false,
+                    Message = "دسته بندی پیدا نشد!",
+                };
+            }
+        }
+        public ResultDto<List<AllBlogCategoriesDto>> GetAllBlogCategories()
+        {
+            try
+            {
+                var blogCategories = _context.BlogCategories.Select(o => new AllBlogCategoriesDto
+                {
+                    Id = o.Id,
+                    Name = o.CategoryText,
+                }).ToList();
+                if (blogCategories is null)
+                {
+                    return new ResultDto<List<AllBlogCategoriesDto>>()
+                    {
+                        IsSuccess = false,
+                        Message = "لیست دسته بندی مطلب ها خالی است"
+                    };
+                }
+                return new ResultDto<List<AllBlogCategoriesDto>>()
+                {
+                    Data = blogCategories,
+                    IsSuccess = true,
+                    Message = ""
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<List<AllBlogCategoriesDto>>()
+                {
+                    IsSuccess = false,
+                    Message = "لیست دسته بندی مطلب ها خالی است"
+                };
+            }
+        }
+        // FAQ Blog
+        public ResultDto<FAQForAdminDto> GetFAQBlogList(int Page = 1, int PageSize = 20)
+        {
+            try
+            {
+                int rowCount = 0;
+                var blogFAQs = _context.FAQBlogs.Include(x => x.BlogEntity)
+                    .ToPaged(Page, PageSize, out rowCount).Select(o => new AllFAQBlogDto
+                {
+                    Id = o.Id,
+                    Answer = o.Answer,
+                    Question = o.Question,
+                    Slug = o.BlogEntity.Slug,
+                    Title = o.BlogEntity.Title,
+                }).ToList();
+                return new ResultDto<FAQForAdminDto>()
+                {
+                    Data = new FAQForAdminDto()
+                    {
+                        FAQsBlog = blogFAQs,
+                        CurrentPage = Page,
+                        PageSize = PageSize,
+                        RowCount = rowCount
+                    },
+                    IsSuccess = true,
+                    Message = ""
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<FAQForAdminDto>()
+                {
+                    IsSuccess = false,
+                    Message = "لیست دسته بندی مطلب ها خالی است"
+                };
+            }
+        }
+        public ResultDto<FAQBlog> GetFAQByIdForEdit(long FAQId)
+        {
+            try
+            {
+                var faqBlog = _context.FAQBlogs.Include(x => x.BlogEntity).Select(o => new FAQBlog
+                {
+                    Question = o.Question,
+                    Answer = o.Answer,
+                    BlogId = o.BlogId,
+                    Id = o.Id,
+                    BlogEntity = o.BlogEntity,
+                }).FirstOrDefault(x => x.Id == FAQId);
+                if (faqBlog == null)
+                {
+                    return new ResultDto<FAQBlog>()
+                    {
+                        IsSuccess = false,
+                        Message = "سوال متداول مورد نظر پیدا نشد!"
+                    };
+                }
+                return new ResultDto<FAQBlog>()
+                {
+                    Data = faqBlog,
+                    IsSuccess = true,
+                };
+            }
+            catch (Exception ex)
+            {
+                Utility.ExceptionMessage(ex);
+                return new ResultDto<FAQBlog>()
+                {
+                    IsSuccess = false,
+                    Message = "سوال متداول مورد نظر پیدا نشد!"
                 };
             }
         }
