@@ -85,7 +85,7 @@ namespace EndPoint.Site.Controllers
                     default:
                         break;
                 }
-                return View("Index");
+                return RedirectToAction("Index", "Orders");
             }
             else
             {

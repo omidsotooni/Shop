@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.Products.Queries.GetProductForSite;
+using Shop.Common;
 
 namespace EndPoint.Site.ViewComponents
 {
@@ -9,6 +10,7 @@ namespace EndPoint.Site.ViewComponents
     {
         #region Fields
         private readonly IProductFacadForSite _productFacadForSite;
+        private readonly long MobileCategoryId = ConstString.MobileCategoryId;
         #endregion
 
         #region Constructor
@@ -21,7 +23,6 @@ namespace EndPoint.Site.ViewComponents
         #region Methods
         public IViewComponentResult Invoke()
         {
-            long MobileCategoryId = 1;
             HomePageViewModel HomePageImages = new HomePageViewModel()
             {
                 MobileCategory = _productFacadForSite.GetProductForSiteService.Execute(Ordering.theNewest, null, 1,

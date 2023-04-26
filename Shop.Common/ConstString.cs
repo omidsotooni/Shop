@@ -193,6 +193,77 @@ namespace Shop.Common
                 }
             }
         }
+        public static long CameraSliderForSiteId
+        {
+            get
+            {
+                try
+                {
+                    return long.Parse(ReadConfig("CameraSliderForSiteId"));
+                }
+                catch (Exception)
+                {
+                    return 1;
+                }
+            }
+        }
+        public static long HomeAppliancesCategoryId
+        {
+            get
+            {
+                try
+                {
+                    return long.Parse(ReadConfig("HomeAppliancesCategoryId"));
+                }
+                catch (Exception)
+                {
+                    return 1;
+                }
+            }
+        }
+        public static long LaptopAndComputerCategoryId
+        {
+            get
+            {
+                try
+                {
+                    return long.Parse(ReadConfig("LaptopAndComputerCategoryId"));
+                }
+                catch (Exception)
+                {
+                    return 1;
+                }
+            }
+        }
+        public static long MobileCategoryId
+        {
+            get
+            {
+                try
+                {
+                    return long.Parse(ReadConfig("MobileCategoryId"));
+                }
+                catch (Exception)
+                {
+                    return 1;
+                }
+            }
+        }
+        public static long CategoryIdForHome
+        {
+            get
+            {
+                try
+                {
+                    return long.Parse(ReadConfig("CategoryIdForHome"));
+                }
+                catch (Exception)
+                {
+                    return 1;
+                }
+            }
+        }
+
 
 
     }
