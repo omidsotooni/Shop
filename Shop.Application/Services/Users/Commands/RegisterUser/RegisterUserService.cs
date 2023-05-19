@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Shop.Application.Interfaces.Contexts;
-using Shop.Application.Services.Users.Commands.UserLogin;
+﻿using Shop.Application.Interfaces.Contexts;
 using Shop.Common;
 using Shop.Common.Dto;
 using Shop.Domain.Entities.Users;
+using System.Net;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 namespace Shop.Application.Services.Users.Commands.RegisterUser
@@ -12,6 +12,11 @@ namespace Shop.Application.Services.Users.Commands.RegisterUser
     {
         #region Fields
         private readonly IDataBaseContext _context;
+        private readonly string SenderMail = ConstString.SenderMail;
+        private readonly string DisplayName = ConstString.DisplayName;
+        private readonly string SenderPassword = ConstString.MailPassword;
+        private readonly string MailHost = ConstString.MailHost;
+        private readonly int MailPort = ConstString.MailPort == null ? 0 : int.Parse(ConstString.MailPort);
         #endregion
 
         #region Constructor
@@ -154,6 +159,49 @@ namespace Shop.Application.Services.Users.Commands.RegisterUser
             }
         }
 
+        public void SendWelcomeMail(int RandomCode, string UserEmail)
+        {
+            string FilePath = Directory.GetCurrentDirectory() + "\\wwwroot\\EmailTemplates\\WelcomeTemplate.html";
+            StreamReader str = new StreamReader(FilePath);
+            string MailText = str.ReadToEnd();
+            str.Close();
+            MailText = MailText.Replace("[ConfirmCode]", RandomCode.ToString()).Replace("[email]", UserEmail);
+            string Subject = $"خوش آمدید {UserEmail}";
+
+            SendByConfigMail(UserEmail, Subject, MailText);
+
+        }
+        private bool SendByConfigMail(string email, string subject, string body)
+        {
+            MailAddress sender = new MailAddress(SenderMail, DisplayName);
+            MailAddress reciever = new MailAddress(email);
+            try
+            {
+                using (MailMessage mm = new MailMessage(sender, reciever))
+                {
+                    mm.Subject = subject;
+                    mm.Body = body;
+                    mm.IsBodyHtml = true;
+                    using (SmtpClient smtp = new SmtpClient())
+                    {
+                        smtp.Host = MailHost;
+                        smtp.EnableSsl = false;
+                        NetworkCredential NetworkCred = new NetworkCredential(SenderMail, SenderPassword);
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = NetworkCred;
+                        smtp.Port = MailPort;
+                        smtp.EnableSsl = true;
+
+                        smtp.Send(mm);
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         #endregion
     }
 }

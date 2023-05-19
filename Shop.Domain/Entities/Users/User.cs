@@ -11,7 +11,7 @@ namespace Shop.Domain.Entities.Users
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public string UserUrl { get; set; } = "https://omidsotooni.github.io/";
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
         public ICollection<UserInRole> UserInRoles { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public ICollection<BlogEntity> BlogEntities { get; set; }

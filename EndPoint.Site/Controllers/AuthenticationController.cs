@@ -7,6 +7,8 @@ using Shop.Common.Dto;
 using EndPoint.Site.Models.ViewModels.AuthenticationViewModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Shop.Common;
+using Hangfire;
 
 namespace EndPoint.Site.Controllers
 {
@@ -123,6 +125,10 @@ namespace EndPoint.Site.Controllers
                 };
                 HttpContext.SignInAsync(principal, properties);
 
+                // send mail by hangfire
+                int randCode = Utility.NewRandomCode();
+                //_registerUserService.SendWelcomeMail(randCode, Email);
+                BackgroundJob.Enqueue<IRegisterUserService>(o => o.SendWelcomeMail(randCode, Email));
             }
             return Json(signupResult);
         }

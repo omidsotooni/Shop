@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj": {}
+    "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\EndPoint.Site\\EndPoint.Site.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj": {
+    "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\EndPoint.Site\\EndPoint.Site.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\EndPoint.Site\\EndPoint.Site.csproj",
         "projectName": "EndPoint.Site",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\EndPoint.Site.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\EndPoint.Site\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\EndPoint.Site\\EndPoint.Site.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\EndPoint.Site\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj"
+              "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Presentation\\Shop.Persistence.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Presentation\\Shop.Persistence.csproj"
               }
             }
           }
@@ -44,6 +44,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.8.1, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.1, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.8.1, )"
+            },
             "LazZiya.TagHelpers": {
               "target": "Package",
               "version": "[6.0.2, )"
@@ -94,21 +106,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj": {
+    "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Application\\Shop.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Application\\Shop.Application.csproj",
         "projectName": "Shop.Application",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Application\\Shop.Application.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -122,14 +134,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj"
+              "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\Shop.Common.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\Shop.Common.csproj"
               },
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj"
+              "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Domain\\Shop.Domain.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Domain\\Shop.Domain.csproj"
               },
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj"
+              "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj"
               }
             }
           }
@@ -177,21 +189,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj": {
+    "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\Shop.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\Shop.Common.csproj",
         "projectName": "Shop.Common",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\Shop.Common.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -246,21 +258,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj": {
+    "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Domain\\Shop.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Domain\\Shop.Domain.csproj",
         "projectName": "Shop.Domain",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\Shop.Domain.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Domain\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Domain\\Shop.Domain.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -274,8 +286,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj"
+              "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\Shop.Common.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\Shop.Common.csproj"
               }
             }
           }
@@ -305,21 +317,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj": {
+    "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj",
         "projectName": "Shop.Infrastructure",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Infrastructure\\Shop.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -333,8 +345,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Common\\Shop.Common.csproj"
+              "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\Shop.Common.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Common\\Shop.Common.csproj"
               }
             }
           }
@@ -364,21 +376,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj": {
+    "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Presentation\\Shop.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Presentation\\Shop.Persistence.csproj",
         "projectName": "Shop.Persistence",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\Shop.Persistence.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Presentation\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Presentation\\Shop.Persistence.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Presentation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -392,8 +404,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Projects\\DotNetCore\\Shop\\Shop.Application\\Shop.Application.csproj"
+              "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Application\\Shop.Application.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\Projects\\DotNet\\Shop\\Shop.Application\\Shop.Application.csproj"
               }
             }
           }
@@ -443,7 +455,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

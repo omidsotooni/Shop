@@ -237,7 +237,11 @@ namespace Shop.Common
 
             return text;
         }
-
+        public static int NewRandomCode()
+        {
+            Random generator = new Random();
+            return generator.Next(100000, 999999);
+        }
         public enum Languages
         {
             /// <summary>

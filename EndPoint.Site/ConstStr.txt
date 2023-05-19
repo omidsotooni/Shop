@@ -16,4 +16,9 @@ HomeAppliancesCategoryId		:		1
 LaptopAndComputerCategoryId		:		1
 MobileCategoryId				:		1
 CategoryIdForHome				:		1
+SenderMail						:		omid.sotooni73@yahoo.com
+DisplayName						:		Shopping
+MailPassword					:		123456
+MailHost						:		smtp.mail.yahoo.com
+MailPort						:		587
 param2							:		Value2

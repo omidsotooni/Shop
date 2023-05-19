@@ -263,8 +263,76 @@ namespace Shop.Common
                 }
             }
         }
-
-
+        public static string SenderMail
+        {
+            get
+            {
+                try
+                {
+                    return ReadConfig("SenderMail");
+                }
+                catch (Exception)
+                {
+                    return "data not found!";
+                }
+            }
+        }
+        public static string DisplayName
+        {
+            get
+            {
+                try
+                {
+                    return ReadConfig("DisplayName");
+                }
+                catch (Exception)
+                {
+                    return "data not found!";
+                }
+            }
+        }
+        public static string MailPassword
+        {
+            get
+            {
+                try
+                {
+                    return ReadConfig("MailPassword");
+                }
+                catch (Exception)
+                {
+                    return "data not found!";
+                }
+            }
+        }
+        public static string MailHost
+        {
+            get
+            {
+                try
+                {
+                    return ReadConfig("MailHost");
+                }
+                catch (Exception)
+                {
+                    return "data not found!";
+                }
+            }
+        }
+        public static string MailPort
+        {
+            get
+            {
+                try
+                {
+                    return ReadConfig("MailPort");
+                }
+                catch (Exception)
+                {
+                    return "data not found!";
+                }
+            }
+        }
 
     }
 }

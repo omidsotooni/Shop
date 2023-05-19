@@ -9,233 +9,233 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EndPoint.Site
 build_property.RootNamespace = EndPoint.Site
-build_property.ProjectDir = C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site\
+build_property.ProjectDir = C:\Users\User\Documents\Projects\DotNet\Shop\EndPoint.Site\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Lenovo\Documents\Projects\DotNetCore\Shop\EndPoint.Site
+build_property.MSBuildProjectDirectory = C:\Users\User\Documents\Projects\DotNet\Shop\EndPoint.Site
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/AddNewBlog.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Blog/AddNewBlog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xBZGROZXdCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/AddNewBlogCategory.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Blog/AddNewBlogCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xBZGROZXdCbG9nQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/AddNewFAQ.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Blog/AddNewFAQ.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xBZGROZXdGQVEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/EditBlog.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Blog/EditBlog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xFZGl0QmxvZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/EditBlogCategory.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Blog/EditBlogCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xFZGl0QmxvZ0NhdGVnb3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/EditFAQBlog.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Blog/EditFAQBlog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xFZGl0RkFRQmxvZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/IndexBlogCategories.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Blog/IndexBlogCategories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xJbmRleEJsb2dDYXRlZ29yaWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Blog/IndexFAQsBlog.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Blog/IndexFAQsBlog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmxvZ1xJbmRleEZBUXNCbG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Categories/AddNewCategory.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Categories/AddNewCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xBZGROZXdDYXRlZ29yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Categories/Edit.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Categories/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/HomePageImages/Add.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/HomePageImages/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVBhZ2VJbWFnZXNcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/HomePageImages/Edit.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/HomePageImages/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVBhZ2VJbWFnZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/HomePageImages/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/HomePageImages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVBhZ2VJbWFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Orders/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Orders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Payment/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Payment/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGF5bWVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Products/AddNewProduct.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Products/AddNewProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQWRkTmV3UHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Products/Detail.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Products/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Products/Edit.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Products/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Products/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Sliders/AddNewSlider.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Sliders/AddNewSlider.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2xpZGVyc1xBZGROZXdTbGlkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Sliders/Edit.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Sliders/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2xpZGVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Sliders/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Sliders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2xpZGVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Users/Create.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Areas/Admin/Views/Users/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Areas/Admin/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Authentication/Signin.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Authentication/Signin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cU2lnbmluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Authentication/Signup.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Authentication/Signup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cU2lnbnVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Blog/Article.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Blog/Article.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xBcnRpY2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Blog/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Cart/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Home/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Home/NotFound404.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Home/NotFound404.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOb3RGb3VuZDQwNC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Home/Privacy.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Home/ServerError500.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Home/ServerError500.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZXJ2ZXJFcnJvcjUwMC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Orders/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Orders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Products/Detail.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Products/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Products/Index.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/CameraCategorySliderForSite/CameraCategorySliderForSite.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/CameraCategorySliderForSite/CameraCategorySliderForSite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2FtZXJhQ2F0ZWdvcnlTbGlkZXJGb3JTaXRlXENhbWVyYUNhdGVnb3J5U2xpZGVyRm9yU2l0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/Cart/Cart.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/Cart/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2FydFxDYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/HomeAppliancesCategorySliderForSite/HomeAppliancesCategorySliderForSite.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/HomeAppliancesCategorySliderForSite/HomeAppliancesCategorySliderForSite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSG9tZUFwcGxpYW5jZXNDYXRlZ29yeVNsaWRlckZvclNpdGVcSG9tZUFwcGxpYW5jZXNDYXRlZ29yeVNsaWRlckZvclNpdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/LaptopAndComputerCategorySliderForSite/LaptopAndComputerCategorySliderForSite.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/LaptopAndComputerCategorySliderForSite/LaptopAndComputerCategorySliderForSite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTGFwdG9wQW5kQ29tcHV0ZXJDYXRlZ29yeVNsaWRlckZvclNpdGVcTGFwdG9wQW5kQ29tcHV0ZXJDYXRlZ29yeVNsaWRlckZvclNpdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/MenuItemsForMobile/MenuItemsForMobile.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/MenuItemsForMobile/MenuItemsForMobile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudUl0ZW1zRm9yTW9iaWxlXE1lbnVJdGVtc0Zvck1vYmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/MenuItems/MenuItems.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/MenuItems/MenuItems.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudUl0ZW1zXE1lbnVJdGVtcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/MobileCategorySliderForSite/MobileCategorySliderForSite.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/MobileCategorySliderForSite/MobileCategorySliderForSite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTW9iaWxlQ2F0ZWdvcnlTbGlkZXJGb3JTaXRlXE1vYmlsZUNhdGVnb3J5U2xpZGVyRm9yU2l0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/PageImagesAdPlacementForSite/PageImagesAdPlacementForSite.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/PageImagesAdPlacementForSite/PageImagesAdPlacementForSite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUGFnZUltYWdlc0FkUGxhY2VtZW50Rm9yU2l0ZVxQYWdlSW1hZ2VzQWRQbGFjZW1lbnRGb3JTaXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/PageImagesForSite/PageImagesForSite.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/PageImagesForSite/PageImagesForSite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUGFnZUltYWdlc0ZvclNpdGVcUGFnZUltYWdlc0ZvclNpdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/PageImagesMainForSite/PageImagesMainForSite.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/PageImagesMainForSite/PageImagesMainForSite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUGFnZUltYWdlc01haW5Gb3JTaXRlXFBhZ2VJbWFnZXNNYWluRm9yU2l0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/SearchProducts/SearchProducts.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/SearchProducts/SearchProducts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2VhcmNoUHJvZHVjdHNcU2VhcmNoUHJvZHVjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Components/SlidersForSite/SlidersForSite.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Components/SlidersForSite/SlidersForSite.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2xpZGVyc0ZvclNpdGVcU2xpZGVyc0ZvclNpdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/Error.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/_ViewImports.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/_ViewStart.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Documents/Projects/DotNetCore/Shop/EndPoint.Site/Views/Shared/_Layout.cshtml]
+[C:/Users/User/Documents/Projects/DotNet/Shop/EndPoint.Site/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-olczgf6xwz

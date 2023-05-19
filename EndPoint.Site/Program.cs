@@ -14,6 +14,7 @@ using Shop.Application.Interfaces.FacadPatterns;
 using Shop.Application.Services.Products.FacadPattern;
 using Shop.Application.Services.FacadPattern;
 using Shop.Common.Roles;
+using Hangfire;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,6 +67,9 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+string contectionString = @"Data Source=DESKTOP-64DHU4C;Initial Catalog=HangfireDBTest; Integrated Security=True;TrustServerCertificate=True";
+builder.Services.AddHangfire(config => config.UseSqlServerStorage(contectionString));
+builder.Services.AddHangfireServer();
 
 var app = builder.Build();
 
@@ -85,6 +89,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseHangfireDashboard();
 
 app.MapControllerRoute(
     name: "default",

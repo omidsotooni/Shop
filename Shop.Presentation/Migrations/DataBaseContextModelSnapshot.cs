@@ -706,28 +706,28 @@ namespace Shop.Persistence.Migrations
                         new
                         {
                             Id = 1L,
-                            InsertTime = new DateTime(2023, 4, 14, 1, 0, 24, 314, DateTimeKind.Local).AddTicks(9474),
+                            InsertTime = new DateTime(2023, 5, 18, 22, 7, 40, 884, DateTimeKind.Local).AddTicks(8818),
                             IsRemoved = false,
                             Name = "Admin"
                         },
                         new
                         {
                             Id = 2L,
-                            InsertTime = new DateTime(2023, 4, 14, 1, 0, 24, 314, DateTimeKind.Local).AddTicks(9523),
+                            InsertTime = new DateTime(2023, 5, 18, 22, 7, 40, 884, DateTimeKind.Local).AddTicks(8971),
                             IsRemoved = false,
                             Name = "Operator"
                         },
                         new
                         {
                             Id = 3L,
-                            InsertTime = new DateTime(2023, 4, 14, 1, 0, 24, 314, DateTimeKind.Local).AddTicks(9538),
+                            InsertTime = new DateTime(2023, 5, 18, 22, 7, 40, 884, DateTimeKind.Local).AddTicks(8996),
                             IsRemoved = false,
                             Name = "Customer"
                         },
                         new
                         {
                             Id = 4L,
-                            InsertTime = new DateTime(2023, 4, 14, 1, 0, 24, 314, DateTimeKind.Local).AddTicks(9551),
+                            InsertTime = new DateTime(2023, 5, 18, 22, 7, 40, 884, DateTimeKind.Local).AddTicks(9018),
                             IsRemoved = false,
                             Name = "Author"
                         });
