@@ -1647,3 +1647,5 @@ C:\Users\User\Documents\Projects\DotNet\Shop\EndPoint.Site\bin\Debug\net6.0\sv\H
 C:\Users\User\Documents\Projects\DotNet\Shop\EndPoint.Site\bin\Debug\net6.0\tr-TR\Hangfire.Core.resources.dll
 C:\Users\User\Documents\Projects\DotNet\Shop\EndPoint.Site\bin\Debug\net6.0\zh-TW\Hangfire.Core.resources.dll
 C:\Users\User\Documents\Projects\DotNet\Shop\EndPoint.Site\bin\Debug\net6.0\zh\Hangfire.Core.resources.dll
+C:\Users\User\Documents\Projects\DotNet\Shop\EndPoint.Site\bin\Debug\net6.0\Microsoft.Owin.dll
+C:\Users\User\Documents\Projects\DotNet\Shop\EndPoint.Site\bin\Debug\net6.0\Owin.dll

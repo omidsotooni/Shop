@@ -15,6 +15,10 @@ using Shop.Application.Services.Products.FacadPattern;
 using Shop.Application.Services.FacadPattern;
 using Shop.Common.Roles;
 using Hangfire;
+using EndPoint.Site.AuthorizationFilter;
+using Hangfire.SqlServer;
+using System.Configuration;
+using Hangfire.Dashboard;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -67,8 +71,17 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-string contectionString = @"Data Source=DESKTOP-64DHU4C;Initial Catalog=HangfireDBTest; Integrated Security=True;TrustServerCertificate=True";
-builder.Services.AddHangfire(config => config.UseSqlServerStorage(contectionString));
+
+// Add Hangfire services.
+string hangfireConnectionString = @"Data Source=DESKTOP-64DHU4C;Initial Catalog=HangfireDBTest; Integrated Security=True;TrustServerCertificate=True";
+builder.Services.AddHangfire(config => config.UseSqlServerStorage(hangfireConnectionString, new SqlServerStorageOptions
+{
+    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+    QueuePollInterval = TimeSpan.Zero,
+    UseRecommendedIsolationLevel = true,
+    DisableGlobalLocks = true
+}));
 builder.Services.AddHangfireServer();
 
 var app = builder.Build();
@@ -90,7 +103,13 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseHangfireDashboard("/Dashboard/Hangfire");
+app.UseHangfireDashboard("/Dashboard/Hangfire", new DashboardOptions
+{
+    Authorization = new[] { new AuthorizationFilter() },
+    //IsReadOnlyFunc = (DashboardContext context) => true
+});
+
+app.MapHangfireDashboard();
 
 app.MapControllerRoute(
     name: "default",

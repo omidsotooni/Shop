@@ -16,11 +16,16 @@ namespace EndPoint.Site.Controllers
     {
         private readonly IRegisterUserService _registerUserService;
         private readonly IUserLoginService _userLoginService;
+        private readonly IBackgroundJobClient _backgroundJobClient;
+        private readonly IRecurringJobManager _recurringJobManager;
         public AuthenticationController(IRegisterUserService registerUserService, 
-            IUserLoginService userLoginService)
+            IUserLoginService userLoginService, IBackgroundJobClient backgroundJobClient,
+            IRecurringJobManager recurringJobManager)
         {
             _registerUserService = registerUserService;
             _userLoginService = userLoginService;
+            _backgroundJobClient = backgroundJobClient;
+            _recurringJobManager = recurringJobManager;
         }
 
         [HttpGet]
@@ -101,6 +106,9 @@ namespace EndPoint.Site.Controllers
         [HttpPost]
         public IActionResult Signin(string Email, string Password, string url = "/")
         {
+            var oneNextDateTime = DateTime.Today.AddDays(1);
+            var nextMonthMiladi = DateTime.Today.AddDays(31);
+
             var signupResult = _userLoginService.Execute(Email, Password);
             if (signupResult.IsSuccess == true)
             {
@@ -128,7 +136,45 @@ namespace EndPoint.Site.Controllers
                 // send mail by hangfire
                 int randCode = Utility.NewRandomCode();
                 //_registerUserService.SendWelcomeMail(randCode, Email);
+
+                // Fire-And-Forget Task | immediately
                 BackgroundJob.Enqueue<IRegisterUserService>(o => o.SendWelcomeMail(randCode, Email));
+                _backgroundJobClient.Enqueue<IRegisterUserService>(o => o.SendWelcomeMail(randCode, Email));
+
+                // Delayed Task | send mail after 5 minutes
+                _backgroundJobClient.Schedule<IRegisterUserService>(o => o.SendWelcomeMail(randCode, Email), TimeSpan.FromMinutes(5));
+
+                // Delayed Task | send mail on special  time
+                _backgroundJobClient.Schedule<IRegisterUserService>(o => o.SendWelcomeMail(randCode, Email), (DateTimeOffset)oneNextDateTime);
+
+                //Run at the Nth minute of every hour.
+                // Recurring Task | Should be execute in a period of time - Minutely, Hourly, Xth minute of every hour, Daily, Weekly, Monthly, Yearly, 
+                _recurringJobManager.AddOrUpdate("Recurring Minutely", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Minutely);
+                _recurringJobManager.AddOrUpdate("Recurring Hourly", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Hourly);
+                _recurringJobManager.AddOrUpdate("Recurring Xth minute of every hour", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Hourly(13));
+                _recurringJobManager.AddOrUpdate("Recurring Daily", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Daily);
+                _recurringJobManager.AddOrUpdate("Recurring Daily(18, 18)", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Daily(18, 18));
+                _recurringJobManager.AddOrUpdate("Recurring Weekly", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Weekly);
+                _recurringJobManager.AddOrUpdate("Recurring Weekly (DayOfWeek.Monday, 9, 00)", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Weekly(DayOfWeek.Monday, 9, 00));
+                _recurringJobManager.AddOrUpdate("Recurring Monthly", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Monthly);
+                _recurringJobManager.AddOrUpdate("Recurring Monthly(2, 10, 45)", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Monthly(2, 10, 45));
+                _recurringJobManager.AddOrUpdate("Recurring Yearly", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Yearly);
+                _recurringJobManager.AddOrUpdate("Recurring Yearly", () => _registerUserService.SendWelcomeMail(randCode, Email), Cron.Yearly(10, 5, 11, 15));
+                _recurringJobManager.AddOrUpdate("Recurring Cron Expression", () => _registerUserService.SendWelcomeMail(randCode, Email), "0 4 10-15 * *");
+
+                // Continuations Task | Two schedules first and second step like Delayed
+                //var firstStep = _backgroundJobClient.Schedule<IRegisterUserService>(o => o.SendWelcomeMail(randCode, Email), TimeSpan.FromMinutes(15));
+                //var secondStep = _backgroundJobClient.ContinueJobWith(firstStep, 
+                //    () => _backgroundJobClient.Schedule(() => _registerUserService.SendWelcomeMail(randCode, Email), TimeSpan.FromHours(2)));
+
+                // Trigger
+                string recurringJobId = _backgroundJobClient.Schedule<IRegisterUserService>(o => o.SendWelcomeMail(randCode, Email), (DateTimeOffset)oneNextDateTime);
+                _recurringJobManager.Trigger(recurringJobId);
+                // ExpireTime
+                _recurringJobManager.AddOrUpdate("Test Recurring", () => Console.WriteLine("Recurring Job"), Cron.Monthly);
+                _backgroundJobClient.Schedule(() => _recurringJobManager.RemoveIfExists("Test Recurring"), (DateTimeOffset)nextMonthMiladi);
+
+                // For testing Cron Expression Yearly - Monthly - Weekly - Daily - Hourly - Minutely : https://crontab.guru/
             }
             return Json(signupResult);
         }
