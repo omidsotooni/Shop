@@ -90,7 +90,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseHangfireDashboard();
+app.UseHangfireDashboard("/Dashboard/Hangfire");
 
 app.MapControllerRoute(
     name: "default",
