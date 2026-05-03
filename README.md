@@ -33,33 +33,35 @@ It includes an admin panel, product management, shopping cart, orders, payments,
 
 ## 📁 Project Structure
 
+```
 Shop/
 ├── EndPoint.Site (Presentation Layer)
-│ ├── Controllers
-│ ├── Areas (Admin)
-│ ├── Views
-│ ├── wwwroot
-│ ├── ViewComponents
-│ ├── Models
-│ └── RestApis
+│   ├── Controllers
+│   ├── Areas (Admin)
+│   ├── Views
+│   ├── wwwroot
+│   ├── ViewComponents
+│   ├── Models
+│   └── RestApis
 │
 ├── Shop.Application
-│ ├── Dtos
-│ ├── Interfaces
-│ └── Services
+│   ├── Dtos
+│   ├── Interfaces
+│   └── Services
 │
 ├── Shop.Domain
-│ └── Entities
+│   └── Entities
 │
 ├── Shop.Infrastructure
-│ ├── Contexts
-│ ├── Migrations
-│ └── Persistence
+│   ├── Contexts
+│   ├── Migrations
+│   └── Persistence
 │
 ├── Shop.Common
-│ ├── Helpers
-│ ├── Roles
-│ └── Utilities
+│   ├── Helpers
+│   ├── Roles
+│   └── Utilities
+```
 
 > Infrastructure layer contains implementations for external dependencies such as database access (EF Core) and third-party services.
 
