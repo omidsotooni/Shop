@@ -53,9 +53,6 @@ payments, blog system, and background jobs.
 3.  Configure connection string in `appsettings.json` or use environment
     variables
 
-ConnectionString : ``` @"Host=127.0.0.1;Port=5432;Database=ShopDB;Username=postgres;Password=123456" ```
-
-
 4. Installing Requirement in all layers
 ```
     Common:
@@ -111,17 +108,9 @@ ConnectionString : ``` @"Host=127.0.0.1;Port=5432;Database=ShopDB;Username=postg
 
 ## 🔐 Configuration
 
-⚠️ Do NOT store sensitive data in code.
+Use: - Environment Variables
 
-Use: - Environment Variables - User Secrets - Cloud secret managers
-(production)
-
-------------------------------------------------------------------------
-
-## 📸 Screenshots
-
-(Add project screenshots here) - Home page - Product page - Admin
-dashboard
+ConnectionString : ``` @"Host=127.0.0.1;Port=5432;Database=ShopDB;Username=postgres;Password=123456" ```
 
 ------------------------------------------------------------------------
 
