@@ -1,6 +1,6 @@
 ﻿using Shop.Application.Interfaces.Contexts;
 using Shop.Common.Dto;
-using Shop.Infrastructure.Dtos.BlogDtos;
+using Shop.Application.Dtos.BlogDtos;
 using Microsoft.AspNetCore.Hosting;
 using Shop.Common;
 using Shop.Domain.Entities.Blog;

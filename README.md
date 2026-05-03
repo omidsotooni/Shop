@@ -1,126 +1,209 @@
 # 🛒 Shop - ASP.NET Core Clean Architecture E-Commerce
 
-A modular e-commerce web application built with ASP.NET Core 6, Clean
-Architecture, and PostgreSQL.
+A modular e-commerce web application built with ASP.NET Core (.NET 10), Clean Architecture, and PostgreSQL.
 
-It includes an admin panel, product management, shopping cart, orders,
-payments, blog system, and background jobs.
+It includes an admin panel, product management, shopping cart, orders, payments, blog system, and background jobs.
 
-------------------------------------------------------------------------
+---
 
 ## 🚀 Tech Stack
 
--   ASP.NET Core 6
--   Entity Framework Core
--   PostgreSQL
--   Clean Architecture
--   Identity (Authentication & Authorization)
--   Hangfire (Background Jobs)
--   Swagger (API Documentation)
+* ASP.NET Core (.NET 10)
+* Entity Framework Core 10
+* PostgreSQL (Npgsql)
+* Clean Architecture
+* Cookie Authentication (Role-based Authorization)
+* Hangfire (Background Jobs)
+* Swagger (API Documentation)
 
-------------------------------------------------------------------------
+---
 
 ## ✨ Features
 
--   Clean Architecture (Domain / Application / Infrastructure /
-    Presentation)
--   Admin panel (Products, Categories, Blog, Users)
--   User authentication & role management
--   Shopping cart system
--   Order & payment system (ZarinPal / IDPay integration)
--   Background jobs with Hangfire
--   Blog system with SEO optimization
--   Pagination, search, and filtering
+* Clean Architecture (Domain / Application / Infrastructure / Presentation)
+* Admin panel (Products, Categories, Blog, Users)
+* Role-based authentication & authorization
+* Shopping cart system
+* Order & payment system (ZarinPal / IDPay integration)
+* Background jobs with Hangfire
+* Blog system with SEO-friendly routing
+* Pagination, search, and filtering
 
-------------------------------------------------------------------------
+---
 
 ## 📁 Project Structure
 
--   Shop.Domain
--   Shop.Application
--   Shop.Infrastructure
--   Shop.Persistence
--   Shop.Presentation (Web UI)
+Shop/
+├── EndPoint.Site (Presentation Layer)
+│ ├── Controllers
+│ ├── Areas (Admin)
+│ ├── Views
+│ ├── wwwroot
+│ ├── ViewComponents
+│ ├── Models
+│ └── RestApis
+│
+├── Shop.Application
+│ ├── Dtos
+│ ├── Interfaces
+│ └── Services
+│
+├── Shop.Domain
+│ └── Entities
+│
+├── Shop.Infrastructure
+│ ├── Contexts
+│ ├── Migrations
+│ └── Persistence
+│
+├── Shop.Common
+│ ├── Helpers
+│ ├── Roles
+│ └── Utilities
 
-------------------------------------------------------------------------
+> Infrastructure layer contains implementations for external dependencies such as database access (EF Core) and third-party services.
+
+---
 
 ## ⚙️ How to Run
 
-1.  Clone the repository
+### 1. Clone repository
 
-2.  Install PostgreSQL
-
-3.  Configure connection string in `appsettings.json` or use environment
-    variables
-
-4. Installing Requirement in all layers
-```
-    Common:
-        PackageReference:
-            Install-Package Microsoft.AspNetCore.Cryptography.KeyDerivation -Version 6.0.4
-            
-    Application
-      PackageReference:
-            Install-Package Microsoft.EntityFrameworkCore -Version 6.0.4
-      ProjectReference:
-            Shop.Common\Shop.Common.csproj
-            Shop.Domain\Shop.Domain.csproj
-
-    Domain
-      PackageReference:
-
-      ProjectReference:
-
-    Infrastructure
-      PackageReference:
-
-      ProjectReference:
-
-    Persistence
-      PackageReference:
-            Install-Package Microsoft.EntityFrameworkCore -Version 6.0.4
-            Install-Package Microsoft.EntityFrameworkCore.Relational -Version 6.0.4
-            Install-Package Microsoft.EntityFrameworkCore.Tools -Version 6.0.4
-            Install-Package Npgsql.EntityFrameworkCore.PostgreSQL -Version 6.0.4
-      ProjectReference:
-            Shop.Application\Shop.Application.csproj
-            
-    EndPoint.Site:
-       PackageReference:
-            Install-Package Microsoft.EntityFrameworkCore -Version 6.0.4
-            Install-Package Microsoft.EntityFrameworkCore.Design -Version 6.0.4
-            Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design -Version 6.0.4
-            Install-Package Npgsql.EntityFrameworkCore.PostgreSQL -Version 6.0.4
-            Install-Package Swashbuckle.AspNetCore -Version 6.0.4            
-       ProjectReference:
-            Shop.Presentation\Shop.Persistence.csproj
+```bash
+git clone <repo-url>
+cd Shop
 ```
 
-5.  Run database migrations:
+---
 
-        dotnet ef database update
+### 2. Configure database
+### 2. Configure database
 
-6.  Run the project:
+Update connection string in `appsettings.json`:
 
-        dotnet run
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "YOUR_CONNECTION_STRING"
+}
+```
 
-------------------------------------------------------------------------
+Update connection string in `EndPoint.Site/Program.cs`:
 
-## 🔐 Configuration
+```csharp
+Host=127.0.0.1;Port=5432;Database=ShopDB;Username=postgres;Password=123456
+```
 
-Use: - Environment Variables
+---
 
-ConnectionString : ``` @"Host=127.0.0.1;Port=5432;Database=ShopDB;Username=postgres;Password=123456" ```
+### 3. Install EF tools (if needed)
 
-------------------------------------------------------------------------
+```bash
+dotnet tool install --global dotnet-ef
+```
 
-## 📌 Notes
+---
 
-This project is built for learning and portfolio purposes using Clean
-Architecture principles in ASP.NET Core.
+### 4. Run migrations
 
-------------------------------------------------------------------------
+```bash
+dotnet ef database update \
+--project Shop.Infrastructure \
+--startup-project EndPoint.Site \
+--context DataBaseContext
+```
 
-## 📄 License
+---
+
+### 5. Run project
+
+```bash
+dotnet run --project EndPoint.Site
+```
+
+---
+
+## 🔐 Authentication
+
+* Cookie-based authentication
+* Role-based policies:
+
+  * Admin
+  * Operator
+  * Customer
+  * Author
+
+Configured in `Program.cs`
+
+---
+
+## 🧠 Architecture Notes
+
+This project follows Clean Architecture:
+
+### Domain
+
+* Core entities and business rules
+
+### Application
+
+* DTOs, interfaces, services, business logic
+
+### Infrastructure
+
+* EF Core DbContext
+* Database access
+* Migrations
+
+### EndPoint.Site
+
+* ASP.NET Core MVC UI
+* Controllers / Views / REST APIs
+* Dependency Injection setup
+
+### Common
+
+* Shared helpers, roles, DTO utilities
+
+---
+
+## 🎯 Purpose
+
+This project demonstrates:
+- Clean Architecture in ASP.NET Core
+- Scalable e-commerce backend design
+- Integration with payment gateways
+- Background job processing using Hangfire
+
+---
+
+## 🧪 Future Improvements
+
+- Docker support
+- Unit & Integration tests
+- CI/CD pipeline (GitHub Actions)
+- Caching (Redis)
+
+---
+
+## 🔧 Important Notes
+
+* Migrations must be executed from Infrastructure project
+* Startup project is EndPoint.Site
+* DbContext is located in Shop.Infrastructure
+* Use EF CLI instead of Add-Migration in PowerShell
+
+---
+
+## 🚀 Getting Started (Quick Run)
+
+```bash
+git clone <repo-url>
+cd Shop
+dotnet ef database update --project Shop.Infrastructure --startup-project EndPoint.Site
+dotnet run --project EndPoint.Site
+
+---
+
+## 📌 License
 
 MIT License
