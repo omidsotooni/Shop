@@ -1,9 +1,63 @@
-# Shop With ASP.NET Core by PostgreSQL and EF Core | Clean Architecture
+# 🛒 Shop - ASP.NET Core Clean Architecture E-Commerce
 
-DataBase is PostgreSQL and DotNetCore is .Net6.0
+A modular e-commerce web application built with ASP.NET Core 6, Clean
+Architecture, and PostgreSQL.
 
-Installing Requirement in all layers
+It includes an admin panel, product management, shopping cart, orders,
+payments, blog system, and background jobs.
 
+------------------------------------------------------------------------
+
+## 🚀 Tech Stack
+
+-   ASP.NET Core 6
+-   Entity Framework Core
+-   PostgreSQL
+-   Clean Architecture
+-   Identity (Authentication & Authorization)
+-   Hangfire (Background Jobs)
+-   Swagger (API Documentation)
+
+------------------------------------------------------------------------
+
+## ✨ Features
+
+-   Clean Architecture (Domain / Application / Infrastructure /
+    Presentation)
+-   Admin panel (Products, Categories, Blog, Users)
+-   User authentication & role management
+-   Shopping cart system
+-   Order & payment system (ZarinPal / IDPay integration)
+-   Background jobs with Hangfire
+-   Blog system with SEO optimization
+-   Pagination, search, and filtering
+
+------------------------------------------------------------------------
+
+## 📁 Project Structure
+
+-   Shop.Domain
+-   Shop.Application
+-   Shop.Infrastructure
+-   Shop.Persistence
+-   Shop.Presentation (Web UI)
+
+------------------------------------------------------------------------
+
+## ⚙️ How to Run
+
+1.  Clone the repository
+
+2.  Install PostgreSQL
+
+3.  Configure connection string in `appsettings.json` or use environment
+    variables
+
+ConnectionString : ``` @"Host=127.0.0.1;Port=5432;Database=ShopDB;Username=postgres;Password=123456" ```
+
+
+4. Installing Requirement in all layers
+```
     Common:
         PackageReference:
             Install-Package Microsoft.AspNetCore.Cryptography.KeyDerivation -Version 6.0.4
@@ -43,6 +97,41 @@ Installing Requirement in all layers
             Install-Package Swashbuckle.AspNetCore -Version 6.0.4            
        ProjectReference:
             Shop.Presentation\Shop.Persistence.csproj
+```
 
-ConnectionString : ``` @"Host=127.0.0.1;Port=5432;Database=ShopDB;Username=postgres;Password=123456" ```
+5.  Run database migrations:
 
+        dotnet ef database update
+
+6.  Run the project:
+
+        dotnet run
+
+------------------------------------------------------------------------
+
+## 🔐 Configuration
+
+⚠️ Do NOT store sensitive data in code.
+
+Use: - Environment Variables - User Secrets - Cloud secret managers
+(production)
+
+------------------------------------------------------------------------
+
+## 📸 Screenshots
+
+(Add project screenshots here) - Home page - Product page - Admin
+dashboard
+
+------------------------------------------------------------------------
+
+## 📌 Notes
+
+This project is built for learning and portfolio purposes using Clean
+Architecture principles in ASP.NET Core.
+
+------------------------------------------------------------------------
+
+## 📄 License
+
+MIT License
