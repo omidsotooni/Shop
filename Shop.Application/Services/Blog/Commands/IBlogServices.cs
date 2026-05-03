@@ -1,6 +1,6 @@
 ﻿using Shop.Common.Dto;
 using Shop.Domain.Entities.Blog;
-using Shop.Infrastructure.Dtos.BlogDtos;
+using Shop.Application.Dtos.BlogDtos;
 
 namespace Shop.Application.Services.Blog.Commands
 {

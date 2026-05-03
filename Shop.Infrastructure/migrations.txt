@@ -1,0 +1,21 @@
+DataBaseContext Migrations Guide
+=====================================
+
+📌 Add Migration
+----------------
+Add-Migration message -Context DataBaseContext -StartupProject EndPoint.Site -Project Shop.Infrastructure -OutputDir Migrations
+
+📌 Update Database
+------------------
+Update-Database -Context DataBaseContext -StartupProject EndPoint.Site -Project Shop.Infrastructure
+
+📌 Generate SQL Script
+----------------------
+Script-Migration -Context DataBaseContext -StartupProject EndPoint.Site -Project EndPoint.Site -From <TargetMigration>
+
+Example:
+Script-Migration -From InitialCreate -To Latest
+
+📌 Remove Last Migration
+------------------------
+Remove-Migration -Context DataBaseContext -Project Shop.Infrastructure -StartupProject EndPoint.Site
